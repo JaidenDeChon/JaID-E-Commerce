@@ -1,0 +1,767 @@
+{
+    "categories": [
+
+        {
+
+            "name": "Equipment",
+
+            "link": "/pages/equipment.html",
+
+            "image": "https://goo.gl/yufpNP",
+
+            "items": [{
+
+                    "title": "Pioneer PLX-1000",
+                    "description": "Description goes here",
+                    "image": "https://goo.gl/eZRRgt",
+                    "price": "$699.00",
+                    "link": "/pages/product-pages/equipment/pioneer-plx-1000.html",
+                    "images" : [{
+
+                        "colors" : [{}],
+
+                        "standard" : [
+
+                            "https://goo.gl/eZRRgt",
+                            "https://goo.gl/ApZaJV",
+                            "https://goo.gl/KxCwnx",
+                            "https://goo.gl/G5XR27",
+                            "https://goo.gl/vzr7en"
+
+                        ]
+
+                    }]
+
+                },
+
+                {
+
+                    "title": "Pro-Ject 1Xpression Carbon Classic",
+                    "description": "Description goes here",
+                    "image": "https://goo.gl/8k1fV6",
+                    "price": "$999.00",
+                    "link": "/pages/product-pages/equipment/1xpression.html",
+                    "images" : [{
+
+                        "colors" : [{
+
+                            "white" : [
+
+                                "https://goo.gl/NGAtXS"
+
+                            ],
+
+                            "tan": [
+
+                                "https://goo.gl/8k1fV6",
+                                "https://goo.gl/UJ3cXa",
+                                "https://goo.gl/zKBQgQ",
+                                "https://goo.gl/iwMYJz"
+
+                            ],
+
+                            "brown": [
+
+                                "https://goo.gl/Dywdt5"
+
+                            ]
+                        
+                        }],
+                        
+                        "standard" : [
+
+                            "https://goo.gl/5LhU42"
+
+
+                        ]
+
+                    }]
+
+                },
+
+                {
+
+                    "title": "Pro-Ject Debut Carbon Espirit SB",
+                    "description": "Description goes here",
+                    "image": "https://goo.gl/ZCS7K9",
+                    "price": "$599.00",
+                    "link": "/pages/product-pages/equipment/debut-carbon-espirit.html",
+                    "images" : [{
+
+                        "colors" : [{
+
+                            "black": [
+
+                                "https://goo.gl/ZgmLQT"
+
+                            ],
+
+                            "blue": [
+
+                                "https://goo.gl/WkfZWw"
+
+                            ],
+
+                            "green": [
+
+                                "https://goo.gl/cL2Y2F"
+
+                            ],
+
+                            "white": [
+
+                                "https://goo.gl/WTKSsv"
+
+                            ]
+
+                        }],
+
+                        "standard" : [
+
+                            "https://goo.gl/ZCS7K9",
+                            "https://goo.gl/tGL1Cv",
+                            "https://goo.gl/SRDFJb",
+                            "https://goo.gl/3sy8Q3",
+                            "https://goo.gl/XQacJE"
+
+                        ]
+
+                    }]
+
+                },
+
+                {
+
+                    "title": "REGA Planar 2",
+                    "description": "Description goes here",
+                    "image": "https://goo.gl/TH2WXr",
+                    "price": "$675.00",
+                    "link": "/pages/product-pages/equipment/rega-planar.html",
+                    "images" : [{
+
+                        "colors" : [{
+
+                            "black": [
+
+                                "https://goo.gl/4UD2j3",
+                                "https://goo.gl/xurKVJ"
+
+                            ],
+
+                            "white": [
+
+                                "https://goo.gl/T5fkV9",
+                                "https://goo.gl/hk11Lb"
+
+                            ],
+
+                            "red": [
+
+                                "https://goo.gl/wQ6XGQ",
+                                "https://goo.gl/bJnVMp"
+
+                            ]
+
+                        }],
+
+                        "standard" : [
+
+
+
+                        ]
+
+                    }]
+
+                },
+
+                {
+
+                    "title": "TEAC TN-550",
+                    "description": "Description goes here",
+                    "image": "https://goo.gl/fVKPX5",
+                    "price": "$699.00",
+                    "link": "/pages/product-pages/equipment/teac-tn-550.html",
+                    "images" : [{
+
+                        "colors" : [{}],
+
+                        "standard" : [
+
+                            "https://goo.gl/fVKPX5",
+                            "https://goo.gl/MwCdnF",
+                            "https://goo.gl/CNvGEu",
+                            "https://goo.gl/opSqhT",
+                            "https://goo.gl/vNYkaR",
+                            "https://goo.gl/5X7yse",
+                            "https://goo.gl/hyjhmJ",
+                            "https://goo.gl/hw6tHZ"
+
+                        ]
+
+                    }]
+
+                }
+            ]
+
+        },
+
+        {
+
+            "name": "Guitars",
+
+            "link": "/pages/guitars.html",
+
+            "image": "https://goo.gl/bnG4G9",
+
+            "items": [{
+
+                    "title": "Gibson Les Paul",
+                    "description": "By legendary guitarist Les Paul.",
+                    "image": "https://goo.gl/dn8WWd",
+                    "price": "$,999.99",
+                    "link": "/pages/product-pages/guitars/gibson-les-paul.html",
+                    "images" : [{
+
+                        "colors" : [{
+
+                            "blue": [
+
+                                "https://goo.gl/AmS3RS"
+
+                            ],
+
+                            "green": [
+
+                                "https://goo.gl/uzG2xA"
+
+                            ],
+
+                            "orange": [
+
+                                "https://goo.gl/E43k2j"
+
+                            ],
+
+                            "purple": [
+
+                                "https://goo.gl/6rH6sY"
+
+                            ],
+
+                            "red": [
+
+                                "https://goo.gl/f8NK2H"
+
+                            ],
+
+                            "white": [
+
+                                "https://goo.gl/JD5rq9"
+
+                            ],
+
+                            "yellow": [
+
+                                "https://goo.gl/2mP66n"
+
+                            ]
+
+                        }],
+
+                        "standard" : [
+
+                            "https://goo.gl/dn8WWd",
+                            "https://goo.gl/bYsGhF",
+                            "https://goo.gl/QwQT3q",
+                            "https://goo.gl/AvGjbM",
+                            "https://goo.gl/gx9EBh"
+
+                        ]
+
+                    }]
+
+                },
+
+                {
+
+                    "title": "Jaydee SG",
+                    "description": "An undeniable classic.",
+                    "image": "https://goo.gl/iSJtcL",
+                    "price": "$3,700.00",
+                    "link": "/pages/product-pages/guitars/jaydee-sg.html",
+                    "images" : [{
+
+                        "colors" : [{
+
+                            "white": [
+
+                                "https://goo.gl/MuEkrD"
+
+                            ],
+
+                            "red": [
+
+                                "https://goo.gl/4CvmeU"
+
+                            ]
+
+                        }],
+
+                        "standard" : [
+
+                            "https://goo.gl/iSJtcL",
+                            "https://goo.gl/5FE7DL",
+                            "https://goo.gl/6x2JRz",
+                            "https://goo.gl/y7ajAS",
+                            "https://goo.gl/58SrHs"
+
+                        ]
+
+                    }]
+
+                },
+
+                {
+
+                    "title": "Fender Stratocaster",
+                    "description": "Description goes here",
+                    "image": "https://goo.gl/gCcbG8",
+                    "price": "$599.99",
+                    "link": "/pages/product-pages/guitars/fender-stratocaster.html",
+                    "images" : [{
+
+                        "colors" : [{
+
+                            "blue": [
+
+                                "https://goo.gl/YQAaff"
+
+                            ],
+
+                            "green": [
+
+                                "https://goo.gl/sVzunH"
+
+                            ],
+
+                            "purple": [
+
+                                "https://goo.gl/iUaYQZ"
+
+                            ],
+
+                            "red": [
+
+                                "https://goo.gl/bkyedb"
+
+                            ],
+
+                            "white": [
+
+                                "https://goo.gl/wUSzKU"
+
+                            ]
+
+                        }],
+
+                        "standard" : [
+
+                            "https://goo.gl/gCcbG8",
+                            "https://goo.gl/B234FF",
+                            "https://goo.gl/1SFyGQ",
+                            "https://goo.gl/tkYJvx",
+                            "https://goo.gl/kBUKH1"
+
+                        ]
+
+                    }]
+
+                },
+
+                {
+
+                    "title": "Fender Telecaster",
+                    "description": "Description goes here",
+                    "image": "https://goo.gl/PvePzK",
+                    "price": "1,999.99",
+                    "link": "/pages/product-pages/guitars/fender-telecaster.html",
+                    "images" : [{
+
+                        "colors" : [{
+
+                            "blue": [
+
+                                "https://goo.gl/gZg6mu"
+
+                            ],
+
+                            "green": [
+
+                                "https://goo.gl/5JuHLQ"
+
+                            ],
+
+                            "purple": [
+
+                                "https://goo.gl/XJochy"
+
+                            ],
+
+                            "red": [
+
+                                "https://goo.gl/rVcfzd"
+
+                            ],
+
+                            "white": [
+
+                                "https://goo.gl/58xBVN"
+
+                            ]
+
+                        }],
+
+                        "standard" : [
+
+                            "https://goo.gl/PvePzK",
+                            "https://goo.gl/qmGBpF",
+                            "https://goo.gl/vbgSrY",
+                            "https://goo.gl/jm3mFH",
+                            "https://goo.gl/o7tDPh"
+
+                        ]
+
+                    }]
+
+                },
+
+                {
+
+                    "title": "Arm the Homeless",
+                    "description": "Tom Morello would be proud.",
+                    "image": "https://goo.gl/UTMCgi",
+                    "price": "$599.99",
+                    "link": "/pages/product-pages/guitars/arm-the-homeless.html",
+                    "images" : [{
+
+                        "colors" : [{}],
+
+                        "standard" : [
+
+                            "https://goo.gl/GbbAUa",
+                            "https://goo.gl/58hcF8",
+                            "https://goo.gl/noZKj3",
+                            "https://goo.gl/nC6mP1",
+                            "https://goo.gl/BiApC8",
+                            "https://goo.gl/z1nw3q"
+
+                        ]
+
+                    }]
+
+                }
+            ]
+
+        },
+
+        {
+
+            "name": "Microphones",
+
+            "link": "/pages/microphones.html",
+
+            "image": "https://goo.gl/FKFynt",
+
+            "items": [{
+
+                    "title": "Shure SM7B",
+                    "description": "Description goes here",
+                    "image": "https://goo.gl/cPZE52",
+                    "price": "$399.00",
+                    "link": "/pages/product-pages/microphones/shure-sm7b.html",
+                    "images" : [{
+
+                        "colors" : [{}],
+
+                        "standard" : [
+
+                            "https://goo.gl/cPZE52",
+                            "https://goo.gl/y6ovf7",
+                            "https://goo.gl/E7xqFS",
+                            "https://goo.gl/abUz8Y",
+                            "https://goo.gl/hpBVCY",
+                            "https://goo.gl/CicwdP"
+
+                        ]
+
+                    }]
+
+                },
+
+                {
+
+                    "title": "Rode NT1A",
+                    "description": "Description goes here",
+                    "image": "https://goo.gl/7CXsoG",
+                    "price": "$299.00",
+                    "link": "/pages/product-pages/microphones/rode-nt1a.html",
+                    "images" : [{
+
+                        "colors" : [{}],
+
+                        "standard" : [
+
+                            "https://goo.gl/VY9wM1",
+                            "https://goo.gl/ztZH6x",
+                            "https://goo.gl/hTUE7u",
+                            "https://goo.gl/LGkgc9",
+                            "https://goo.gl/Ac2Xsc"
+
+                        ]
+
+                    }]
+
+                },
+
+                {
+
+                    "title": "Shure SM58",
+                    "description": "Description goes here",
+                    "image": "https://goo.gl/ZJTF5D",
+                    "price": "$399.00",
+                    "link": "/pages/product-pages/microphones/shure-sm58.html",
+                    "images" : [{
+
+                        "colors" : [{
+
+                            "gold": [
+
+                                "https://goo.gl/cdCpXQ"
+
+                            ],
+
+                            "green": [
+
+                                "https://goo.gl/3R8Uue"
+
+                            ],
+
+                            "red": [
+
+                                "https://goo.gl/A8VLQU"
+
+                            ]
+
+                        }],
+
+                        "standard" : [
+
+                            "https://goo.gl/3gikeB",
+                            "https://goo.gl/xxz4T5",
+                            "https://goo.gl/ZJTF5D",
+                            "https://goo.gl/jSLt61",
+                            "https://goo.gl/uREgF5",
+                            "https://goo.gl/eXK9tU"
+
+                        ]
+
+                    }]
+
+                },
+
+                {
+
+                    "title": "Sennheiser MD421",
+                    "description": "Description goes here",
+                    "image": "https://goo.gl/2o9kUw",
+                    "price": "$379.95",
+                    "link": "/pages/product-pages/microphones/sennheiser-md421.html",
+                    "images" : [{
+
+                        "colors" : [{}],
+
+                        "standard" : [
+
+                            "https://goo.gl/GFsnM2",
+                            "https://goo.gl/RYXUaT",
+                            "https://goo.gl/XGspQR",
+                            "https://goo.gl/2o9kUw",
+                            "https://goo.gl/cbfhy3"
+
+                        ]
+
+                    }]
+
+                },
+
+                {
+
+                    "title": "Rode NTK",
+                    "description": "Description goes here",
+                    "image": "https://goo.gl/X2JmK2",
+                    "price": "$529.00",
+                    "link": "/pages/product-pages/microphones/rode-ntk.html",
+                    "images" : [{
+
+                        "colors" : [{}],
+
+                        "standard" : [
+
+                            "https://goo.gl/X2JmK2",
+                            "https://goo.gl/uiLrGq",
+                            "https://goo.gl/LTMeAF",
+                            "https://goo.gl/1UDfMa",
+                            "https://goo.gl/zcMXGG",
+                            "https://goo.gl/qhyDq4"
+
+                        ]
+
+                    }]
+
+                }
+            ]
+
+        },
+
+        {
+
+            "name": "Ukuleles",
+
+            "link": "/pages/ukuleles.html",
+
+            "image": "https://goo.gl/64JYc3",
+
+            "items": [{
+
+                    "title": "Lohanu Concert",
+                    "description": "Description goes here",
+                    "image": "https://goo.gl/wBcWvJ",
+                    "price": "$89.99",
+                    "link": "/pages/product-pages/ukuleles/lohanu-concert.html",
+                    "images" : [{
+
+                        "colors" : [{}],
+
+                        "standard" : [
+
+                            "https://goo.gl/rWFsHB",
+                            "https://goo.gl/BXHf8f",
+                            "https://goo.gl/DcenhA",
+                            "https://goo.gl/vgGUWR",
+                            "https://goo.gl/kNUx8v",
+                            "https://goo.gl/XNJ6W4"
+
+                        ]
+
+                    }]
+
+                },
+
+                {
+
+                    "title": "Cordoba 15TM Tenor",
+                    "description": "Description goes here",
+                    "image": "https://goo.gl/yCeqhk",
+                    "price": "$135.00",
+                    "link": "/pages/product-pages/ukuleles/cordoba-15tm.html",
+                    "images" : [{
+
+                        "colors" : [{}],
+
+                        "standard" : [
+
+                            "https://goo.gl/cZEEG4",
+                            "https://goo.gl/R39S3p",
+                            "https://goo.gl/g3ecZj",
+                            "https://goo.gl/HosRzE",
+                            "https://goo.gl/2JJMxL",
+                            "https://goo.gl/yCeqhk"
+                        ]
+
+                    }]
+
+                },
+
+                {
+
+                    "title": "Kala KA-15S",
+                    "description": "Description goes here",
+                    "image": "https://goo.gl/xEmofS",
+                    "price": "$78.99",
+                    "link": "/pages/product-pages/ukuleles/kala-ka-15S.html",
+                    "images" : [{
+
+                        "colors" : [{}],
+
+                        "standard" : [
+
+                            "https://goo.gl/knSnLn",
+                            "https://goo.gl/MqC31j",
+                            "https://goo.gl/brYoDY",
+                            "https://goo.gl/f7CjtQ",
+                            "https://goo.gl/x5BYUv",
+                            "https://goo.gl/PLkspu"
+
+                        ]
+
+                    }]
+
+                },
+
+                {
+
+                    "title": "Cordoba 20cm",
+                    "description": "Description goes here",
+                    "image": "https://goo.gl/G5UUfG",
+                    "price": "$220.00",
+                    "link": "/pages/product-pages/ukuleles/cordoba-20cm-concert.html",
+                    "images" : [{
+
+                        "colors" : [{}],
+
+                        "standard" : [
+
+                            "https://goo.gl/G5UUfG",
+                            "https://goo.gl/6Xm6BB",
+                            "https://goo.gl/D9Zmuh",
+                            "https://goo.gl/ZTDM7G",
+                            "https://goo.gl/zzzwn7"
+
+                        ]
+
+                    }]
+
+                },
+
+                {
+
+                    "title": "Fender Soprano",
+                    "description": "Description goes here",
+                    "image": "https://goo.gl/64JYc3",
+                    "price": "$89.99",
+                    "link": "/pages/product-pages/ukuleles/fender-soprano.html",
+                    "images" : [{
+
+                        "colors" : [{}],
+
+                        "standard" : [
+
+                            "https://goo.gl/64JYc3",
+                            "https://goo.gl/kpPfDD",
+                            "https://goo.gl/Bmm2qi",
+                            "https://goo.gl/4fisS6",
+                            "https://goo.gl/Z9EuDp",
+                            "https://goo.gl/VfVXBL"
+
+                        ]
+
+                    }]
+
+                }
+            ]
+
+        }
+
+
+    ]
+}
