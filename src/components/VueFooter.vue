@@ -260,6 +260,7 @@ html, body {
 		/* height: 50px; */
 		/* line-height: 50px; */
 		padding: 1px 10vw;
+		margin: 0;
 	}
 }
 

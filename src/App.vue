@@ -110,6 +110,10 @@
                     $('#nav').toggle()
                 })
             })
+
+            $(document).ready(function() {
+                $(".stack").lettering();
+            });
         }
     }
 
@@ -118,6 +122,57 @@
 
 <style>
     @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Serif:400i|Raleway:400|Righteous|Proza+Libre');
+
+    .char1 {
+        z-index: 4;
+        text-shadow: 0.05em 0.05em 0.2em rgba(10,10,10,0.9);
+    }
+
+    .char2 {
+        z-index: 3; 
+        margin-left: -.1em;
+        top: 0.08em;
+        text-shadow: -0.02em 0.02em 0.2em rgba(10,10,10,0.9);
+    }
+
+    .char3 {
+        z-index: 9;
+        margin-left: -.1em;
+        text-shadow: -0.05em 0.05em 0.2em rgba(10,10,10,0.9);
+    }
+
+    .char4 {
+        z-index: 5;
+        text-shadow: 0.02em -0.02em 0.2em rgba(10,10,10,0.9);
+    }
+
+    .char5 {
+        z-index: 2;
+        margin-left: -.125em;
+        top: 0.08em;
+        text-shadow: -0.05em 0.05em 0.2em rgba(10,10,10,0.9);
+    }
+
+    .char6 {
+        z-index: 10;
+        margin-left: -.1em;
+        top: -0.04em;
+        text-shadow: 0em 0em 0.2em #333;
+    }
+
+    .char7 {
+        z-index: 8;
+        margin-left: -.1em;
+        top: .03em;
+        text-shadow: -0.05em 0.05em 0.2em rgba(10,10,10,0.9);
+    }
+
+    .char8 {
+        z-index: 6;
+        margin-left: -.08em;
+        top: -0.05em;
+        text-shadow: 0.02em -0.01em 0.2em rgba(10,10,10,0.9);
+    }
 
     body {
       margin: 0;

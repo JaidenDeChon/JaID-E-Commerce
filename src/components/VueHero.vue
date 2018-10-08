@@ -73,7 +73,6 @@ P {
 
 #module {
     /* Stacking, shadows should be fixed */
-    border: 2px solid red;
     box-sizing: border-box;
 
     width: 600px;
@@ -129,62 +128,6 @@ P {
   border: 3px solid #333;
   color: #333;
   background-color: silver;
-}
-
-.char1 {
-/*   margin-left: -.2em; */
-  z-index: 4;
-  text-shadow: 0.05em 0.05em 0.2em rgba(10,10,10,0.9);
-}
-
-.char2 {
- z-index: 3; 
- margin-left: -.1em;
-  top: 0.08em;
-    text-shadow: -0.02em 0.02em 0.2em rgba(10,10,10,0.9);
-
-}
-
-.char3 {
-  z-index: 9;
-  margin-left: -.1em;
-  text-shadow: -0.05em 0.05em 0.2em rgba(10,10,10,0.9);
-  
-}
-
-.char4 {
-  z-index: 5;
-  text-shadow: 0.02em -0.02em 0.2em rgba(10,10,10,0.9);
-}
-
-.char5 {
-  z-index: 2;
-  margin-left: -.125em;
-  top: 0.08em;
-  text-shadow: -0.05em 0.05em 0.2em rgba(10,10,10,0.9);
-}
-
-.char6 {
-  z-index: 10;
-    margin-left: -.1em;
-  top: -0.04em;
-  text-shadow: 0em 0em 0.2em #333;
-  
-}
-
-.char7 {
-  z-index: 8;
-  margin-left: -.1em;
-  top: .03em;
-  text-shadow: -0.05em 0.05em 0.2em rgba(10,10,10,0.9);
-  
-}
-
-.char8 {
-  z-index: 6;
-  margin-left: -.08em;
-  top: -0.05em;
-  text-shadow: 0.02em -0.01em 0.2em rgba(10,10,10,0.9);
 }
 
 @media screen and (max-width: 960px) {

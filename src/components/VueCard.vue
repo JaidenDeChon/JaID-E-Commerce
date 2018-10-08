@@ -53,10 +53,6 @@
     @media (min-width:0) {
     
         #squares-container {
-            /* Cards should space out to edge of container */
-            border: 2px solid red;
-            box-sizing: border-box;
-
             padding: 0;
 
             width: 90vw;
@@ -252,7 +248,7 @@
             grid-column-gap: 100px;
             grid-row-gap: 100px;
             grid-template-columns: repeat(auto-fit, 500px);
-            justify-content: space-evenly;
+            justify-content: space-between;
         }
 
         #squares-container .square {
