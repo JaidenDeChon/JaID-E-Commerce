@@ -16,67 +16,45 @@
 -->
 
 <template>
-
     <div id="app">
-
         <div id="header">
-
             <a href="#" id="hamburger">
                 <div>
                     <i class="fas fa-bars"></i>
                 </div>
             </a>
-
             <div id="header-brand">
                 <router-link to="/">
                     <div id="brand-title">
                         <h1>yosemite</h1>
                     </div>
-                    
                     <div id="brand-subtitle">
                         <p>open e-commerce by Jaiden DeChon</p>
                     </div>
                 </router-link>
             </div>
-
             <div id="nav">
-
                 <ul id="nav-links-left">
-
-                    <li><router-link to="/">Home</router-link></li>
-
+                    <router-link to="/"><li>Home</li></router-link>
                     <li v-for="category in data.categories" :key="category.name" class="has-dropdown"><a href="javascript:void(0)">{{ category.name }}</a><i class="fas fa-angle-down"></i>
-
                     <ul class="dropdown">
-
-                        <li><a v-bind:href="category.link">all {{ category.name }}</a></li>
-
-                        <li v-for="item in category.items" :key="item.title"><a v-bind:href="item.link">{{ item.title }}</a></li>
-
+                        <router-link :to="category.name"><li>all {{ category.name }}</li></router-link>
+                        <!-- <router-link :to="category.name"><li>all {{ category.name }}</li></router-link> -->
+                        <template v-for="item in category.items">
+                            <router-link :to="item.title" :key="item"><li>{{ item.title }}</li></router-link>
+                        </template>
                     </ul>
-
                     </li>
-
                 </ul>
-
                 <ul id="nav-links-right">
-
                     <li><a href="javascript:void(0)">Sign Up</a></li>
-
                     <li><a href="javascript:void(0)">Sign In</a></li>
-
                     <li><a href="javascript:void(0)">Cart</a></li>
-
                 </ul>
-
             </div>
-
-            <router-view/>
-
+            <router-view />
         </div>
-
     </div>
-
 </template>
 
 

@@ -5,8 +5,6 @@
 
             "name": "Equipment",
 
-            "link": "/pages/equipment.html",
-
             "image": "https://goo.gl/yufpNP",
 
             "items": [{
@@ -15,7 +13,6 @@
                     "description": "Description goes here",
                     "image": "https://goo.gl/eZRRgt",
                     "price": "$699.00",
-                    "link": "/pages/product-pages/equipment/pioneer-plx-1000.html",
                     "images" : [{
 
                         "colors" : [{}],
@@ -40,7 +37,6 @@
                     "description": "Description goes here",
                     "image": "https://goo.gl/8k1fV6",
                     "price": "$999.00",
-                    "link": "/pages/product-pages/equipment/1xpression.html",
                     "images" : [{
 
                         "colors" : [{
@@ -85,7 +81,6 @@
                     "description": "Description goes here",
                     "image": "https://goo.gl/ZCS7K9",
                     "price": "$599.00",
-                    "link": "/pages/product-pages/equipment/debut-carbon-espirit.html",
                     "images" : [{
 
                         "colors" : [{
@@ -136,7 +131,6 @@
                     "description": "Description goes here",
                     "image": "https://goo.gl/TH2WXr",
                     "price": "$675.00",
-                    "link": "/pages/product-pages/equipment/rega-planar.html",
                     "images" : [{
 
                         "colors" : [{
@@ -180,7 +174,6 @@
                     "description": "Description goes here",
                     "image": "https://goo.gl/fVKPX5",
                     "price": "$699.00",
-                    "link": "/pages/product-pages/equipment/teac-tn-550.html",
                     "images" : [{
 
                         "colors" : [{}],
@@ -209,8 +202,6 @@
 
             "name": "Guitars",
 
-            "link": "/pages/guitars.html",
-
             "image": "https://goo.gl/bnG4G9",
 
             "items": [{
@@ -219,7 +210,6 @@
                     "description": "By legendary guitarist Les Paul.",
                     "image": "https://goo.gl/dn8WWd",
                     "price": "$,999.99",
-                    "link": "/pages/product-pages/guitars/gibson-les-paul.html",
                     "images" : [{
 
                         "colors" : [{
@@ -288,7 +278,6 @@
                     "description": "An undeniable classic.",
                     "image": "https://goo.gl/iSJtcL",
                     "price": "$3,700.00",
-                    "link": "/pages/product-pages/guitars/jaydee-sg.html",
                     "images" : [{
 
                         "colors" : [{
@@ -327,7 +316,6 @@
                     "description": "Description goes here",
                     "image": "https://goo.gl/gCcbG8",
                     "price": "$599.99",
-                    "link": "/pages/product-pages/guitars/fender-stratocaster.html",
                     "images" : [{
 
                         "colors" : [{
@@ -384,7 +372,6 @@
                     "description": "Description goes here",
                     "image": "https://goo.gl/PvePzK",
                     "price": "1,999.99",
-                    "link": "/pages/product-pages/guitars/fender-telecaster.html",
                     "images" : [{
 
                         "colors" : [{
@@ -441,7 +428,6 @@
                     "description": "Tom Morello would be proud.",
                     "image": "https://goo.gl/UTMCgi",
                     "price": "$599.99",
-                    "link": "/pages/product-pages/guitars/arm-the-homeless.html",
                     "images" : [{
 
                         "colors" : [{}],
@@ -478,7 +464,6 @@
                     "description": "Description goes here",
                     "image": "https://goo.gl/cPZE52",
                     "price": "$399.00",
-                    "link": "/pages/product-pages/microphones/shure-sm7b.html",
                     "images" : [{
 
                         "colors" : [{}],
@@ -504,7 +489,6 @@
                     "description": "Description goes here",
                     "image": "https://goo.gl/7CXsoG",
                     "price": "$299.00",
-                    "link": "/pages/product-pages/microphones/rode-nt1a.html",
                     "images" : [{
 
                         "colors" : [{}],
@@ -529,7 +513,6 @@
                     "description": "Description goes here",
                     "image": "https://goo.gl/ZJTF5D",
                     "price": "$399.00",
-                    "link": "/pages/product-pages/microphones/shure-sm58.html",
                     "images" : [{
 
                         "colors" : [{
@@ -575,7 +558,6 @@
                     "description": "Description goes here",
                     "image": "https://goo.gl/2o9kUw",
                     "price": "$379.95",
-                    "link": "/pages/product-pages/microphones/sennheiser-md421.html",
                     "images" : [{
 
                         "colors" : [{}],
@@ -600,7 +582,6 @@
                     "description": "Description goes here",
                     "image": "https://goo.gl/X2JmK2",
                     "price": "$529.00",
-                    "link": "/pages/product-pages/microphones/rode-ntk.html",
                     "images" : [{
 
                         "colors" : [{}],
@@ -627,8 +608,6 @@
 
             "name": "Ukuleles",
 
-            "link": "/pages/ukuleles.html",
-
             "image": "https://goo.gl/64JYc3",
 
             "items": [{
@@ -637,7 +616,6 @@
                     "description": "Description goes here",
                     "image": "https://goo.gl/wBcWvJ",
                     "price": "$89.99",
-                    "link": "/pages/product-pages/ukuleles/lohanu-concert.html",
                     "images" : [{
 
                         "colors" : [{}],
@@ -663,7 +641,6 @@
                     "description": "Description goes here",
                     "image": "https://goo.gl/yCeqhk",
                     "price": "$135.00",
-                    "link": "/pages/product-pages/ukuleles/cordoba-15tm.html",
                     "images" : [{
 
                         "colors" : [{}],
@@ -688,7 +665,6 @@
                     "description": "Description goes here",
                     "image": "https://goo.gl/xEmofS",
                     "price": "$78.99",
-                    "link": "/pages/product-pages/ukuleles/kala-ka-15S.html",
                     "images" : [{
 
                         "colors" : [{}],
@@ -714,7 +690,6 @@
                     "description": "Description goes here",
                     "image": "https://goo.gl/G5UUfG",
                     "price": "$220.00",
-                    "link": "/pages/product-pages/ukuleles/cordoba-20cm-concert.html",
                     "images" : [{
 
                         "colors" : [{}],
@@ -739,7 +714,6 @@
                     "description": "Description goes here",
                     "image": "https://goo.gl/64JYc3",
                     "price": "$89.99",
-                    "link": "/pages/product-pages/ukuleles/fender-soprano.html",
                     "images" : [{
 
                         "colors" : [{}],
