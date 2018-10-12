@@ -86,183 +86,181 @@
 </template>
 
 <script>
+import categories from "../assets/data.json";
+var data = JSON.parse(JSON.stringify(categories));
 
-    import categories from '../assets/data.json';
-    var data = JSON.parse(JSON.stringify(categories))
-
-    export default {
-        name: 'VueFooter',
-        data: function() {
-            return {
-                data
-            }
-        }
-    }
-
+export default {
+  name: "VueFooter",
+  data: function() {
+    return {
+      data
+    };
+  }
+};
 </script>
 
 <style scoped>
-
-html, body {
-	margin: 0;
-	padding: 0;
+html,
+body {
+  margin: 0;
+  padding: 0;
 }
 
 /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-@media (min-width:280px) {
-	
-	/*reset for mobile browsers */
-	h1, h2, h3, h4, h5, h6 {
-	font-weight: normal;
-	margin: 0;
-	padding: 0;
-	}
+@media (min-width: 280px) {
+  /*reset for mobile browsers */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+  }
 
-	#footer-container {
-		/*border: 1px solid blue;*/
-		font-family: 'Proza Libre', sans-serif;
-		margin: 50px 0 0 0;
-	}
+  #footer-container {
+    /*border: 1px solid blue;*/
+    font-family: "Proza Libre", sans-serif;
+    margin: 50px 0 0 0;
+  }
 
-	#footer-top {
-		padding: 5vw 10vw;
-		margin: 0;
-		background-color: #333;
-		color: #777;
-	}
+  #footer-top {
+    padding: 5vw 10vw;
+    margin: 0;
+    background-color: #333;
+    color: #777;
+  }
 
-	#footer-top a {
-		display: inline-block;
-		margin: 4px 0;
-		color: #777;
-		text-decoration: none;
-	}
+  #footer-top a {
+    display: inline-block;
+    margin: 4px 0;
+    color: #777;
+    text-decoration: none;
+  }
 
-	#footer-top #navigate,
-	#footer-top #contact,
-	#footer-top #connect {
-		text-align: center;
-	}
+  #footer-top #navigate,
+  #footer-top #contact,
+  #footer-top #connect {
+    text-align: center;
+  }
 
-	#footer-top #navigate h3,
-	#footer-top #contact h3,
-	#footer-top #connect h3 {
-		text-transform: uppercase;
-	}
+  #footer-top #navigate h3,
+  #footer-top #contact h3,
+  #footer-top #connect h3 {
+    text-transform: uppercase;
+  }
 
-	#footer-top #contact h3,
-	#footer-top #contact a {
-		margin: 15px 0;
-	}
+  #footer-top #contact h3,
+  #footer-top #contact a {
+    margin: 15px 0;
+  }
 
-	#footer-top #contact p {
-		margin: 0;
-	}
+  #footer-top #contact p {
+    margin: 0;
+  }
 
-	#footer-top #contact i {
-		margin: 5px 0
-	}
+  #footer-top #contact i {
+    margin: 5px 0;
+  }
 
-	#footer-top #connect div {
-		margin: 15px 0;
-	}
+  #footer-top #connect div {
+    margin: 15px 0;
+  }
 
-	#connect #social a {
-		margin: 0 15px;
-	}
+  #connect #social a {
+    margin: 0 15px;
+  }
 
-	#footer-bottom {
-		background-color: #777;
-		color: #333;
-		text-align: center;
-		padding: 1vw 10vw;
-		margin: 0;
-	}
+  #footer-bottom {
+    background-color: #777;
+    color: #333;
+    text-align: center;
+    padding: 1vw 10vw;
+    margin: 0;
+  }
 
-	#connect input {
-		display: inline-block;
-		margin: 0;
-		padding: 0 0 0 5px;
+  #connect input {
+    display: inline-block;
+    margin: 0;
+    padding: 0 0 0 5px;
 
-		background-color: #777;
-		border: none;
-	}
+    background-color: #777;
+    border: none;
+  }
 
-	.email-field {
-		width: 80%;
-		height: 40px;
-	}
+  .email-field {
+    width: 80%;
+    height: 40px;
+  }
 
-	.email-field::placeholder {
-		opacity: 1;
-		color: #333;
-	}
+  .email-field::placeholder {
+    opacity: 1;
+    color: #333;
+  }
 
-	#email-signup button {
-		min-width: 40px;
-		max-width: 40px;
-		min-height: 40px;
-		max-height: 40px;
-		padding: 0;
-		margin: 0;
-		border: none;
-		border-radius: 0;
-		outline: none;
-		background-color: #777;
-		color: #333;
-		cursor: pointer;
-	}
-
+  #email-signup button {
+    min-width: 40px;
+    max-width: 40px;
+    min-height: 40px;
+    max-height: 40px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    outline: none;
+    background-color: #777;
+    color: #333;
+    cursor: pointer;
+  }
 }
 
-/* landscape standard tablets, lo-res laptops and desktops */ 
-@media (min-width:801px) {
+/* landscape standard tablets, lo-res laptops and desktops */
+@media (min-width: 801px) {
+  #footer-top {
+    display: flex;
+    padding: 2vw 10vw;
+  }
 
-	#footer-top {
-		display: flex;
-		padding: 2vw 10vw;
-	}
+  #footer-top #navigate,
+  #footer-top #contact,
+  #footer-top #connect {
+    flex: 1;
+  }
 
-	#footer-top #navigate,
-	#footer-top #contact,
-	#footer-top #connect {
-		flex: 1;
-	}
+  #footer-top hr {
+    display: none;
+  }
 
-	#footer-top hr {
-		display: none;
-	}
+  #footer-top #navigate {
+    text-align: left;
+  }
 
-	#footer-top #navigate {
-		text-align: left;
-	}
+  #footer-top #contact {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 
-	#footer-top #contact {
-		text-align: center;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-	}
+  #footer-top #connect {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 
-	#footer-top #connect {
-		text-align: right;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-	}
+  #footer-top #contact h3 {
+    margin: 0;
+  }
 
-	#footer-top #contact h3 {
-		margin: 0;
-	}
-
-	#footer-bottom {
-		text-align: left;
-		/* height: 50px; */
-		/* line-height: 50px; */
-		padding: 1px 10vw;
-		margin: 0;
-	}
+  #footer-bottom {
+    text-align: left;
+    /* height: 50px; */
+    /* line-height: 50px; */
+    padding: 1px 10vw;
+    margin: 0;
+  }
 }
-
-
 </style>
