@@ -9,7 +9,7 @@
 
 <template>
     <div id="squares-container">
-        <a v-for="category in data.categories" :key="category" v-bind:href="category.link">
+        <router-link v-for="category in data.categories" :to="{ name: 'category', params: { categoryName: category.name } }" :key="category.name">
             <div class="square">
                 <div class="img-container">
                     <img v-bind:src="category.image" alt="Category Image">
@@ -19,7 +19,7 @@
                     <h5><i class="fa fa-tags" aria-hidden="true"></i> {{ category.items.length }}</h5>
                 </div>
             </div>
-        </a>
+        </router-link>
     </div>
 </template>
 

@@ -38,11 +38,9 @@
                     <router-link to="/"><li>Home</li></router-link>
                     <li v-for="category in data.categories" :key="category.name" class="has-dropdown"><a href="javascript:void(0)">{{ category.name }}</a><i class="fas fa-angle-down"></i>
                     <ul class="dropdown">
-                        <router-link :to="category.name"><li>all {{ category.name }}</li></router-link>
-                        <!-- <router-link :to="category.name"><li>all {{ category.name }}</li></router-link> -->
-                        <template v-for="item in category.items">
-                            <router-link :to="item.title" :key="item"><li>{{ item.title }}</li></router-link>
-                        </template>
+                        <router-link :to="{ name: 'category', params: { categoryName: category.name } }"><li>all {{ category.name }}</li></router-link>
+                        <router-link :to="{ name: 'item', params: { categoryName: category.name, itemTitle: item.title } }" v-for="item in category.items" :key="item.title"><li>{{ item.title }}</li></router-link>
+                        <!-- <router-link :to="item.title" v-for="item in category.items" :key="item.title"><li>{{ item.title }}</li></router-link> -->
                     </ul>
                     </li>
                 </ul>
@@ -52,7 +50,9 @@
                     <li><a href="javascript:void(0)">Cart</a></li>
                 </ul>
             </div>
-            <router-view />
+            <router-view>
+                <router-view />
+            </router-view>
         </div>
     </div>
 </template>
@@ -101,6 +101,8 @@ export default {
     $(document).ready(function() {
       $(".stack").lettering();
     });
+
+    // console.log('The route is: ' + this.$route);
   }
 };
 </script>

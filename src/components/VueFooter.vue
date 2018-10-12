@@ -6,9 +6,11 @@
         <div id="footer-top">
             <div id="navigate">
                 <h3>Navigate</h3>
-
                 <template v-for="category in data.categories">
-                    <a v-bind:href="category.link" v-bind:key="category">{{ category.name }}</a><br>
+                <router-link :to="{ name: 'category', params: { categoryName: category.name } }" :key="category.name">
+                  {{ category.name }}
+                </router-link>
+                <br>
                 </template>
                 <a target="_self" href="javascript:void(0)">FAQ</a><br>
                 <a target="_self" href="javascript:void(0)">Legal</a><br>

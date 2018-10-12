@@ -13,7 +13,7 @@ import VueCard from "@/components/VueCard.vue";
 import VueFooter from "@/components/VueFooter.vue";
 
 export default {
-  name: "home",
+  name: "Home",
   components: {
     VueHero,
     VueCard,

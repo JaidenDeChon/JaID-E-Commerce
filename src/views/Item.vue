@@ -11,16 +11,22 @@
 // @ is an alias to /src
 // import VueBreadcrumbs from '@/components/VueBreadcrumbs.vue'
 import VueItem from '@/components/VueItem.vue'
-import VueCard from '@/components/VueCard.vue'
+// import VueCard from '@/components/VueCard.vue'
 import VueFooter from '@/components/VueFooter.vue'
 
 export default {
-  name: 'category',
+  name: 'Item',
   components: {
     // VueBreadcrumbs,
-    VueHero,
-    VueCard,
+    VueItem,
+    // VueCard,
     VueFooter
   }
+  // data() {
+  //   item: this.$route.params.item
+  // },
+  // created() {
+  //   console.log(item)
+  // }
 }
 </script>
