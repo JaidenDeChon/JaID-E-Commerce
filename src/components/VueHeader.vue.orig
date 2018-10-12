@@ -1,71 +1,100 @@
-
-// Apply the below router-link stuff to the new nav bar
-// Navbar can be put in this file because it will be a global thing
-// Just do the footer as it's own component though
-
 <!--
+
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div id="nav-container" class="light-bg dark-text">
+        <nav id="navbarMenu">
+        <div class="toggleMenu">JaID</div>
+            <ul id="nav-links">
+                <li><a target="_self" href="/">Home</a></li>
+                <li v-for="category in data.categories" :key="category.name" class="submenu"><a>{{ category.name }}</a>
+                    <ul>
+                        <li><a target="_self" class="dark-bg light-text" v-bind:href="category.link">all {{ category.name }}</a></li>
+                        <li v-for="item in category.items" :key="item.title"><a target="_self" class="dark-bg light-text" v-bind:href="item.link">{{ item.title }}</a></li>
+                    </ul>
+                </li>
+                <li><a>Contact</a></li>
+                <li><a>About</a></li>
+                <a target="_self" class="nav-logo dark-text" href="/">JaID</a>
+            </ul>
+        </nav>
+        <br class="mobile-br">
     </div>
-    <router-view/>
-  </div>
 </template>
+
 -->
 
+
+
+
 <template>
-    <div id="app">
-        <div id="header">
-            <a href="#" id="hamburger">
-                <div>
-                    <i class="fas fa-bars"></i>
+
+    <div id="header">
+
+        <a href="#" id="hamburger">
+            <div>
+                <i class="fas fa-bars"></i>
+            </div>
+        </a>
+
+        <div id="header-brand">
+            <a href="/">
+                <div id="brand-title">
+                    <h1>yosemite</h1>
+                </div>
+                
+                <div id="brand-subtitle">
+                    <p>open e-commerce by Jaiden DeChon</p>
                 </div>
             </a>
-            <div id="header-brand">
-                <router-link to="/">
-                    <div id="brand-title">
-                        <h1>yosemite</h1>
-                    </div>
-                    <div id="brand-subtitle">
-                        <p>open e-commerce by Jaiden DeChon</p>
-                    </div>
-                </router-link>
-            </div>
-            <div id="nav">
-                <ul id="nav-links-left">
-                    <router-link to="/"><li>Home</li></router-link>
-                    <li v-for="category in data.categories" :key="category.name" class="has-dropdown"><a href="javascript:void(0)">{{ category.name }}</a><i class="fas fa-angle-down"></i>
-                    <ul class="dropdown">
-                        <router-link :to="category.name"><li>all {{ category.name }}</li></router-link>
-                        <!-- <router-link :to="category.name"><li>all {{ category.name }}</li></router-link> -->
-                        <template v-for="item in category.items">
-                            <router-link :to="item.title" :key="item"><li>{{ item.title }}</li></router-link>
-                        </template>
-                    </ul>
-                    </li>
-                </ul>
-                <ul id="nav-links-right">
-                    <li><a href="javascript:void(0)">Sign Up</a></li>
-                    <li><a href="javascript:void(0)">Sign In</a></li>
-                    <li><a href="javascript:void(0)">Cart</a></li>
-                </ul>
-            </div>
-            <router-view />
         </div>
+
+        <div id="nav">
+
+            <ul id="nav-links-left">
+
+                <li><a href="/">Home</a></li>
+
+                <li v-for="category in data.categories" :key="category.name" class="has-dropdown"><a href="javascript:void(0)">{{ category.name }}</a><i class="fas fa-angle-down"></i>
+
+                <ul class="dropdown">
+
+                    <li><a v-bind:href="category.link">all {{ category.name }}</a></li>
+
+                    <li v-for="item in category.items" :key="item.title"><a v-bind:href="item.link">{{ item.title }}</a></li>
+
+                </ul>
+
+                </li>
+
+            </ul>
+
+            <ul id="nav-links-right">
+
+                <li><a href="javascript:void(0)">Sign Up</a></li>
+
+                <li><a href="javascript:void(0)">Sign In</a></li>
+
+                <li><a href="javascript:void(0)">Cart</a></li>
+
+            </ul>
+
+        </div>
+
     </div>
+
+
 </template>
+
 
 
 <script>
 // Import JavaScript affiliated with header. Component can interact with this JS if it were ever needed
-import "./assets/header.js";
-import categories from "./assets/data.json";
+import "../assets/header.js";
+import categories from "../assets/data.json";
 var data = JSON.parse(JSON.stringify(categories));
 
 export default {
-  // name: 'VueHeader',
+  name: "VueHeader",
   data: function() {
     return {
       data
@@ -97,79 +126,11 @@ export default {
         $("#nav").toggle();
       });
     });
-
-    $(document).ready(function() {
-      $(".stack").lettering();
-    });
   }
 };
 </script>
 
-
 <style>
-@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Serif:400i|Raleway:400|Righteous|Proza+Libre");
-
-.char1 {
-  z-index: 4;
-  text-shadow: 0.05em 0.05em 0.2em rgba(10, 10, 10, 0.9);
-}
-
-.char2 {
-  z-index: 3;
-  margin-left: -0.1em;
-  top: 0.08em;
-  text-shadow: -0.02em 0.02em 0.2em rgba(10, 10, 10, 0.9);
-}
-
-.char3 {
-  z-index: 9;
-  margin-left: -0.1em;
-  text-shadow: -0.05em 0.05em 0.2em rgba(10, 10, 10, 0.9);
-}
-
-.char4 {
-  z-index: 5;
-  text-shadow: 0.02em -0.02em 0.2em rgba(10, 10, 10, 0.9);
-}
-
-.char5 {
-  z-index: 2;
-  margin-left: -0.125em;
-  top: 0.08em;
-  text-shadow: -0.05em 0.05em 0.2em rgba(10, 10, 10, 0.9);
-}
-
-.char6 {
-  z-index: 10;
-  margin-left: -0.1em;
-  top: -0.04em;
-  text-shadow: 0em 0em 0.2em #333;
-}
-
-.char7 {
-  z-index: 8;
-  margin-left: -0.1em;
-  top: 0.03em;
-  text-shadow: -0.05em 0.05em 0.2em rgba(10, 10, 10, 0.9);
-}
-
-.char8 {
-  z-index: 6;
-  margin-left: -0.08em;
-  top: -0.05em;
-  text-shadow: 0.02em -0.01em 0.2em rgba(10, 10, 10, 0.9);
-}
-
-body {
-  margin: 0;
-  padding: 0;
-}
-
-#app {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 a {
   text-decoration: none !important;
 }
@@ -269,16 +230,8 @@ a {
     float: left;
   }
 
-  #nav #nav-links-left li:first-child {
-    margin-left: 0;
-  }
-
   #nav #nav-links-right {
     float: right;
-  }
-
-  #nav #nav-links-right li:last-child {
-    margin-right: 0;
   }
 }
 
