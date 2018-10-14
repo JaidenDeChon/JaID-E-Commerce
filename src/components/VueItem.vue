@@ -1,4 +1,6 @@
-<template></template>
+<template>
+    <h1>item is working</h1>
+</template>
 
 <script>
     import categories from '../assets/data.json'
@@ -10,6 +12,9 @@
             return {
                 data
             }
+        },
+        mounted: function() {
+            console.log('VueItem.vue was loaded')
         }
     }
 </script>

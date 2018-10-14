@@ -15,112 +15,107 @@
 </template>
 
 <script>
+import categories from "../assets/data.json";
+var data = JSON.parse(JSON.stringify(categories));
 
-    import categories from '../assets/data.json';
-    var data = JSON.parse(JSON.stringify(categories))
+export default {
+  name: "VueHero",
+  data: function() {
+    return {
+      data
+    };
+  },
 
-    export default {
-        name: 'VueHero',
-        data: function() {
-            return {
-                data
-            }
-        },
-
-        mounted: function() {
-
-            $(document).ready(function() {
-                $(".stack").lettering();
-            });
-
-        }
-    }
-
+  mounted: function() {
+    $(document).ready(function() {
+      $(".stack").lettering();
+    });
+  }
+};
 </script>
 
 <style scoped>
-
 #hero-image {
   background-image: url(https://goo.gl/u6QqAh);
   background-size: cover;
   background-position: center;
-  
+
   width: 90vw;
   height: 80vh;
-  
+
   margin: 0 auto 5vh;
 
   border-radius: 10px;
 }
 
 #center {
-    box-sizing: border-box;
+  box-sizing: border-box;
 
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
-P {
+p {
   margin: 0;
 }
 
 #module {
-    /* Stacking, shadows should be fixed */
-    box-sizing: border-box;
+  /* Stacking, shadows should be fixed */
+  box-sizing: border-box;
 
-    width: 600px;
+  width: 600px;
 
-    margin: 0 100px -70px 200px;
-    padding: 0;
+  margin: 0 100px -70px 200px;
+  padding: 0;
 
-    float: right;
+  float: right;
 
-    text-align: center;
+  text-align: center;
 }
 
 .stack {
-/*   border: solid red; */
-  
-  font-family: 'Righteous', serif;
-/*   text-transform: uppercase; */
-/*   text-align: left; */
+  /*   border: solid red; */
+
+  font-family: "Righteous", serif;
+  /*   text-transform: uppercase; */
+  /*   text-align: left; */
   font-size: 15em;
   line-height: 0.7em;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  
+
   color: silver;
 }
 
 #module button {
   border: 3px solid silver;
   outline: none;
-  
+
   margin: 80px auto;
-  
+
   width: 60%;
   height: 50px;
-  
-  font-family: 'Raleway', sans-serif;
+
+  font-family: "Raleway", sans-serif;
   text-transform: uppercase;
   font-size: 170%;
   color: silver;
-  
+
   background-color: #333;
-  
-  transition: all .3s;
-  
+
+  transition: all 0.3s;
+
   cursor: pointer;
-  
+
   z-index: 100 !important;
-  
+
   border-radius: 2px;
 }
 
@@ -135,35 +130,33 @@ P {
     background-image: url(https://goo.gl/gTC46P);
     margin-top: 40px;
   }
-  
+
   #center {
     justify-content: center;
   }
-  
+
   #module {
     margin: 0 0 -20% 0;
-    
+
     font-size: 70%;
-    
+
     width: 90%;
   }
-  
+
   .stack {
     font-size: 20vw;
     color: #fff;
   }
-  
+
   button {
     color: #fff;
     border: 3px solid #fff;
   }
-  
+
   button:hover {
     background-color: #fff;
     color: #000;
     border: 3px solid #000;
   }
-
 }
-
 </style>
