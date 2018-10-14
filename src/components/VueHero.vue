@@ -159,4 +159,10 @@ p {
     border: 3px solid #000;
   }
 }
+
+@media screen and (min-width: 1000px) {
+  #hero-image {
+    height: 780px
+  }
+}
 </style>
