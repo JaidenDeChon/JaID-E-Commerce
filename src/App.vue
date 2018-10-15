@@ -40,7 +40,6 @@
                     <ul class="dropdown">
                         <router-link :to="{ name: 'category', params: { categoryName: category.name } }"><li>all {{ category.name }}</li></router-link>
                         <router-link :to="{ name: 'item', params: { categoryName: category.name, itemTitle: item.title } }" v-for="item in category.items" :key="item.title"><li>{{ item.title }}</li></router-link>
-                        <!-- <router-link :to="item.title" v-for="item in category.items" :key="item.title"><li>{{ item.title }}</li></router-link> -->
                     </ul>
                     </li>
                 </ul>
