@@ -49,7 +49,7 @@
                     <li><a href="javascript:void(0)">Cart</a></li>
                 </ul>
             </div>
-            <router-view>
+            <router-view :key="$route.fullPath">
                 <router-view />
             </router-view>
         </div>
@@ -101,7 +101,9 @@ export default {
       $(".stack").lettering();
     });
 
-    // console.log('The route is: ' + this.$route);
+    // console.log('The route is: ' + this.$route.path);
+    // let theCategory = this.$route.params.categoryName
+    // console.log(data.categories)
   }
 };
 </script>
