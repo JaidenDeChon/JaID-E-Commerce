@@ -8,7 +8,10 @@
 //     But only so many so as to not overload the page in the event of tons of items 
 
 <template>
-    <div id="squares-container">
+    <!-- If path is root -->
+    <div v-if="$route.path == '/'" id="squares-container">
+
+        <!-- Show categories in cards -->
         <router-link v-for="category in data.categories" :to="{ name: 'category', params: { categoryName: category.name } }" :key="category.name">
             <div class="square">
                 <div class="img-container">
@@ -20,6 +23,28 @@
                 </div>
             </div>
         </router-link>
+
+    </div>
+
+    <!-- Else if path is category or item -->
+    <div v-else-if="['category', 'item'].indexOf($route.name) > -1" id="squares-container">
+
+      <!-- Show category items in cards -->
+        <!-- {{ theCategory }} -->
+        <template v-for="category in data.categories" v-if="category.name === theCategory">
+          <router-link v-for="item in category.items" :to="{ name: 'item', params: { categoryName: category.name, itemTitle: item.title } }" :key="item.title">
+              <div class="square">
+                  <div class="img-container">
+                      <img v-bind:src="item.image" alt="Category Image">
+                  </div>
+                  <div class="meta-data">
+                      <h3>{{ item.title }}</h3>
+                      <h5><i class="fa fa-tags" aria-hidden="true"></i> {{ item.price }}</h5>
+                  </div>
+              </div>
+          </router-link>
+        </template>
+
     </div>
 </template>
 
@@ -30,9 +55,10 @@ export default {
   name: "VueCard",
   data: function() {
     return {
-      data
-    };
-  }
+      data: data,
+      theCategory: this.$route.params.categoryName
+      }
+    }
 };
 </script>
 
