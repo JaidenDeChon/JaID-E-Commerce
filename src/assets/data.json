@@ -17,7 +17,7 @@
 
                         "colors" : [{}],
 
-                        "standard" : [
+                        "defaults" : [
 
                             "https://goo.gl/eZRRgt",
                             "https://goo.gl/ApZaJV",
@@ -64,7 +64,7 @@
                         
                         }],
                         
-                        "standard" : [
+                        "defaults" : [
 
                             "https://goo.gl/5LhU42"
 
@@ -111,7 +111,7 @@
 
                         }],
 
-                        "standard" : [
+                        "defaults" : [
 
                             "https://goo.gl/ZCS7K9",
                             "https://goo.gl/tGL1Cv",
@@ -158,7 +158,7 @@
 
                         }],
 
-                        "standard" : [
+                        "defaults" : [
 
 
 
@@ -178,7 +178,7 @@
 
                         "colors" : [{}],
 
-                        "standard" : [
+                        "defaults" : [
 
                             "https://goo.gl/fVKPX5",
                             "https://goo.gl/MwCdnF",
@@ -258,7 +258,7 @@
 
                         }],
 
-                        "standard" : [
+                        "defaults" : [
 
                             "https://goo.gl/dn8WWd",
                             "https://goo.gl/bYsGhF",
@@ -296,7 +296,7 @@
 
                         }],
 
-                        "standard" : [
+                        "defaults" : [
 
                             "https://goo.gl/iSJtcL",
                             "https://goo.gl/5FE7DL",
@@ -352,7 +352,7 @@
 
                         }],
 
-                        "standard" : [
+                        "defaults" : [
 
                             "https://goo.gl/gCcbG8",
                             "https://goo.gl/B234FF",
@@ -408,7 +408,7 @@
 
                         }],
 
-                        "standard" : [
+                        "defaults" : [
 
                             "https://goo.gl/PvePzK",
                             "https://goo.gl/qmGBpF",
@@ -432,7 +432,7 @@
 
                         "colors" : [{}],
 
-                        "standard" : [
+                        "defaults" : [
 
                             "https://goo.gl/GbbAUa",
                             "https://goo.gl/58hcF8",
@@ -466,7 +466,7 @@
 
                         "colors" : [{}],
 
-                        "standard" : [
+                        "defaults" : [
 
                             "https://goo.gl/cPZE52",
                             "https://goo.gl/y6ovf7",
@@ -491,7 +491,7 @@
 
                         "colors" : [{}],
 
-                        "standard" : [
+                        "defaults" : [
 
                             "https://goo.gl/VY9wM1",
                             "https://goo.gl/ztZH6x",
@@ -535,7 +535,7 @@
 
                         }],
 
-                        "standard" : [
+                        "defaults" : [
 
                             "https://goo.gl/3gikeB",
                             "https://goo.gl/xxz4T5",
@@ -560,7 +560,7 @@
 
                         "colors" : [{}],
 
-                        "standard" : [
+                        "defaults" : [
 
                             "https://goo.gl/GFsnM2",
                             "https://goo.gl/RYXUaT",
@@ -584,7 +584,7 @@
 
                         "colors" : [{}],
 
-                        "standard" : [
+                        "defaults" : [
 
                             "https://goo.gl/X2JmK2",
                             "https://goo.gl/uiLrGq",
@@ -618,7 +618,7 @@
 
                         "colors" : [{}],
 
-                        "standard" : [
+                        "defaults" : [
 
                             "https://goo.gl/rWFsHB",
                             "https://goo.gl/BXHf8f",
@@ -643,7 +643,7 @@
 
                         "colors" : [{}],
 
-                        "standard" : [
+                        "defaults" : [
 
                             "https://goo.gl/cZEEG4",
                             "https://goo.gl/R39S3p",
@@ -667,7 +667,7 @@
 
                         "colors" : [{}],
 
-                        "standard" : [
+                        "defaults" : [
 
                             "https://goo.gl/knSnLn",
                             "https://goo.gl/MqC31j",
@@ -692,7 +692,7 @@
 
                         "colors" : [{}],
 
-                        "standard" : [
+                        "defaults" : [
 
                             "https://goo.gl/G5UUfG",
                             "https://goo.gl/6Xm6BB",
@@ -716,7 +716,7 @@
 
                         "colors" : [{}],
 
-                        "standard" : [
+                        "defaults" : [
 
                             "https://goo.gl/64JYc3",
                             "https://goo.gl/kpPfDD",
