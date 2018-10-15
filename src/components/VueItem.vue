@@ -1,5 +1,5 @@
 <template>
-    <h1>item is working</h1>
+    <h1>{{ this.$route.path }}</h1>
 </template>
 
 <script>
@@ -14,7 +14,7 @@
             }
         },
         mounted: function() {
-            console.log('VueItem.vue was loaded')
+            // console.log('VueItem.vue was loaded')
         }
     }
 </script>
