@@ -18,7 +18,7 @@
 <template>
     <div id="app">
         <div id="header">
-            <a href="#" id="hamburger">
+            <a id="hamburger">
                 <div>
                     <i class="fas fa-bars"></i>
                 </div>
@@ -346,13 +346,11 @@ a {
     border-radius: 0px;
   }
 
-  #nav .dropdown li:first-child {
-    border-radius: 3px 3px 0 0;
+  /* #nav .dropdown li:first-child {
   }
 
-  #nav .dropdown li:last-child {
-    border-radius: 0 0 3px 3px;
-  }
+  .has-dropdown a + li:last-child {
+  } */
 }
 
 @media (min-width: 1023px) {
@@ -367,6 +365,7 @@ a {
   margin-top: 15px;
   position: absolute;
   top: 25px;
+  border: 1px solid red;
   left: 5vw;
   border-radius: 3px;
   color: #555;
