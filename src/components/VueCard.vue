@@ -12,7 +12,7 @@
     <div v-if="$route.path == '/'" id="squares-container">
 
         <!-- Show categories in cards -->
-        <router-link v-for="category in data.categories" :to="{ name: 'category', params: { categoryName: category.name } }" :key="category.name">
+        <router-link v-for="category in this.$store.state.catelogue.categories" :to="{ name: 'category', params: { categoryName: category.name } }" :key="category.name">
             <div class="square">
                 <div class="img-container">
                     <img v-bind:src="category.image" alt="Category Image">
@@ -31,7 +31,8 @@
 
       <!-- Show category items in cards -->
         <!-- {{ theCategory }} -->
-        <template v-for="category in data.categories" v-if="category.name === theCategory">
+        <!-- {{ this.$route.params.categoryName }} -->
+        <template v-for="category in this.$store.state.catelogue.categories" v-if="category.name === $route.params.categoryName">
           <router-link v-for="item in category.items" :to="{ name: 'item', params: { categoryName: category.name, itemTitle: item.title } }" :key="item.title">
               <div class="square">
                   <div class="img-container">
@@ -49,16 +50,14 @@
 </template>
 
 <script>
-import categories from "../assets/data.json";
-var data = JSON.parse(JSON.stringify(categories));
 export default {
-  name: "VueCard",
-  data: function() {
-    return {
-      data: data,
-      theCategory: this.$route.params.categoryName
-      }
+  computed: {
+    catelogue() {
+      return this.$store.state.catelogue
+        ? this.$store.state.catelogue
+        : "Loading...";
     }
+  }
 };
 </script>
 

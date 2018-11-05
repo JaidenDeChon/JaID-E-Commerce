@@ -6,16 +6,11 @@
         <div id="footer-top">
             <div id="navigate">
                 <h3>Navigate</h3>
-                <template v-for="category in data.categories">
-                <router-link :to="{ name: 'category', params: { categoryName: category.name } }" :key="category.name">
-                  {{ category.name }}
-                </router-link>
-                <br>
-                </template>
-                <a target="_self" href="javascript:void(0)">FAQ</a><br>
-                <a target="_self" href="javascript:void(0)">Legal</a><br>
-                <a target="_self" href="javascript:void(0)">Our Story</a><br>
-                <a target="_self" href="javascript:void(0)">Site Map</a><br>
+                <router-link target="_self" to="/">Home</router-link><br>
+                <router-link target="_self" to="/faq">FAQ</router-link><br>
+                <router-link target="_self" to="/legal">Legal</router-link><br>
+                <router-link target="_self" to="/our-story">Our Story</router-link><br>
+                <router-link target="_self" to="/site-map">Site Map</router-link><br>
             </div>
 
             <hr>

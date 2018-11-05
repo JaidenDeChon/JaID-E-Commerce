@@ -36,7 +36,7 @@
             <div id="nav">
                 <ul id="nav-links-left">
                     <router-link to="/"><li>Home</li></router-link>
-                    <li v-for="category in data.categories" :key="category.name" class="has-dropdown"><a href="javascript:void(0)">{{ category.name }}</a><i class="fas fa-angle-down"></i>
+                    <li v-for="category in this.$store.state.catelogue.categories" :key="category.name" class="has-dropdown"><a href="javascript:void(0)">{{ category.name }}</a><i class="fas fa-angle-down"></i>
                     <ul class="dropdown">
                         <router-link :to="{ name: 'category', params: { categoryName: category.name } }"><li>all {{ category.name }}</li></router-link>
                         <router-link :to="{ name: 'item', params: { categoryName: category.name, itemTitle: item.title } }" v-for="item in category.items" :key="item.title"><li>{{ item.title }}</li></router-link>
@@ -60,18 +60,19 @@
 <script>
 // Import JavaScript affiliated with header. Component can interact with this JS if it were ever needed
 import "./assets/header.js";
-import categories from "./assets/data.json";
-var data = JSON.parse(JSON.stringify(categories));
 
 export default {
-  // name: 'VueHeader',
-  data: function() {
-    return {
-      data
-    };
+  computed: {
+    catelogue() {
+      return this.$store.state.catelogue
+        ? this.$store.state.catelogue
+        : "Loading...";
+    }
   },
 
   mounted: function() {
+    console.log(this.$store.state.catelogue);
+
     $("#header #nav")
       .find(".dropdown")
       .hide();
@@ -102,7 +103,8 @@ export default {
     });
 
     // console.log('The route is: ' + this.$route.path);
-    // let theCategory = this.$route.params.categoryName
+    let theCategory = this.$route.params.categoryName;
+    console.log(theCategory);
     // console.log(data.categories)
   }
 };
@@ -110,7 +112,7 @@ export default {
 
 
 <style>
-@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Serif:400i|Raleway:400|Righteous|Proza+Libre");
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Serif:400i|Raleway:400|Righteous|Proza+Libre|Advent+Pro");
 
 .char1 {
   z-index: 4;
@@ -203,7 +205,7 @@ a {
 }
 
 #header-brand h1 {
-  font-family: "IBM Plex Serif", serif;
+  font-family: "Advent Pro", sans-serif;
   font-size: 50px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
