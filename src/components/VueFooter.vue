@@ -83,16 +83,8 @@
 </template>
 
 <script>
-import categories from "../assets/data.json";
-var data = JSON.parse(JSON.stringify(categories));
-
 export default {
-  name: "VueFooter",
-  data: function() {
-    return {
-      data
-    };
-  }
+  name: "VueFooter"
 };
 </script>
 
