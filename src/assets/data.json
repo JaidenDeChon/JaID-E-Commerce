@@ -7,34 +7,42 @@
 
             "image": "https://goo.gl/yufpNP",
 
+            "banner": "http://oi68.tinypic.com/eta5mu.jpg",
+
             "items": [{
 
-                    "title": "Pioneer PLX-1000",
-                    "description": "Description goes here",
-                    "image": "https://goo.gl/eZRRgt",
-                    "price": "$699.00",
-                    "images" : [{
+                "title": "Pioneer PLX-1000",
+                "description": "Description goes here",
+                "bullets": [
+                    ""
+                ],
+                "image": "https://goo.gl/eZRRgt",
+                "price": "$699.00",
+                "images" : [{
 
-                        "colors" : [{}],
+                    "colors" : [{}],
 
-                        "defaults" : [
+                    "defaults" : [
 
-                            "https://goo.gl/eZRRgt",
-                            "https://goo.gl/ApZaJV",
-                            "https://goo.gl/KxCwnx",
-                            "https://goo.gl/G5XR27",
-                            "https://goo.gl/vzr7en"
+                        "https://goo.gl/eZRRgt",
+                        "https://goo.gl/ApZaJV",
+                        "https://goo.gl/KxCwnx",
+                        "https://goo.gl/G5XR27",
+                        "https://goo.gl/vzr7en"
 
-                        ]
+                    ]
 
-                    }]
+                }]
 
-                },
+            },
 
                 {
 
                     "title": "Pro-Ject 1Xpression Carbon Classic",
                     "description": "Description goes here",
+                "bullets": [
+                    ""
+                ],
                     "image": "https://goo.gl/8k1fV6",
                     "price": "$999.00",
                     "images" : [{
@@ -79,6 +87,9 @@
 
                     "title": "Pro-Ject Debut Carbon Espirit SB",
                     "description": "Description goes here",
+                "bullets": [
+                    ""
+                ],
                     "image": "https://goo.gl/ZCS7K9",
                     "price": "$599.00",
                     "images" : [{
@@ -129,6 +140,9 @@
 
                     "title": "REGA Planar 2",
                     "description": "Description goes here",
+                "bullets": [
+                    ""
+                ],
                     "image": "https://goo.gl/TH2WXr",
                     "price": "$675.00",
                     "images" : [{
@@ -172,6 +186,9 @@
 
                     "title": "TEAC TN-550",
                     "description": "Description goes here",
+                "bullets": [
+                    ""
+                ],
                     "image": "https://goo.gl/fVKPX5",
                     "price": "$699.00",
                     "images" : [{
@@ -204,12 +221,17 @@
 
             "image": "https://goo.gl/bnG4G9",
 
+            "banner": "http://oi67.tinypic.com/2jey3uq.jpg",
+
             "items": [{
 
                     "title": "Gibson Les Paul",
                     "description": "By legendary guitarist Les Paul.",
+                "bullets": [
+                    ""
+                ],
                     "image": "https://goo.gl/dn8WWd",
-                    "price": "$,999.99",
+                    "price": "$2,999.99",
                     "images" : [{
 
                         "colors" : [{
@@ -276,6 +298,9 @@
 
                     "title": "Jaydee SG",
                     "description": "An undeniable classic.",
+                "bullets": [
+                    ""
+                ],
                     "image": "https://goo.gl/iSJtcL",
                     "price": "$3,700.00",
                     "images" : [{
@@ -314,6 +339,9 @@
 
                     "title": "Fender Stratocaster",
                     "description": "Description goes here",
+                "bullets": [
+                    ""
+                ],
                     "image": "https://goo.gl/gCcbG8",
                     "price": "$599.99",
                     "images" : [{
@@ -370,6 +398,9 @@
 
                     "title": "Fender Telecaster",
                     "description": "Description goes here",
+                "bullets": [
+                    ""
+                ],
                     "image": "https://goo.gl/PvePzK",
                     "price": "1,999.99",
                     "images" : [{
@@ -426,6 +457,9 @@
 
                     "title": "Arm the Homeless",
                     "description": "Tom Morello would be proud.",
+                "bullets": [
+                    ""
+                ],
                     "image": "https://goo.gl/UTMCgi",
                     "price": "$599.99",
                     "images" : [{
@@ -456,10 +490,15 @@
 
             "image": "https://goo.gl/FKFynt",
 
+            "banner": "http://oi64.tinypic.com/2cg0qs8.jpg",
+
             "items": [{
 
                     "title": "Shure SM7B",
                     "description": "Description goes here",
+                "bullets": [
+                    ""
+                ],
                     "image": "https://goo.gl/cPZE52",
                     "price": "$399.00",
                     "images" : [{
@@ -485,6 +524,9 @@
 
                     "title": "Rode NT1A",
                     "description": "Description goes here",
+                "bullets": [
+                    ""
+                ],
                     "image": "https://goo.gl/7CXsoG",
                     "price": "$299.00",
                     "images" : [{
@@ -509,6 +551,9 @@
 
                     "title": "Shure SM58",
                     "description": "Description goes here",
+                "bullets": [
+                    ""
+                ],
                     "image": "https://goo.gl/ZJTF5D",
                     "price": "$399.00",
                     "images" : [{
@@ -554,6 +599,9 @@
 
                     "title": "Sennheiser MD421",
                     "description": "Description goes here",
+                "bullets": [
+                    ""
+                ],
                     "image": "https://goo.gl/2o9kUw",
                     "price": "$379.95",
                     "images" : [{
@@ -578,6 +626,9 @@
 
                     "title": "Rode NTK",
                     "description": "Description goes here",
+                "bullets": [
+                    ""
+                ],
                     "image": "https://goo.gl/X2JmK2",
                     "price": "$529.00",
                     "images" : [{
@@ -608,10 +659,15 @@
 
             "image": "https://goo.gl/64JYc3",
 
+            "banner": "http://oi66.tinypic.com/2nu0ug4.jpg",
+
             "items": [{
 
                     "title": "Lohanu Concert",
                     "description": "Description goes here",
+                "bullets": [
+                    ""
+                ],
                     "image": "https://goo.gl/wBcWvJ",
                     "price": "$89.99",
                     "images" : [{
@@ -637,6 +693,9 @@
 
                     "title": "Cordoba 15TM Tenor",
                     "description": "Description goes here",
+                "bullets": [
+                    ""
+                ],
                     "image": "https://goo.gl/yCeqhk",
                     "price": "$135.00",
                     "images" : [{
@@ -661,6 +720,9 @@
 
                     "title": "Kala KA-15S",
                     "description": "Description goes here",
+                "bullets": [
+                    ""
+                ],
                     "image": "https://goo.gl/xEmofS",
                     "price": "$78.99",
                     "images" : [{
@@ -686,6 +748,9 @@
 
                     "title": "Cordoba 20cm",
                     "description": "Description goes here",
+                "bullets": [
+                    ""
+                ],
                     "image": "https://goo.gl/G5UUfG",
                     "price": "$220.00",
                     "images" : [{
@@ -710,6 +775,9 @@
 
                     "title": "Fender Soprano",
                     "description": "Description goes here",
+                "bullets": [
+                    ""
+                ],
                     "image": "https://goo.gl/64JYc3",
                     "price": "$89.99",
                     "images" : [{
@@ -735,5 +803,7 @@
         }
 
 
-    ]
+    ],
+
+    "banner": "https://images.pexels.com/photos/417451/pexels-photo-417451.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
 }
