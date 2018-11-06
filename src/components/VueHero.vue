@@ -31,7 +31,7 @@ h6 {
   background-position: center center;
   border-radius: 10px;
   width: 90vw;
-  margin: 0 auto 35px auto;
+  margin: 35px auto;
   display: flex;
 }
 
