@@ -1,11 +1,24 @@
 
 <template>
-  <div id="hero-container">
+
+  <div v-if="$route.path == '/'" id="hero-container" v-bind:style="{ background: 'url(' + this.$store.state.catelogue.banner + ')'}">
     <div id="hero-text">
       <h1 id="hero-big">yosemite</h1>
       <p id="hero-small">open-source e-commerce by Jaiden DeChon</p>
     </div>
   </div>
+
+  <div v-else-if="['category', 'item'].indexOf($route.name) > -1" id="hero-outside-container">
+    <template v-for="category in this.$store.state.catelogue.categories" v-if="category.name === $route.params.categoryName">
+      <div :key="category" id="hero-container" v-bind:style="{background: 'url(' + category.banner + ')'}">
+        <div id="hero-text">
+          <h1 id="hero-big">{{ category.name }}</h1>
+          <p v-if="category.desc" id="hero-small">{{ category.desc }}</p>
+        </div>
+      </div>
+    </template>
+  </div>
+
 </template>
 
 <script>
@@ -26,9 +39,8 @@ h6 {
 }
 
 #hero-container {
-  background-image: url(https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=f0a5c81634f9e5cebb8062f676e6d74a&auto=format&fit=crop&w=1950&q=80);
-  background-size: cover;
-  background-position: center center;
+  background-size: cover !important;
+  background-position: center center !important;
   border-radius: 10px;
   width: 90vw;
   margin: 35px auto;
