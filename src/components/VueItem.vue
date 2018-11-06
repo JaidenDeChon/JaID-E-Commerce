@@ -1,22 +1,553 @@
 <template>
+  <div id="thing">
+    <!-- The v-for below doesn't access anything, which is why the {{}} isn't displaying anything; there's no match! -->
+    <div v-for="category in this.$store.state.catelogue.categories" v-if="category.name === $route.params.categoryName" :key="category">
+      <div v-for="item in category.items" v-if="item.title === $route.params.itemTitle" :key="item.title" class="temp">
+        <!-- item.whatever can now be addressed -->
+        <strong>(Gallery and other shit will go here)</strong>
+        <br>
+        {{ item.title }}
+        <br>
+        {{ item.price }}
+        <br>
+        {{ item.description }}
+      </div>
+    </div>
+
+
+    <!-- <div class="carousel-wrapper">
+      <div class="carousel-container">
+        <div class="image-container"><img id="main-image"/></div>
+        <div class="image-container"><img src="https://goo.gl/tKbfjY"/></div>
+        <div class="image-container"><img src="https://goo.gl/ETvyyE"/></div>
+        <div class="image-container"><img src="https://goo.gl/jg6DfY"/></div>
+      </div>
+      <div class="panel-container">
+        <div class="panel">
+          <h1 class="product-name">Adidas Ultra Boost</h1>
+          <h3 class="product-price">$199.99</h3>
+          <div class="colors">
+            <button class="button button-green selected" data-pic="https://goo.gl/h9eTGE">
+              <h2>Olive</h2>
+            </button>
+            <button class="button button-red" data-pic="https://goo.gl/7kc4pf"> 
+              <h2>Pastel</h2>
+            </button>
+            <button class="button" data-pic="https://goo.gl/2c4Fd5"> 
+              <h2>Black</h2>
+            </button>
+          </div>
+          <div class="sizes">
+            <button class="button">
+              <h2>SM</h2>
+            </button>
+            <button class="button">
+              <h2>MD</h2>
+            </button>
+            <button class="button">
+              <h2>LG</h2>
+            </button>
+            <button class="button">
+              <h2>XL</h2>
+            </button>
+          </div>
+          <form class="quantity" id="counter-form" action="#" method="POST">
+            <button class="qty-button qtyminus" field="quantity">-</button>
+            <input class="qty" tpye="number" name="quantity" value="1"/>
+            <button class="qty-button qtyplus" field="quantity">+</button>
+          </form>
+          <div class="add-to-cart-container">
+            <button class="button add-to-cart-button"> 
+              <h2>Add to Cart</h2>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="description-wrapper">
+      <div class="description-header">
+        <h1>Time to walk on clouds. </h1>
+      </div>
+      <div class="description-body">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+      </div>
+    </div> -->
+
+
+
+  </div>
 </template>
 
-<script>
-import categories from "../assets/data.json";
-var data = JSON.parse(JSON.stringify(categories));
+// <script>
+// export default {
+//   name: "VueItem",
+//   mounted: function() {
+//     $(document).ready(function() {
+//       $(".carousel-container").slick({
+//         // setting-name: setting-value
+//         arrows: true,
+//         dots: true,
+//         cssEase: "ease-out",
+//         speed: 200,
+//         useTransform: true,
+//         fade: true
+//       });
 
-export default {
-  name: "VueItem",
-  data: function() {
-    return {
-      data
-    };
-  },
-  mounted: function() {
-    // console.log('VueItem.vue was loaded')
-  }
-};
+//       let initialPic = $(".colors")
+//         .find(".selected")
+//         .data("pic");
+//       $("#main-image").attr("src", initialPic);
+//     });
+
+//     // Button Selecting
+//     // When .button is clicked,
+//     $(".button").click(function() {
+//       // Find the other .buttons within this parent and remove .active
+//       $(this)
+//         .parent()
+//         .find(".button")
+//         .not(this)
+//         .removeClass("selected");
+
+//       // If the button clicked is the cart button...
+//       if ($(this).hasClass("add-to-cart-button")) {
+//         // If the item is not in cart...
+//         if (!$(this).hasClass("in-cart")) {
+//           // (Add to cart);
+
+//           // Change button text to show it's in the cart
+//           $(this)
+//             .find("h2")
+//             .html("Remove from Cart");
+
+//           // Give class 'in-cart' to set status of item
+//           $(this).addClass("in-cart");
+
+//           // otherwise...
+//         } else if ($(this).hasClass("in-cart")) {
+//           // (Remove from cart);
+
+//           // Change button text to show it's not in the cart
+//           $(this)
+//             .find("h2")
+//             .html("Add to Cart");
+
+//           // Remove 'in-cart' class to set status of item
+//           $(this).removeClass("in-cart");
+//         }
+
+//         // Otherwise, if it's a color button...
+//       } else if (
+//         $(this)
+//           .parent()
+//           .hasClass("colors")
+//       ) {
+//         // Get the button's custom data-pic attribute
+//         let pic = $(this).data("pic");
+
+//         // Change the main image source to the one from data-pic
+//         $("#main-image").attr("src", pic);
+//       }
+
+//       // Toggle .active for the button clicked
+//       $(this).toggleClass("selected");
+//     });
+
+//     // Quantity Counter
+//     jQuery(document).ready(function() {
+//       // This button will increment the value
+//       $(".qtyplus").click(function(e) {
+//         // Stop acting like a button
+//         e.preventDefault();
+
+//         // Get the field name
+//         fieldName = $(this).attr("field");
+
+//         // Get its current value
+//         var currentVal = parseInt($("input[name=" + fieldName + "]").val());
+
+//         // If is not undefined
+//         if (!isNaN(currentVal)) {
+//           // Increment
+//           $("input[name=" + fieldName + "]").val(currentVal + 1);
+//         } else {
+//           // Otherwise put a 0 there
+//           $("input[name=" + fieldName + "]").val(0);
+//         }
+//       });
+
+//       // This button will decrement the value till 0
+//       $(".qtyminus").click(function(e) {
+//         // Stop acting like a button
+//         e.preventDefault();
+
+//         // Get the field name
+//         fieldName = $(this).attr("field");
+
+//         // Get its current value
+//         var currentVal = parseInt($("input[name=" + fieldName + "]").val());
+
+//         // If it isn't undefined or its greater than 0
+//         if (!isNaN(currentVal) && currentVal > 0) {
+//           // Decrement one
+//           $("input[name=" + fieldName + "]").val(currentVal - 1);
+//         } else {
+//           // Otherwise put a 0 there
+//           $("input[name=" + fieldName + "]").val(0);
+//         }
+//       });
+//     });
+//   }
 </script>
 
 <style>
+.temp {
+  background: lightgray;
+  color: #333;
+  text-align: center;
+  font-family: "Raleway";
+  font-size: 20px;
+  width: 90vw;
+  margin: 35px auto;
+  padding: 30px 0;
+  border-radius: 10px;
+}
+/* @import url("https://fonts.googleapis.com/css?family=Raleway|Montserrat");
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 0px) {
+  .carousel-wrapper {
+    width: 80vw;
+    margin: 0 auto;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+  }
+}
+@media (min-width: 0px) and (min-width: 0px) {
+  .carousel-wrapper {
+    flex-direction: column;
+  }
+}
+@media (min-width: 0px) and (min-width: 1000px) {
+  .carousel-wrapper {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 0px) {
+  .carousel-container {
+    box-sizing: border-box;
+    width: 100%;
+    height: 500px;
+    margin-bottom: 40px;
+  }
+}
+@media (min-width: 0px) and (min-width: 1000px) {
+  .carousel-container {
+    width: 150%;
+    height: 1000px;
+  }
+}
+
+@media (min-width: 0px) {
+  .slick-prev:before,
+  .slick-next:before {
+    color: #333;
+  }
+
+  .image-container {
+    outline: none;
+  }
+  .image-container img {
+    width: 100%;
+    height: 500px;
+    object-fit: contain;
+  }
+}
+@media (min-width: 0px) and (min-width: 1000px) {
+  .image-container {
+    height: 1000px;
+  }
+}
+
+@media (min-width: 0px) {
+  .panel-container {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media (min-width: 0px) and (min-width: 1000px) {
+  .panel-container {
+    width: 30%;
+  }
+}
+
+@media (min-width: 0px) {
+  .panel {
+    z-index: 1;
+    min-width: 350px;
+    max-width: 350px;
+    padding: 0 20px;
+    background: #fff;
+    box-sizing: border-box;
+  }
+  .panel .product-name {
+    color: #333;
+    font-family: "Raleway";
+    font-size: 30px;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 40px 0 -20px;
+  }
+  .panel .product-price {
+    color: #333;
+    font-family: "Montserrat";
+    font-size: 20px;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 40px 0 -20px;
+  }
+
+  .colors,
+  .sizes,
+  .quantity,
+  .add-to-cart-container,
+  .social {
+    margin: 70px 0;
+    box-sizing: border-box;
+    display: grid;
+    justify-content: space-between;
+    column-gap: 20px;
+    row-gap: 20px;
+  }
+
+  .colors {
+    grid-template-columns: 50fr 50fr;
+  }
+
+  .sizes {
+    grid-template-columns: repeat(4, 20fr);
+  }
+
+  .quantity {
+    grid-template-columns: 60px 100px 60px;
+  }
+
+  .add-to-cart-container {
+    grid-template-columns: 100%;
+  }
+
+  .button {
+    z-index: 3;
+    position: relative;
+    height: 60px;
+    min-width: 60px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    border-radius: 5px;
+    font-family: "Raleway", sans-serif;
+    font-size: 150%;
+    text-transform: uppercase;
+    color: #333;
+    background: #e8e8e8;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .button.selected {
+    background-color: #333;
+    color: #e8e8e8;
+  }
+}
+@media (min-width: 0px) and (min-width: 1000px) {
+  .button:hover {
+    background-color: #333;
+    color: #e8e8e8;
+  }
+}
+
+@media (min-width: 0px) {
+  .qty-button {
+    height: 60px;
+    width: 60px;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    box-sizing: border-box;
+    font-family: "Raleway", sans-serif;
+    text-transform: uppercase;
+    font-size: 40px;
+    line-height: 55px;
+    transition: all 0.1s;
+    background-color: #e8e8e8;
+    color: #333;
+    cursor: pointer;
+  }
+  .qty-button:active {
+    background-color: #333;
+    color: #fff;
+  }
+
+  .quantity input {
+    font-size: 25px;
+    color: #333;
+    text-align: center;
+    background-color: #fff;
+    border: 3px solid #e8e8e8;
+    border-radius: 5px;
+    padding: 5px 0 0 0;
+    -moz-appearance: textfield;
+  }
+
+  .button-red {
+    color: #ba6b6c;
+  }
+  .button-red.selected {
+    background: #ef9a9a;
+    color: #fff;
+  }
+}
+@media (min-width: 0px) and (min-width: 1000px) {
+  .button-red:hover {
+    background: #ef9a9a;
+    color: #fff;
+  }
+}
+
+@media (min-width: 0px) {
+  .button-green {
+    color: #75a478;
+  }
+  .button-green.selected {
+    background: #75a478;
+    color: #fff;
+  }
+}
+@media (min-width: 0px) and (min-width: 1000px) {
+  .button-green:hover {
+    background: #75a478;
+    color: #fff;
+  }
+}
+@media (min-width: 0px) {
+  .button-green:active {
+    background: #75a478;
+    color: #fff;
+  }
+
+  .button-black {
+    color: #333;
+  }
+  .button-black.selected {
+    background: #333;
+    color: #999;
+  }
+}
+@media (min-width: 0px) and (min-width: 1000px) {
+  .button-black:hover {
+    background: #333;
+    color: #999;
+  }
+}
+@media (min-width: 0px) {
+  .button-black:active {
+    background: #333;
+    color: #999;
+  }
+
+  .button-fieg {
+    color: #fff;
+    font-weight: bold;
+    background: #efefef;
+  }
+  .button-fieg h2 {
+    color: #333;
+    background: url("https://goo.gl/uR4Y9E");
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .button-fieg.selected {
+    background: url("https://goo.gl/uR4Y9E");
+    color: #fff;
+  }
+  .button-fieg.selected h2 {
+    color: #fff;
+    background: #fff;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+@media (min-width: 0px) and (min-width: 1000px) {
+  .button-fieg:hover {
+    background: #90caf9;
+    color: #fff;
+  }
+}
+@media (min-width: 0px) {
+  .button-fieg:active {
+    background: 90caf9;
+    color: #fff;
+  }
+
+  .description-wrapper {
+    flex: 1;
+    max-width: 100%;
+    margin: 50px 0;
+    padding: 0 12%;
+    text-align: center;
+    color: #444;
+  }
+  .description-wrapper * {
+    margin: 20px 0;
+  }
+  .description-wrapper .description-header h1 {
+    font-family: "Raleway", sans-serif;
+    font-size: 200%;
+  }
+  .description-wrapper .description-body p {
+    font-family: "Montserrat";
+    font-size: 110%;
+    line-height: 150%;
+  }
+}
+@media (min-width: 568px) {
+  .carousel-container {
+    height: 300px;
+  }
+
+  .image-container img {
+    height: 300px;
+  }
+}
+@media (min-width: 750px) {
+  .carousel-container {
+    height: 400px;
+    width: 65%;
+  }
+
+  .image-container img {
+    height: 400px;
+    width: 100%;
+  }
+}
+@media (min-width: 801px) {
+  .carousel-container {
+    height: 70vh;
+    width: 50%;
+  }
+
+  .image-container img {
+    height: 70vh;
+  }
+} */
 </style>
