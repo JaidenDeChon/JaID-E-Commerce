@@ -46,7 +46,7 @@
                 <ul id="nav-links-right">
                     <li><a href="javascript:void(0)">Sign Up</a></li>
                     <li><a href="javascript:void(0)">Sign In</a></li>
-                    <li><a href="javascript:void(0)">Cart</a></li>
+                    <li><a href="javascript:void(0)">Cart <i class="fas fa-shopping-cart no-rotate"></i></a></li>
                 </ul>
             </div>
             <router-view :key="$route.fullPath">
@@ -71,7 +71,7 @@ export default {
   },
 
   mounted: function() {
-    console.log(this.$store.state.catelogue);
+    // console.log(this.$store.state.catelogue);
 
     $("#header #nav")
       .find(".dropdown")
@@ -98,10 +98,6 @@ export default {
       });
     });
 
-    $(document).ready(function() {
-      $(".stack").lettering();
-    });
-
     // console.log('The route is: ' + this.$route.path);
     let theCategory = this.$route.params.categoryName;
     console.log(theCategory);
@@ -113,57 +109,6 @@ export default {
 
 <style>
 @import url("https://fonts.googleapis.com/css?family=IBM+Plex+Serif:400i|Raleway:400|Righteous|Proza+Libre|Advent+Pro");
-
-.char1 {
-  z-index: 4;
-  text-shadow: 0.05em 0.05em 0.2em rgba(10, 10, 10, 0.9);
-}
-
-.char2 {
-  z-index: 3;
-  margin-left: -0.1em;
-  top: 0.08em;
-  text-shadow: -0.02em 0.02em 0.2em rgba(10, 10, 10, 0.9);
-}
-
-.char3 {
-  z-index: 9;
-  margin-left: -0.1em;
-  text-shadow: -0.05em 0.05em 0.2em rgba(10, 10, 10, 0.9);
-}
-
-.char4 {
-  z-index: 5;
-  text-shadow: 0.02em -0.02em 0.2em rgba(10, 10, 10, 0.9);
-}
-
-.char5 {
-  z-index: 2;
-  margin-left: -0.125em;
-  top: 0.08em;
-  text-shadow: -0.05em 0.05em 0.2em rgba(10, 10, 10, 0.9);
-}
-
-.char6 {
-  z-index: 10;
-  margin-left: -0.1em;
-  top: -0.04em;
-  text-shadow: 0em 0em 0.2em #333;
-}
-
-.char7 {
-  z-index: 8;
-  margin-left: -0.1em;
-  top: 0.03em;
-  text-shadow: -0.05em 0.05em 0.2em rgba(10, 10, 10, 0.9);
-}
-
-.char8 {
-  z-index: 6;
-  margin-left: -0.08em;
-  top: -0.05em;
-  text-shadow: 0.02em -0.01em 0.2em rgba(10, 10, 10, 0.9);
-}
 
 body {
   margin: 0;
@@ -317,8 +262,8 @@ a {
   background: lightgray;
 }
 
-#nav li:hover .fas,
-#nav li:focus .fas {
+#nav li.has-dropdown:hover .fas,
+#nav li.has-dropdown:focus .fas {
   -webkit-transform: rotate(180deg);
   transform: rotate(180deg);
 }
@@ -365,7 +310,6 @@ a {
   margin-top: 15px;
   position: absolute;
   top: 25px;
-  border: 1px solid red;
   left: 5vw;
   border-radius: 3px;
   color: #555;
