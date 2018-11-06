@@ -79,6 +79,9 @@
 </template>
 
 // <script>
+export default {
+  name: "VueItem"
+};
 // export default {
 //   name: "VueItem",
 //   mounted: function() {
