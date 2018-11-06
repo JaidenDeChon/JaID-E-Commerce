@@ -49,9 +49,9 @@
                     <li><a href="javascript:void(0)">Cart <i class="fas fa-shopping-cart no-rotate"></i></a></li>
                 </ul>
             </div>
-            <router-view :key="$route.fullPath">
-                <router-view />
-            </router-view>
+              <router-view :key="$route.fullPath">
+                  <!-- <router-view /> -->
+              </router-view>
         </div>
     </div>
 </template>
@@ -100,7 +100,7 @@ export default {
 
     // console.log('The route is: ' + this.$route.path);
     let theCategory = this.$route.params.categoryName;
-    console.log(theCategory);
+    // console.log(theCategory);
     // console.log(data.categories)
   }
 };
