@@ -12,4 +12,4 @@ export const store = new Vuex.Store({
   }
 });
 
-console.log(store.state);
+// console.log(store.state);
