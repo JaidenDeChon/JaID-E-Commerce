@@ -88,6 +88,10 @@ h6 {
   }
 
   #hero-container {
+    margin: 0 auto 35px auto;
+  }
+
+  #hero-container {
     height: 780px;
   }
 }
