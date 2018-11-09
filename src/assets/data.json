@@ -5,7 +5,7 @@
 
             "name": "Equipment",
 
-            "image": "https://goo.gl/yufpNP",
+            "card": "https://goo.gl/yufpNP",
 
             "banner": "http://oi68.tinypic.com/eta5mu.jpg",
 
@@ -16,69 +16,55 @@
                 "bullets": [
                     ""
                 ],
-                "image": "https://goo.gl/eZRRgt",
+                "sizes": [
+                ],
+                "mainImage": "https://goo.gl/eZRRgt",
                 "price": "$699.00",
-                "images" : [{
-
-                    "colors" : [{}],
-
-                    "defaults" : [
-
-                        "https://goo.gl/eZRRgt",
-                        "https://goo.gl/ApZaJV",
-                        "https://goo.gl/KxCwnx",
-                        "https://goo.gl/G5XR27",
-                        "https://goo.gl/vzr7en"
-
-                    ]
-
-                }]
-
+                "images" : [
+                    "https://goo.gl/ApZaJV",
+                    "https://goo.gl/KxCwnx",
+                    "https://goo.gl/G5XR27",
+                    "https://goo.gl/vzr7en"
+                ],
+                "colors": []
             },
 
                 {
 
                     "title": "Pro-Ject 1Xpression Carbon Classic",
                     "description": "Description goes here",
-                "bullets": [
-                    ""
-                ],
-                    "image": "https://goo.gl/8k1fV6",
+                    "bullets": [
+                        ""
+                    ],
+                    "sizes": [
+                    ],
+                    "mainImage": "https://goo.gl/8k1fV6",
                     "price": "$999.00",
-                    "images" : [{
+                    "images" : [
+                        "https://goo.gl/5LhU42"
+                    ],
+                    "colors": [{
 
-                        "colors" : [{
+                        "white" : [
 
-                            "white" : [
+                            "https://goo.gl/NGAtXS"
 
-                                "https://goo.gl/NGAtXS"
+                        ],
 
-                            ],
+                        "tan": [
 
-                            "tan": [
+                            "https://goo.gl/UJ3cXa",
+                            "https://goo.gl/zKBQgQ",
+                            "https://goo.gl/iwMYJz"
 
-                                "https://goo.gl/8k1fV6",
-                                "https://goo.gl/UJ3cXa",
-                                "https://goo.gl/zKBQgQ",
-                                "https://goo.gl/iwMYJz"
+                        ],
 
-                            ],
+                        "brown": [
 
-                            "brown": [
-
-                                "https://goo.gl/Dywdt5"
-
-                            ]
-                        
-                        }],
-                        
-                        "defaults" : [
-
-                            "https://goo.gl/5LhU42"
-
+                            "https://goo.gl/Dywdt5"
 
                         ]
-
+                    
                     }]
 
                 },
@@ -87,48 +73,42 @@
 
                     "title": "Pro-Ject Debut Carbon Espirit SB",
                     "description": "Description goes here",
-                "bullets": [
-                    ""
-                ],
-                    "image": "https://goo.gl/ZCS7K9",
+                    "bullets": [
+                        ""
+                    ],
+                    "sizes": [
+                    ],
+                    "mainImage": "https://goo.gl/ZCS7K9",
                     "price": "$599.00",
-                    "images" : [{
+                    "images" : [
+                        "https://goo.gl/tGL1Cv",
+                        "https://goo.gl/SRDFJb",
+                        "https://goo.gl/3sy8Q3",
+                        "https://goo.gl/XQacJE"
+                    ],
+                    "colors": [{
 
-                        "colors" : [{
+                        "black": [
 
-                            "black": [
+                            "https://goo.gl/ZgmLQT"
 
-                                "https://goo.gl/ZgmLQT"
+                        ],
 
-                            ],
+                        "blue": [
 
-                            "blue": [
+                            "https://goo.gl/WkfZWw"
 
-                                "https://goo.gl/WkfZWw"
+                        ],
 
-                            ],
+                        "green": [
 
-                            "green": [
+                            "https://goo.gl/cL2Y2F"
 
-                                "https://goo.gl/cL2Y2F"
+                        ],
 
-                            ],
+                        "white": [
 
-                            "white": [
-
-                                "https://goo.gl/WTKSsv"
-
-                            ]
-
-                        }],
-
-                        "defaults" : [
-
-                            "https://goo.gl/ZCS7K9",
-                            "https://goo.gl/tGL1Cv",
-                            "https://goo.gl/SRDFJb",
-                            "https://goo.gl/3sy8Q3",
-                            "https://goo.gl/XQacJE"
+                            "https://goo.gl/WTKSsv"
 
                         ]
 
@@ -140,42 +120,29 @@
 
                     "title": "REGA Planar 2",
                     "description": "Description goes here",
-                "bullets": [
-                    ""
-                ],
-                    "image": "https://goo.gl/TH2WXr",
+                    "bullets": [
+                        ""
+                    ],
+                    "sizes": [
+                    ],
+                    "mainImage": "https://goo.gl/TH2WXr",
                     "price": "$675.00",
-                    "images" : [{
+                    "images" : [],
+                    "colors": [{
 
-                        "colors" : [{
+                        "black": [
+                            "https://goo.gl/4UD2j3",
+                            "https://goo.gl/xurKVJ"
+                        ],
 
-                            "black": [
+                        "white": [
+                            "https://goo.gl/T5fkV9",
+                            "https://goo.gl/hk11Lb"
+                        ],
 
-                                "https://goo.gl/4UD2j3",
-                                "https://goo.gl/xurKVJ"
-
-                            ],
-
-                            "white": [
-
-                                "https://goo.gl/T5fkV9",
-                                "https://goo.gl/hk11Lb"
-
-                            ],
-
-                            "red": [
-
-                                "https://goo.gl/wQ6XGQ",
-                                "https://goo.gl/bJnVMp"
-
-                            ]
-
-                        }],
-
-                        "defaults" : [
-
-
-
+                        "red": [
+                            "https://goo.gl/wQ6XGQ",
+                            "https://goo.gl/bJnVMp"
                         ]
 
                     }]
@@ -186,29 +153,23 @@
 
                     "title": "TEAC TN-550",
                     "description": "Description goes here",
-                "bullets": [
-                    ""
-                ],
-                    "image": "https://goo.gl/fVKPX5",
+                    "bullets": [
+                        ""
+                    ],
+                    "sizes": [
+                    ],
+                    "mainImage": "https://goo.gl/fVKPX5",
                     "price": "$699.00",
-                    "images" : [{
-
-                        "colors" : [{}],
-
-                        "defaults" : [
-
-                            "https://goo.gl/fVKPX5",
-                            "https://goo.gl/MwCdnF",
-                            "https://goo.gl/CNvGEu",
-                            "https://goo.gl/opSqhT",
-                            "https://goo.gl/vNYkaR",
-                            "https://goo.gl/5X7yse",
-                            "https://goo.gl/hyjhmJ",
-                            "https://goo.gl/hw6tHZ"
-
-                        ]
-
-                    }]
+                    "images" : [
+                        "https://goo.gl/MwCdnF",
+                        "https://goo.gl/CNvGEu",
+                        "https://goo.gl/opSqhT",
+                        "https://goo.gl/vNYkaR",
+                        "https://goo.gl/5X7yse",
+                        "https://goo.gl/hyjhmJ",
+                        "https://goo.gl/hw6tHZ"
+                    ],
+                    "colors": []
 
                 }
             ]
@@ -219,7 +180,7 @@
 
             "name": "Guitars",
 
-            "image": "https://goo.gl/bnG4G9",
+            "card": "https://goo.gl/bnG4G9",
 
             "banner": "http://oi67.tinypic.com/2jey3uq.jpg",
 
@@ -227,67 +188,47 @@
 
                     "title": "Gibson Les Paul",
                     "description": "By legendary guitarist Les Paul.",
-                "bullets": [
-                    ""
-                ],
-                    "image": "https://goo.gl/dn8WWd",
+                    "bullets": [
+                        ""
+                    ],
+                    "sizes": [
+                    ],
+                    "mainImage": "https://goo.gl/dn8WWd",
                     "price": "$2,999.99",
-                    "images" : [{
+                    "images" : [
+                        "https://goo.gl/bYsGhF",
+                        "https://goo.gl/QwQT3q",
+                        "https://goo.gl/AvGjbM",
+                        "https://goo.gl/gx9EBh"
+                    ],
+                    "colors": [{
 
-                        "colors" : [{
+                        "blue": [
+                            "https://goo.gl/AmS3RS"
+                        ],
 
-                            "blue": [
+                        "green": [
+                            "https://goo.gl/uzG2xA"
+                        ],
 
-                                "https://goo.gl/AmS3RS"
+                        "orange": [
+                            "https://goo.gl/E43k2j"
+                        ],
 
-                            ],
+                        "purple": [
+                            "https://goo.gl/6rH6sY"
+                        ],
 
-                            "green": [
+                        "red": [
+                            "https://goo.gl/f8NK2H"
+                        ],
 
-                                "https://goo.gl/uzG2xA"
+                        "white": [
+                            "https://goo.gl/JD5rq9"
+                        ],
 
-                            ],
-
-                            "orange": [
-
-                                "https://goo.gl/E43k2j"
-
-                            ],
-
-                            "purple": [
-
-                                "https://goo.gl/6rH6sY"
-
-                            ],
-
-                            "red": [
-
-                                "https://goo.gl/f8NK2H"
-
-                            ],
-
-                            "white": [
-
-                                "https://goo.gl/JD5rq9"
-
-                            ],
-
-                            "yellow": [
-
-                                "https://goo.gl/2mP66n"
-
-                            ]
-
-                        }],
-
-                        "defaults" : [
-
-                            "https://goo.gl/dn8WWd",
-                            "https://goo.gl/bYsGhF",
-                            "https://goo.gl/QwQT3q",
-                            "https://goo.gl/AvGjbM",
-                            "https://goo.gl/gx9EBh"
-
+                        "yellow": [
+                            "https://goo.gl/2mP66n"
                         ]
 
                     }]
@@ -298,36 +239,30 @@
 
                     "title": "Jaydee SG",
                     "description": "An undeniable classic.",
-                "bullets": [
-                    ""
-                ],
-                    "image": "https://goo.gl/iSJtcL",
+                    "bullets": [
+                        ""
+                    ],
+                    "sizes": [
+                    ],
+                    "mainImage": "https://goo.gl/iSJtcL",
                     "price": "$3,700.00",
-                    "images" : [{
+                    "images" : [
+                        "https://goo.gl/5FE7DL",
+                        "https://goo.gl/6x2JRz",
+                        "https://goo.gl/y7ajAS",
+                        "https://goo.gl/58SrHs"
+                    ],
+                    "colors": [{
 
-                        "colors" : [{
+                        "white": [
 
-                            "white": [
+                            "https://goo.gl/MuEkrD"
 
-                                "https://goo.gl/MuEkrD"
+                        ],
 
-                            ],
+                        "red": [
 
-                            "red": [
-
-                                "https://goo.gl/4CvmeU"
-
-                            ]
-
-                        }],
-
-                        "defaults" : [
-
-                            "https://goo.gl/iSJtcL",
-                            "https://goo.gl/5FE7DL",
-                            "https://goo.gl/6x2JRz",
-                            "https://goo.gl/y7ajAS",
-                            "https://goo.gl/58SrHs"
+                            "https://goo.gl/4CvmeU"
 
                         ]
 
@@ -339,54 +274,48 @@
 
                     "title": "Fender Stratocaster",
                     "description": "Description goes here",
-                "bullets": [
-                    ""
-                ],
-                    "image": "https://goo.gl/gCcbG8",
+                    "bullets": [
+                        ""
+                    ],
+                    "sizes": [
+                    ],
+                    "mainImage": "https://goo.gl/gCcbG8",
                     "price": "$599.99",
-                    "images" : [{
+                    "images" : [
+                        "https://goo.gl/B234FF",
+                        "https://goo.gl/1SFyGQ",
+                        "https://goo.gl/tkYJvx",
+                        "https://goo.gl/kBUKH1"
+                    ],
+                    "colors": [{
 
-                        "colors" : [{
+                        "blue": [
 
-                            "blue": [
+                            "https://goo.gl/YQAaff"
 
-                                "https://goo.gl/YQAaff"
+                        ],
 
-                            ],
+                        "green": [
 
-                            "green": [
+                            "https://goo.gl/sVzunH"
 
-                                "https://goo.gl/sVzunH"
+                        ],
 
-                            ],
+                        "purple": [
 
-                            "purple": [
+                            "https://goo.gl/iUaYQZ"
 
-                                "https://goo.gl/iUaYQZ"
+                        ],
 
-                            ],
+                        "red": [
 
-                            "red": [
+                            "https://goo.gl/bkyedb"
 
-                                "https://goo.gl/bkyedb"
+                        ],
 
-                            ],
+                        "white": [
 
-                            "white": [
-
-                                "https://goo.gl/wUSzKU"
-
-                            ]
-
-                        }],
-
-                        "defaults" : [
-
-                            "https://goo.gl/gCcbG8",
-                            "https://goo.gl/B234FF",
-                            "https://goo.gl/1SFyGQ",
-                            "https://goo.gl/tkYJvx",
-                            "https://goo.gl/kBUKH1"
+                            "https://goo.gl/wUSzKU"
 
                         ]
 
@@ -398,54 +327,48 @@
 
                     "title": "Fender Telecaster",
                     "description": "Description goes here",
-                "bullets": [
-                    ""
-                ],
-                    "image": "https://goo.gl/PvePzK",
+                    "bullets": [
+                        ""
+                    ],
+                    "sizes": [
+                    ],
+                    "mainImage": "https://goo.gl/PvePzK",
                     "price": "1,999.99",
-                    "images" : [{
+                    "images" : [
+                        "https://goo.gl/qmGBpF",
+                        "https://goo.gl/vbgSrY",
+                        "https://goo.gl/jm3mFH",
+                        "https://goo.gl/o7tDPh"
+                    ],
+                    "colors": [{
 
-                        "colors" : [{
+                        "blue": [
 
-                            "blue": [
+                            "https://goo.gl/gZg6mu"
 
-                                "https://goo.gl/gZg6mu"
+                        ],
 
-                            ],
+                        "green": [
 
-                            "green": [
+                            "https://goo.gl/5JuHLQ"
 
-                                "https://goo.gl/5JuHLQ"
+                        ],
 
-                            ],
+                        "purple": [
 
-                            "purple": [
+                            "https://goo.gl/XJochy"
 
-                                "https://goo.gl/XJochy"
+                        ],
 
-                            ],
+                        "red": [
 
-                            "red": [
+                            "https://goo.gl/rVcfzd"
 
-                                "https://goo.gl/rVcfzd"
+                        ],
 
-                            ],
+                        "white": [
 
-                            "white": [
-
-                                "https://goo.gl/58xBVN"
-
-                            ]
-
-                        }],
-
-                        "defaults" : [
-
-                            "https://goo.gl/PvePzK",
-                            "https://goo.gl/qmGBpF",
-                            "https://goo.gl/vbgSrY",
-                            "https://goo.gl/jm3mFH",
-                            "https://goo.gl/o7tDPh"
+                            "https://goo.gl/58xBVN"
 
                         ]
 
@@ -457,27 +380,21 @@
 
                     "title": "Arm the Homeless",
                     "description": "Tom Morello would be proud.",
-                "bullets": [
-                    ""
-                ],
-                    "image": "https://goo.gl/UTMCgi",
+                    "bullets": [
+                        ""
+                    ],
+                    "sizes": [
+                    ],
+                    "mainImage": "https://goo.gl/UTMCgi",
                     "price": "$599.99",
-                    "images" : [{
-
-                        "colors" : [{}],
-
-                        "defaults" : [
-
-                            "https://goo.gl/GbbAUa",
-                            "https://goo.gl/58hcF8",
-                            "https://goo.gl/noZKj3",
-                            "https://goo.gl/nC6mP1",
-                            "https://goo.gl/BiApC8",
-                            "https://goo.gl/z1nw3q"
-
-                        ]
-
-                    }]
+                    "images" : [
+                        "https://goo.gl/58hcF8",
+                        "https://goo.gl/noZKj3",
+                        "https://goo.gl/nC6mP1",
+                        "https://goo.gl/BiApC8",
+                        "https://goo.gl/z1nw3q"
+                    ],
+                    "colors": []
 
                 }
             ]
@@ -488,7 +405,7 @@
 
             "name": "Microphones",
 
-            "image": "https://goo.gl/FKFynt",
+            "card": "https://goo.gl/FKFynt",
 
             "banner": "http://oi64.tinypic.com/2cg0qs8.jpg",
 
@@ -496,98 +413,79 @@
 
                     "title": "Shure SM7B",
                     "description": "Description goes here",
-                "bullets": [
-                    ""
-                ],
-                    "image": "https://goo.gl/cPZE52",
+                    "bullets": [
+                        ""
+                    ],
+                    "sizes": [
+                    ],
+                    "mainImage": "https://goo.gl/cPZE52",
                     "price": "$399.00",
-                    "images" : [{
-
-                        "colors" : [{}],
-
-                        "defaults" : [
-
-                            "https://goo.gl/cPZE52",
-                            "https://goo.gl/y6ovf7",
-                            "https://goo.gl/E7xqFS",
-                            "https://goo.gl/abUz8Y",
-                            "https://goo.gl/hpBVCY",
-                            "https://goo.gl/CicwdP"
-
-                        ]
-
-                    }]
-
+                    "images" : [
+                        "https://goo.gl/y6ovf7",
+                        "https://goo.gl/E7xqFS",
+                        "https://goo.gl/abUz8Y",
+                        "https://goo.gl/hpBVCY",
+                        "https://goo.gl/CicwdP"
+                    ],
+                    "colors": []
                 },
 
                 {
 
                     "title": "Rode NT1A",
                     "description": "Description goes here",
-                "bullets": [
-                    ""
-                ],
-                    "image": "https://goo.gl/7CXsoG",
+                    "bullets": [
+                        ""
+                    ],
+                    "sizes": [
+                    ],
+                    "mainImage": "https://goo.gl/7CXsoG",
                     "price": "$299.00",
-                    "images" : [{
-
-                        "colors" : [{}],
-
-                        "defaults" : [
-
-                            "https://goo.gl/VY9wM1",
-                            "https://goo.gl/ztZH6x",
-                            "https://goo.gl/hTUE7u",
-                            "https://goo.gl/LGkgc9",
-                            "https://goo.gl/Ac2Xsc"
-
-                        ]
-
-                    }]
-
+                    "images" : [
+                        "https://goo.gl/VY9wM1",
+                        "https://goo.gl/ztZH6x",
+                        "https://goo.gl/hTUE7u",
+                        "https://goo.gl/LGkgc9",
+                        "https://goo.gl/Ac2Xsc"
+                    ],
+                    "colors": []
                 },
 
                 {
 
                     "title": "Shure SM58",
                     "description": "Description goes here",
-                "bullets": [
-                    ""
-                ],
-                    "image": "https://goo.gl/ZJTF5D",
+                    "bullets": [
+                        ""
+                    ],
+                    "sizes": [
+                    ],
+                    "mainImage": "https://goo.gl/ZJTF5D",
                     "price": "$399.00",
-                    "images" : [{
+                    "images" : [
+                        "https://goo.gl/3gikeB",
+                        "https://goo.gl/xxz4T5",
+                        "https://goo.gl/jSLt61",
+                        "https://goo.gl/uREgF5",
+                        "https://goo.gl/eXK9tU"
+                    ],
+                    "colors": [{
 
-                        "colors" : [{
+                        "gold": [
 
-                            "gold": [
+                            "https://goo.gl/cdCpXQ"
 
-                                "https://goo.gl/cdCpXQ"
+                        ],
 
-                            ],
+                        "green": [
 
-                            "green": [
+                            "https://goo.gl/3R8Uue"
 
-                                "https://goo.gl/3R8Uue"
+                        ],
 
-                            ],
+                        "red": [
 
-                            "red": [
-
-                                "https://goo.gl/A8VLQU"
-
-                            ]
-
-                        }],
-
-                        "defaults" : [
-
-                            "https://goo.gl/3gikeB",
-                            "https://goo.gl/xxz4T5",
-                            "https://goo.gl/ZJTF5D",
-                            "https://goo.gl/jSLt61",
-                            "https://goo.gl/uREgF5",
-                            "https://goo.gl/eXK9tU"
+                            "https://goo.gl/A8VLQU"
 
                         ]
 
@@ -599,55 +497,41 @@
 
                     "title": "Sennheiser MD421",
                     "description": "Description goes here",
-                "bullets": [
-                    ""
-                ],
-                    "image": "https://goo.gl/2o9kUw",
+                    "bullets": [
+                        ""
+                    ],
+                    "sizes": [
+                    ],
+                    "mainImage": "https://goo.gl/2o9kUw",
                     "price": "$379.95",
-                    "images" : [{
-
-                        "colors" : [{}],
-
-                        "defaults" : [
-
-                            "https://goo.gl/GFsnM2",
-                            "https://goo.gl/RYXUaT",
-                            "https://goo.gl/XGspQR",
-                            "https://goo.gl/2o9kUw",
-                            "https://goo.gl/cbfhy3"
-
-                        ]
-
-                    }]
-
+                    "images" : [
+                        "https://goo.gl/GFsnM2",
+                        "https://goo.gl/RYXUaT",
+                        "https://goo.gl/XGspQR",
+                        "https://goo.gl/cbfhy3"
+                    ],
+                    "colors": []
                 },
 
                 {
 
                     "title": "Rode NTK",
                     "description": "Description goes here",
-                "bullets": [
-                    ""
-                ],
-                    "image": "https://goo.gl/X2JmK2",
+                    "bullets": [
+                        ""
+                    ],
+                    "sizes": [
+                    ],
+                    "mainImage": "https://goo.gl/X2JmK2",
                     "price": "$529.00",
-                    "images" : [{
-
-                        "colors" : [{}],
-
-                        "defaults" : [
-
-                            "https://goo.gl/X2JmK2",
-                            "https://goo.gl/uiLrGq",
-                            "https://goo.gl/LTMeAF",
-                            "https://goo.gl/1UDfMa",
-                            "https://goo.gl/zcMXGG",
-                            "https://goo.gl/qhyDq4"
-
-                        ]
-
-                    }]
-
+                    "images" : [
+                        "https://goo.gl/uiLrGq",
+                        "https://goo.gl/LTMeAF",
+                        "https://goo.gl/1UDfMa",
+                        "https://goo.gl/zcMXGG",
+                        "https://goo.gl/qhyDq4"
+                    ],
+                    "colors": []
                 }
             ]
 
@@ -657,7 +541,7 @@
 
             "name": "Ukuleles",
 
-            "image": "https://goo.gl/64JYc3",
+            "card": "https://goo.gl/64JYc3",
 
             "banner": "http://oi66.tinypic.com/2nu0ug4.jpg",
 
@@ -665,138 +549,104 @@
 
                     "title": "Lohanu Concert",
                     "description": "Description goes here",
-                "bullets": [
-                    ""
-                ],
-                    "image": "https://goo.gl/wBcWvJ",
+                    "bullets": [
+                        ""
+                    ],
+                    "sizes": [
+                    ],
+                    "mainImage": "https://goo.gl/wBcWvJ",
                     "price": "$89.99",
-                    "images" : [{
-
-                        "colors" : [{}],
-
-                        "defaults" : [
-
-                            "https://goo.gl/rWFsHB",
-                            "https://goo.gl/BXHf8f",
-                            "https://goo.gl/DcenhA",
-                            "https://goo.gl/vgGUWR",
-                            "https://goo.gl/kNUx8v",
-                            "https://goo.gl/XNJ6W4"
-
-                        ]
-
-                    }]
-
+                    "images" : [
+                        "https://goo.gl/BXHf8f",
+                        "https://goo.gl/DcenhA",
+                        "https://goo.gl/vgGUWR",
+                        "https://goo.gl/kNUx8v",
+                        "https://goo.gl/XNJ6W4"
+                    ],
+                    "colors": []
                 },
 
                 {
 
                     "title": "Cordoba 15TM Tenor",
                     "description": "Description goes here",
-                "bullets": [
-                    ""
-                ],
-                    "image": "https://goo.gl/yCeqhk",
+                    "bullets": [
+                        ""
+                    ],
+                    "sizes": [
+                    ],
+                    "mainImage": "https://goo.gl/yCeqhk",
                     "price": "$135.00",
-                    "images" : [{
-
-                        "colors" : [{}],
-
-                        "defaults" : [
-
-                            "https://goo.gl/cZEEG4",
-                            "https://goo.gl/R39S3p",
-                            "https://goo.gl/g3ecZj",
-                            "https://goo.gl/HosRzE",
-                            "https://goo.gl/2JJMxL",
-                            "https://goo.gl/yCeqhk"
-                        ]
-
-                    }]
-
+                    "images" : [
+                        "https://goo.gl/cZEEG4",
+                        "https://goo.gl/R39S3p",
+                        "https://goo.gl/g3ecZj",
+                        "https://goo.gl/HosRzE",
+                        "https://goo.gl/2JJMxL"
+                    ],
+                    "colors": []
                 },
 
                 {
 
                     "title": "Kala KA-15S",
                     "description": "Description goes here",
-                "bullets": [
-                    ""
-                ],
-                    "image": "https://goo.gl/xEmofS",
+                    "bullets": [
+                        ""
+                    ],
+                    "sizes": [
+                    ],
+                    "mainImage": "https://goo.gl/xEmofS",
                     "price": "$78.99",
-                    "images" : [{
-
-                        "colors" : [{}],
-
-                        "defaults" : [
-
-                            "https://goo.gl/knSnLn",
-                            "https://goo.gl/MqC31j",
-                            "https://goo.gl/brYoDY",
-                            "https://goo.gl/f7CjtQ",
-                            "https://goo.gl/x5BYUv",
-                            "https://goo.gl/PLkspu"
-
-                        ]
-
-                    }]
-
+                    "images" : [
+                        "https://goo.gl/MqC31j",
+                        "https://goo.gl/brYoDY",
+                        "https://goo.gl/f7CjtQ",
+                        "https://goo.gl/x5BYUv",
+                        "https://goo.gl/PLkspu"
+                    ],
+                    "colors": []
                 },
 
                 {
 
                     "title": "Cordoba 20cm",
                     "description": "Description goes here",
-                "bullets": [
-                    ""
-                ],
-                    "image": "https://goo.gl/G5UUfG",
+                    "bullets": [
+                        ""
+                    ],
+                    "sizes": [
+                    ],
+                    "mainImage": "https://goo.gl/G5UUfG",
                     "price": "$220.00",
-                    "images" : [{
-
-                        "colors" : [{}],
-
-                        "defaults" : [
-
-                            "https://goo.gl/G5UUfG",
-                            "https://goo.gl/6Xm6BB",
-                            "https://goo.gl/D9Zmuh",
-                            "https://goo.gl/ZTDM7G",
-                            "https://goo.gl/zzzwn7"
-
-                        ]
-
-                    }]
-
+                    "images" : [
+                        "https://goo.gl/6Xm6BB",
+                        "https://goo.gl/D9Zmuh",
+                        "https://goo.gl/ZTDM7G",
+                        "https://goo.gl/zzzwn7"
+                    ],
+                    "colors": []
                 },
 
                 {
 
                     "title": "Fender Soprano",
                     "description": "Description goes here",
-                "bullets": [
-                    ""
-                ],
-                    "image": "https://goo.gl/64JYc3",
+                    "bullets": [
+                        ""
+                    ],
+                    "sizes": [
+                    ],
+                    "mainImage": "https://goo.gl/64JYc3",
                     "price": "$89.99",
-                    "images" : [{
-
-                        "colors" : [{}],
-
-                        "defaults" : [
-
-                            "https://goo.gl/64JYc3",
-                            "https://goo.gl/kpPfDD",
-                            "https://goo.gl/Bmm2qi",
-                            "https://goo.gl/4fisS6",
-                            "https://goo.gl/Z9EuDp",
-                            "https://goo.gl/VfVXBL"
-
-                        ]
-
-                    }]
-
+                    "images" : [
+                        "https://goo.gl/kpPfDD",
+                        "https://goo.gl/Bmm2qi",
+                        "https://goo.gl/4fisS6",
+                        "https://goo.gl/Z9EuDp",
+                        "https://goo.gl/VfVXBL"
+                    ],
+                    "colors": []
                 }
             ]
 
@@ -806,4 +656,5 @@
     ],
 
     "banner": "https://images.pexels.com/photos/417451/pexels-photo-417451.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+
 }
