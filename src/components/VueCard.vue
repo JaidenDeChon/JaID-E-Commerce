@@ -15,7 +15,7 @@
         <router-link v-for="category in this.$store.state.catelogue.categories" :to="{ name: 'category', params: { categoryName: category.name } }" :key="category.name">
             <div class="square">
                 <div class="img-container">
-                    <img v-bind:src="category.image" alt="Category Image">
+                    <img v-bind:src="category.card" alt="Category Image">
                 </div>
                 <div class="meta-data">
                     <h3>{{ category.name }}</h3>
@@ -36,7 +36,7 @@
           <router-link v-for="item in category.items" :to="{ name: 'item', params: { categoryName: category.name, itemTitle: item.title } }" :key="item.title">
               <div class="square">
                   <div class="img-container">
-                      <img v-bind:src="item.image" alt="Category Image">
+                      <img v-bind:src="item.mainImage" alt="Category Image">
                   </div>
                   <div class="meta-data">
                       <h3>{{ item.title }}</h3>
