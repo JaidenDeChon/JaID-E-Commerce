@@ -192,6 +192,10 @@ a {
   cursor: default;
 }
 
+.dropdown {
+  z-index: 99;
+}
+
 @media (min-width: 1023px) {
   #header-brand {
     width: 100%;
