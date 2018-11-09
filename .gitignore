@@ -2,9 +2,9 @@
 node_modules/*
 dist/
 
-!node_modules/slick/*
-!node_modules/vue-slick/*
-!node_modules/slick-carousel/*
+!node_modules/slick/
+!node_modules/vue-slick/
+!node_modules/slick-carousel/
 
 # local env files
 .env.local
