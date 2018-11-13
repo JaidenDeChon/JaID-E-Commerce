@@ -29,6 +29,7 @@ export default {
 
 <style scoped>
 @import url("https://fonts.googleapis.com/css?family=Advent+Pro|Raleway");
+
 h1,
 h2,
 h3,
@@ -78,35 +79,38 @@ h6 {
     height: 650px;
   }
 }
+
 @media (min-width: 568px) {
   #hero-big {
     font-size: 100px;
   }
 }
+
 @media (min-width: 750px) {
   #hero-big {
     font-size: 125px;
     letter-spacing: -8px;
   }
 }
+
 @media (min-width: 801px) {
   #hero-big {
     font-size: 150px;
   }
 }
+
 @media (min-width: 1000px) {
   #hero-big {
     font-size: 170px;
   }
-
   #hero-container {
     margin: 0 auto 35px auto;
   }
-
   #hero-container {
     height: 780px;
   }
 }
+
 @media (min-width: 1920px) {
   #hero-big {
     font-size: 200px;

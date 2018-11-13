@@ -222,11 +222,13 @@ body {
     align-items: center;
   }
 }
+
 @media (min-width: 0px) and (min-width: 0px) {
   .carousel-wrapper {
     flex-direction: column;
   }
 }
+
 @media (min-width: 0px) and (min-width: 1000px) {
   .carousel-wrapper {
     flex-direction: row;
@@ -242,6 +244,7 @@ body {
     margin-bottom: 40px;
   }
 }
+
 @media (min-width: 0px) and (min-width: 1000px) {
   .carousel-container {
     width: 150%;
@@ -254,7 +257,6 @@ body {
   .slick-next:before {
     color: #333;
   }
-
   .image-container {
     outline: none;
   }
@@ -264,6 +266,7 @@ body {
     object-fit: contain;
   }
 }
+
 @media (min-width: 0px) and (min-width: 1000px) {
   .image-container {
     height: 1000px;
@@ -278,6 +281,7 @@ body {
     align-items: center;
   }
 }
+
 @media (min-width: 0px) and (min-width: 1000px) {
   .panel-container {
     width: 30%;
@@ -309,7 +313,6 @@ body {
     text-align: center;
     margin: 40px 0 -20px;
   }
-
   .colors,
   .sizes,
   .quantity,
@@ -322,15 +325,12 @@ body {
     column-gap: 20px;
     row-gap: 20px;
   }
-
   .colors {
     grid-template-columns: 50fr 50fr;
   }
-
   .sizes {
     grid-template-columns: repeat(4, 20fr);
   }
-
   .colors h3,
   .sizes h3 {
     color: #333;
@@ -342,15 +342,12 @@ body {
     padding: 0;
     margin: 0;
   }
-
   .quantity {
     grid-template-columns: 60px 100px 60px;
   }
-
   .add-to-cart-container {
     grid-template-columns: 100%;
   }
-
   .button {
     z-index: 3;
     position: relative;
@@ -378,6 +375,7 @@ body {
     color: #e8e8e8;
   }
 }
+
 @media (min-width: 0px) and (min-width: 1000px) {
   .button:hover {
     background-color: #333;
@@ -406,7 +404,6 @@ body {
     background-color: #333;
     color: #fff;
   }
-
   .quantity input {
     font-size: 25px;
     color: #333;
@@ -417,7 +414,6 @@ body {
     padding: 5px 0 0 0;
     -moz-appearance: textfield;
   }
-
   .button-red {
     color: #ba6b6c;
   }
@@ -426,6 +422,7 @@ body {
     color: #fff;
   }
 }
+
 @media (min-width: 0px) and (min-width: 1000px) {
   .button-red:hover {
     background: #ef9a9a;
@@ -442,18 +439,19 @@ body {
     color: #fff;
   }
 }
+
 @media (min-width: 0px) and (min-width: 1000px) {
   .button-green:hover {
     background: #75a478;
     color: #fff;
   }
 }
+
 @media (min-width: 0px) {
   .button-green:active {
     background: #75a478;
     color: #fff;
   }
-
   .button-black {
     color: #333;
   }
@@ -462,30 +460,33 @@ body {
     color: #999;
   }
 }
+
 @media (min-width: 0px) and (min-width: 1000px) {
   .button-black:hover {
     background: #333;
     color: #999;
   }
 }
+
 @media (min-width: 0px) {
   .button-black:active {
     background: #333;
     color: #999;
   }
 }
+
 @media (min-width: 0px) and (min-width: 1000px) {
   .button-fieg:hover {
     background: #90caf9;
     color: #fff;
   }
 }
+
 @media (min-width: 0px) {
   .button-fieg:active {
     background: 90caf9;
     color: #fff;
   }
-
   .description-wrapper {
     flex: 1;
     max-width: 100%;
@@ -507,32 +508,32 @@ body {
     line-height: 150%;
   }
 }
+
 @media (min-width: 568px) {
   .carousel-container {
     height: 300px;
   }
-
   .image-container img {
     height: 300px;
   }
 }
+
 @media (min-width: 750px) {
   .carousel-container {
     height: 400px;
     width: 65%;
   }
-
   .image-container img {
     height: 400px;
     width: 100%;
   }
 }
+
 @media (min-width: 801px) {
   .carousel-container {
     height: 70vh;
     width: 50%;
   }
-
   .image-container img {
     height: 70vh;
   }
@@ -540,15 +541,12 @@ body {
 
 .slick-slider {
   position: relative;
-
   display: block;
   box-sizing: border-box;
-
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-
   -webkit-touch-callout: none;
   -khtml-user-select: none;
   -ms-touch-action: pan-y;
@@ -558,16 +556,16 @@ body {
 
 .slick-list {
   position: relative;
-
   display: block;
   overflow: hidden;
-
   margin: 0;
   padding: 0;
 }
+
 .slick-list:focus {
   outline: none;
 }
+
 .slick-list.dragging {
   cursor: pointer;
   cursor: hand;
@@ -586,20 +584,21 @@ body {
   position: relative;
   top: 0;
   left: 0;
-
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
+
 .slick-track:before,
 .slick-track:after {
   display: table;
-
   content: "";
 }
+
 .slick-track:after {
   clear: both;
 }
+
 .slick-loading .slick-track {
   visibility: hidden;
 }
@@ -607,35 +606,40 @@ body {
 .slick-slide {
   display: none;
   float: left;
-
   height: 100%;
   min-height: 1px;
 }
+
 [dir="rtl"] .slick-slide {
   float: right;
 }
+
 .slick-slide img {
   display: block;
 }
+
 .slick-slide.slick-loading img {
   display: none;
 }
+
 .slick-slide.dragging img {
   pointer-events: none;
 }
+
 .slick-initialized .slick-slide {
   display: block;
 }
+
 .slick-loading .slick-slide {
   visibility: hidden;
 }
+
 .slick-vertical .slick-slide {
   display: block;
-
   height: auto;
-
   border: 1px solid transparent;
 }
+
 .slick-arrow.slick-hidden {
   display: none;
 }

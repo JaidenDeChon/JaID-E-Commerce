@@ -89,13 +89,8 @@ export default {
 </script>
 
 <style scoped>
-html,
-body {
-  margin: 0;
-  padding: 0;
-}
-
 /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+
 @media (min-width: 280px) {
   /*reset for mobile browsers */
   h1,
@@ -108,60 +103,49 @@ body {
     margin: 0;
     padding: 0;
   }
-
   #footer-container {
     /*border: 1px solid blue;*/
     font-family: "Proza Libre", sans-serif;
     margin: 50px 0 0 0;
   }
-
   #footer-top {
     padding: 5vw 10vw;
     margin: 0;
     background-color: #333;
     color: #777;
   }
-
   #footer-top a {
     display: inline-block;
     margin: 4px 0;
     color: #777;
     text-decoration: none;
   }
-
   #footer-top #navigate,
   #footer-top #contact,
   #footer-top #connect {
     text-align: center;
   }
-
   #footer-top #navigate h3,
   #footer-top #contact h3,
   #footer-top #connect h3 {
     text-transform: uppercase;
   }
-
   #footer-top #contact h3,
   #footer-top #contact a {
     margin: 15px 0;
   }
-
   #footer-top #contact p {
     margin: 0;
   }
-
   #footer-top #contact i {
     margin: 5px 0;
   }
-
   #footer-top #connect div {
     margin: 15px 0;
   }
-
   #connect #social a {
     margin: 0 15px;
   }
-
   #footer-bottom {
     background-color: #777;
     color: #333;
@@ -169,26 +153,21 @@ body {
     padding: 1vw 10vw;
     margin: 0;
   }
-
   #connect input {
     display: inline-block;
     margin: 0;
     padding: 0 0 0 5px;
-
     background-color: #777;
     border: none;
   }
-
   .email-field {
     width: 80%;
     height: 40px;
   }
-
   .email-field::placeholder {
     opacity: 1;
     color: #333;
   }
-
   #email-signup button {
     min-width: 40px;
     max-width: 40px;
@@ -206,44 +185,38 @@ body {
 }
 
 /* landscape standard tablets, lo-res laptops and desktops */
+
 @media (min-width: 801px) {
   #footer-top {
     display: flex;
     padding: 2vw 10vw;
   }
-
   #footer-top #navigate,
   #footer-top #contact,
   #footer-top #connect {
     flex: 1;
   }
-
   #footer-top hr {
     display: none;
   }
-
   #footer-top #navigate {
     text-align: left;
   }
-
   #footer-top #contact {
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
-
   #footer-top #connect {
     text-align: right;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
-
   #footer-top #contact h3 {
     margin: 0;
   }
-
   #footer-bottom {
     text-align: left;
     /* height: 50px; */
