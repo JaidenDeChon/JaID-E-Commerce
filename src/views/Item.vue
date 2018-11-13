@@ -1,6 +1,6 @@
 <template>
   <div class="item">
-    <!-- <vue-breadcrumbs /> -->
+    <vue-crumbs />
     <vue-item />
     <vue-card /> <!-- [Will be used to show other items from same category] -->
     <vue-footer />
@@ -9,7 +9,7 @@
 
 <script>
 // @ is an alias to /src
-// import VueBreadcrumbs from '@/components/VueBreadcrumbs.vue'
+import VueCrumbs from "@/components/VueCrumbs.vue";
 import VueItem from "@/components/VueItem.vue";
 import VueCard from "@/components/VueCard.vue";
 import VueFooter from "@/components/VueFooter.vue";
@@ -17,7 +17,7 @@ import VueFooter from "@/components/VueFooter.vue";
 export default {
   name: "Item",
   components: {
-    // VueBreadcrumbs,
+    VueCrumbs,
     VueItem,
     VueCard,
     VueFooter
