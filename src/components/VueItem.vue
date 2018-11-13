@@ -209,6 +209,10 @@ body {
   padding: 0;
 }
 
+#thing {
+  margin-bottom: 100px;
+}
+
 @media (min-width: 0px) {
   .carousel-wrapper {
     width: 80vw;
