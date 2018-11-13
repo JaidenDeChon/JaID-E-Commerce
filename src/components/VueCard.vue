@@ -1,11 +1,6 @@
 
 // To Do: 
-//   - Make this component usable in other contexts, not just on the index page
-//     That means it should take URL parameters
-//     Such as show categories if on index page
-//     Or show items in category if on category page
-//     Or show OTHER items in same category if on product customization page
-//     But only so many so as to not overload the page in the event of tons of items 
+//     only show so many "other items in this category" so as to not overload the page in the event of tons of items 
 
 <template>
     <!-- If path is root -->
@@ -26,8 +21,8 @@
 
     </div>
 
-    <!-- Else if path is category or item -->
-    <div v-else-if="['category', 'item'].indexOf($route.name) > -1" id="squares-container">
+    <!-- Else if path is category -->
+    <div v-else-if="['category'].indexOf($route.name) > -1" id="squares-container">
 
       <!-- Show category items in cards -->
         <!-- {{ theCategory }} -->
@@ -47,6 +42,27 @@
         </template>
 
     </div>
+
+
+  <!-- Else if path is item -->
+  <div v-else-if="['item'].indexOf($route.name) > -1">
+    <h1 class="category-others">Other items in {{ $route.params.categoryName }}</h1>
+    <div id="squares-container">
+        <template v-for="category in this.$store.state.catelogue.categories" v-if="category.name === $route.params.categoryName">
+          <router-link v-for="item in category.items" v-if="item.title != $route.params.itemTitle" :to="{ name: 'item', params: { categoryName: category.name, itemTitle: item.title } }" :key="item.title">
+              <div class="square">
+                  <div class="img-container">
+                      <img v-bind:src="item.mainImage" alt="Category Image">
+                  </div>
+                  <div class="meta-data">
+                      <h3>{{ item.title }}</h3>
+                      <h5><i class="fa fa-tags" aria-hidden="true"></i> {{ item.price }}</h5>
+                  </div>
+              </div>
+          </router-link>
+        </template>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -62,6 +78,8 @@ export default {
 </script>
 
 <style scoped>
+@import url("https://fonts.googleapis.com/css?family=Raleway|Montserrat");
+
 html,
 body {
   margin: 0;
@@ -96,7 +114,7 @@ h6 {
     justify-content: center;
   }
 
-  #breadcrumbs-container {
+  /* #breadcrumbs-container {
     height: 75px;
     width: 88vw;
 
@@ -127,7 +145,7 @@ h6 {
     color: #fff;
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: #333;
-  }
+  } */
 
   .square {
     background: #e8e8e8;
@@ -181,6 +199,14 @@ h6 {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+  }
+
+  .category-others {
+    width: 90vw;
+    margin: 0 auto;
+    font-family: "Montserrat";
+    color: #333;
+    margin-bottom: 50px;
   }
 }
 
