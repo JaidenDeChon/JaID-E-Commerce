@@ -84,13 +84,15 @@ export default {
         $(this)
           .children(".dropdown")
           .stop()
-          // .fadeIn(250)
           .animate(
             {
               height: "toggle"
             },
             350
-          );
+          ),
+          $(this)
+            .children(".fas")
+            .toggleClass("rotate");
       });
     } else {
       $("ul li").hover(
@@ -98,25 +100,17 @@ export default {
           $(this)
             .children(".dropdown")
             .stop()
-            // .fadeIn(250)
-            .animate(
-              {
-                height: "toggle"
-              },
-              350
-            );
+            .fadeIn(250)
+            .children(".fas")
+            .addClass("rotate");
         },
         function() {
           $(this)
             .children(".dropdown")
             .stop()
-            // .fadeOut(250)
-            .animate(
-              {
-                height: "toggle"
-              },
-              350
-            );
+            .fadeOut(250)
+            .children(".fas")
+            .removeClass("rotate");
         }
       );
     }
@@ -304,8 +298,7 @@ a {
   background: lightgray;
 }
 
-#nav li.has-dropdown:hover .fas,
-#nav li.has-dropdown:focus .fas {
+#nav li.has-dropdown .fas.rotate {
   -webkit-transform: rotate(180deg);
   transform: rotate(180deg);
 }
