@@ -73,9 +73,16 @@ export default {
   mounted: function() {
     // console.log(this.$store.state.catelogue);
 
-    $("#header #nav")
-      .find(".dropdown")
-      .hide();
+    function closeNav() {
+      $("#header #nav")
+        .find(".dropdown")
+        .hide();
+      $("#nav")
+        .find(".dropdown")
+        .hide();
+    }
+
+    closeNav();
 
     var wid = $(window).width();
 
@@ -127,6 +134,16 @@ export default {
           350
         );
       });
+    });
+
+    $("#nav a").click(function() {
+      $("#nav").animate(
+        {
+          height: "toggle",
+          margin: "20px auto"
+        },
+        350
+      );
     });
 
     // console.log('The route is: ' + this.$route.path);
