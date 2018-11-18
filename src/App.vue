@@ -82,24 +82,42 @@ export default {
         $(this)
           .children(".dropdown")
           .stop()
-          .fadeIn(250);
+          // .fadeIn(250)
+          .animate(
+            {
+              height: "toggle"
+            },
+            350
+          );
       },
       function() {
         $(this)
           .children(".dropdown")
           .stop()
-          .fadeOut(250);
+          // .fadeOut(250)
+          .animate(
+            {
+              height: "toggle"
+            },
+            350
+          );
       }
     );
 
     $(function() {
       $("#hamburger").click(function() {
-        $("#nav").toggle();
+        $("#nav").animate(
+          {
+            height: "toggle",
+            margin: "20px auto"
+          },
+          350
+        );
       });
     });
 
     // console.log('The route is: ' + this.$route.path);
-    let theCategory = this.$route.params.categoryName;
+    // let theCategory = this.$route.params.categoryName;
     // console.log(theCategory);
     // console.log(data.categories)
   }
@@ -169,7 +187,8 @@ a {
   font-size: 14px;
   text-transform: uppercase;
   max-width: 90vw;
-  margin: 20px auto;
+  overflow: hidden;
+  margin: 0 auto;
 }
 
 #nav a {
@@ -213,6 +232,8 @@ a {
   #nav {
     display: block;
     height: 40px;
+    margin: 20px auto;
+    overflow: visible;
   }
 
   #nav ul li {
@@ -294,12 +315,6 @@ a {
     text-align: left;
     border-radius: 0px;
   }
-
-  /* #nav .dropdown li:first-child {
-  }
-
-  .has-dropdown a + li:last-child {
-  } */
 }
 
 @media (min-width: 1023px) {
