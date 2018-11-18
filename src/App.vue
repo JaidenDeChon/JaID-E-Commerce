@@ -100,7 +100,8 @@ export default {
           $(this)
             .children(".dropdown")
             .stop()
-            .fadeIn(250)
+            .fadeIn();
+          $(this)
             .children(".fas")
             .addClass("rotate");
         },
@@ -108,7 +109,8 @@ export default {
           $(this)
             .children(".dropdown")
             .stop()
-            .fadeOut(250)
+            .fadeOut();
+          $(this)
             .children(".fas")
             .removeClass("rotate");
         }
