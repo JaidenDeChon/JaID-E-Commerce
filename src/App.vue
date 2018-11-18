@@ -77,8 +77,10 @@ export default {
       .find(".dropdown")
       .hide();
 
-    $("ul li").hover(
-      function() {
+    var wid = $(window).width();
+
+    if (wid < 1100) {
+      $("ul li").click(function() {
         $(this)
           .children(".dropdown")
           .stop()
@@ -89,20 +91,35 @@ export default {
             },
             350
           );
-      },
-      function() {
-        $(this)
-          .children(".dropdown")
-          .stop()
-          // .fadeOut(250)
-          .animate(
-            {
-              height: "toggle"
-            },
-            350
-          );
-      }
-    );
+      });
+    } else {
+      $("ul li").hover(
+        function() {
+          $(this)
+            .children(".dropdown")
+            .stop()
+            // .fadeIn(250)
+            .animate(
+              {
+                height: "toggle"
+              },
+              350
+            );
+        },
+        function() {
+          $(this)
+            .children(".dropdown")
+            .stop()
+            // .fadeOut(250)
+            .animate(
+              {
+                height: "toggle"
+              },
+              350
+            );
+        }
+      );
+    }
 
     $(function() {
       $("#hamburger").click(function() {
@@ -215,7 +232,7 @@ a {
   z-index: 99;
 }
 
-@media (min-width: 1023px) {
+@media (min-width: 1100px) {
   #header-brand {
     width: 100%;
   }
@@ -275,7 +292,7 @@ a {
   transition: transform 0.25s ease-in-out;
 }
 
-@media (min-width: 1023px) {
+@media (min-width: 1100px) {
   #nav li {
     display: inline-block;
     margin: 0 10px;
@@ -308,7 +325,7 @@ a {
   clear: both;
 }
 
-@media (min-width: 1023px) {
+@media (min-width: 1100px) {
   #nav .dropdown li {
     min-width: 200px;
     margin: 0;
@@ -317,7 +334,7 @@ a {
   }
 }
 
-@media (min-width: 1023px) {
+@media (min-width: 1100px) {
   #nav .dropdown {
     position: absolute;
   }
@@ -338,7 +355,7 @@ a {
   justify-content: center;
 }
 
-@media (min-width: 1023px) {
+@media (min-width: 1100px) {
   #hamburger {
     display: none;
   }
