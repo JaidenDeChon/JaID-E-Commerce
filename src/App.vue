@@ -24,7 +24,7 @@
                 </div>
             </a>
             <div id="header-brand">
-                <router-link to="/">
+                <router-link class="nav-close" to="/">
                     <div id="brand-title">
                         <h1>yosemite</h1>
                     </div>
@@ -35,18 +35,18 @@
             </div>
             <div id="nav">
                 <ul id="nav-links-left">
-                    <router-link to="/"><li>Home</li></router-link>
+                    <router-link to="/" class="nav-close"><li>Home</li></router-link>
                     <li v-for="category in this.$store.state.catelogue.categories" :key="category.name" class="has-dropdown"><a href="javascript:void(0)">{{ category.name }}</a><i class="fas fa-angle-down"></i>
                     <ul class="dropdown">
-                        <router-link :to="{ name: 'category', params: { categoryName: category.name } }"><li>all {{ category.name }}</li></router-link>
-                        <router-link :to="{ name: 'item', params: { categoryName: category.name, itemTitle: item.title } }" v-for="item in category.items" :key="item.title"><li>{{ item.title }}</li></router-link>
+                        <router-link class="nav-close" :to="{ name: 'category', params: { categoryName: category.name } }"><li>all {{ category.name }}</li></router-link>
+                        <router-link class="nav-close" :to="{ name: 'item', params: { categoryName: category.name, itemTitle: item.title } }" v-for="item in category.items" :key="item.title"><li>{{ item.title }}</li></router-link>
                     </ul>
                     </li>
                 </ul>
                 <ul id="nav-links-right">
-                    <li><a href="javascript:void(0)">Sign Up</a></li>
-                    <li><a href="javascript:void(0)">Sign In</a></li>
-                    <li><a href="javascript:void(0)">Cart <i class="fas fa-shopping-cart no-rotate"></i></a></li>
+                    <li><a class="nav-close">Sign Up</a></li>
+                    <li><a class="nav-close">Sign In</a></li>
+                    <li><a class="nav-close">Cart <i class="fas fa-shopping-cart no-rotate"></i></a></li>
                 </ul>
             </div>
               <router-view :key="$route.fullPath">
@@ -101,6 +101,15 @@ export default {
             .children(".fas")
             .toggleClass("rotate");
       });
+      $(".nav-close").click(function() {
+        $("#nav").animate(
+          {
+            height: "toggle",
+            margin: "20px auto"
+          },
+          350
+        );
+      });
     } else {
       $("ul li").hover(
         function() {
@@ -134,16 +143,6 @@ export default {
           350
         );
       });
-    });
-
-    $("#nav-links-left li a").click(function() {
-      $("#nav").animate(
-        {
-          height: "toggle",
-          margin: "20px auto"
-        },
-        350
-      );
     });
 
     // console.log('The route is: ' + this.$route.path);
