@@ -136,7 +136,7 @@ export default {
       });
     });
 
-    $("#nav a").click(function() {
+    $("#nav-links-left li a").click(function() {
       $("#nav").animate(
         {
           height: "toggle",
