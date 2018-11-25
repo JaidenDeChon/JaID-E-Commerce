@@ -3,6 +3,7 @@ import Router from "vue-router";
 import Home from "./views/Home.vue";
 import Category from "./views/Category.vue";
 import Item from "./views/Item.vue";
+import About from "./views/About.vue";
 
 Vue.use(Router);
 
@@ -37,6 +38,11 @@ export default new Router({
       path: "/:categoryName/:itemTitle",
       name: "item",
       component: Item
+    },
+    {
+      path: "/about",
+      name: "about",
+      component: About
     }
   ]
 });
