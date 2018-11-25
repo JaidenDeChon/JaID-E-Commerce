@@ -7,9 +7,9 @@
             <div id="navigate">
                 <h3>Navigate</h3>
                 <router-link target="_self" to="/">Home</router-link><br>
-                <router-link target="_self" to="/faq">FAQ</router-link><br>
-                <router-link target="_self" to="/legal">Legal</router-link><br>
+                <router-link target="_self" to="/about">About</router-link><br>
                 <router-link target="_self" to="/our-story">Our Story</router-link><br>
+                <router-link target="_self" to="/legal">Legal</router-link><br>
                 <router-link target="_self" to="/site-map">Site Map</router-link><br>
             </div>
 
