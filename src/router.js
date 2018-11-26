@@ -20,6 +20,11 @@ export default new Router({
       component: Home
     },
     {
+      path: "/about",
+      name: "about",
+      component: About
+    },
+    {
       path: "/:categoryName",
       name: "category",
       // route level code-splitting
@@ -38,11 +43,6 @@ export default new Router({
       path: "/:categoryName/:itemTitle",
       name: "item",
       component: Item
-    },
-    {
-      path: "/about",
-      name: "about",
-      component: About
     }
   ]
 });
