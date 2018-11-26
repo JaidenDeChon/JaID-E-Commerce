@@ -1,11 +1,11 @@
 <template>
   <div class="about">
-    <h1>Route is working</h1>
     <vue-about-hero />
     <vue-quote />
-    <vue-slider />
     <vue-goals />
+    <vue-slider />
     <vue-team />
+    <vue-footer />
   </div>
 </template>
 
