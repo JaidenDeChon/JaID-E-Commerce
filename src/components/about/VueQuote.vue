@@ -18,7 +18,7 @@ export default {};
 
 #about-hero-followup {
   width: 100vw;
-  height: 80vh;
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,6 +31,7 @@ export default {};
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin: 40px 0;
 }
 
 #about-hero-followup #content #text {
@@ -66,6 +67,7 @@ export default {};
 
   #about-hero-followup {
     flex-direction: row;
+    height: 80vh;
   }
 
   #about-hero-followup #content {
