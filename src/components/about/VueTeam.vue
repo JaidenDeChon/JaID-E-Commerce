@@ -51,13 +51,12 @@ export default {};
   width: 100vw;
   margin: 0;
   padding: 0;
-  background: url(https://goo.gl/USLUAB) no-repeat center;
-  background-size: cover;
-  background-attachment: fixed;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  background: #e8e8e8;
+  box-shadow: inset 0 0 15px darkgray;
 }
 
 #about-team #background .team-member {
@@ -67,6 +66,7 @@ export default {};
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  box-shadow: 0 0 15px lightgray;
 }
 
 #about-team #background .team-member img {

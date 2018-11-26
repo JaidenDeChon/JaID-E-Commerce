@@ -45,10 +45,8 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 80vh;
   width: 100vw;
-  background: url("https://goo.gl/3symXc");
-  background-attachment: fixed;
 }
 .about-slider #slick-container {
   width: 100%;
@@ -63,8 +61,9 @@ export default {
 }
 .about-slider #slick-container .slide img {
   margin: 0 5px;
-  max-height: 100%;
+  max-height: 90%;
   max-width: 100%;
+  box-shadow: 0 0 15px darkgray;
 }
 
 @media (min-width: 280px) {

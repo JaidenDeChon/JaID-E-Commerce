@@ -17,7 +17,7 @@ export default {};
 @import url("https://fonts.googleapis.com/css?family=Quicksand");
 
 #about-hero #background {
-  height: 100vh;
+  height: 80vh;
   width: 100vw;
   margin: 0;
   padding: 0;
@@ -75,6 +75,9 @@ export default {};
 }
 
 @media (min-width: 1000px) {
+  #about-hero #background {
+    height: calc(100vh - 168px);
+  }
   #about-hero #text-container h1 {
     font-size: 100px;
   }

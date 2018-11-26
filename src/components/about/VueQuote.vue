@@ -16,14 +16,18 @@ export default {};
 <style scoped>
 @import url("https://fonts.googleapis.com/css?family=Quicksand");
 
+* {
+  overflow: hidden;
+}
+
 #about-hero-followup {
   width: 100vw;
-  height: 100vh;
+  height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url("https://goo.gl/3symXc");
-  background-attachment: fixed;
+  background: #e8e8e8;
+  box-shadow: inset 0 0 15px darkgray;
 }
 
 #about-hero-followup #content {
@@ -44,7 +48,7 @@ export default {};
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  box-shadow: 0 0 15px lightgray;
+  box-shadow: 0 0 15px darkgray;
 }
 
 #about-hero-followup #content #text #quoted {
@@ -56,6 +60,7 @@ export default {};
 #about-hero-followup #content img {
   width: 70vw;
   box-shadow: 0 0 15px lightgray;
+  object-fit: cover;
 }
 
 @media (min-width: 1200px) {
@@ -66,7 +71,7 @@ export default {};
   #about-hero-followup #content {
     flex-direction: row;
     height: 400px;
-    width: 80vw;
+    width: 50vw;
     box-shadow: 0 0 15px lightgray;
   }
 
