@@ -16,10 +16,6 @@ export default {};
 <style scoped>
 @import url("https://fonts.googleapis.com/css?family=Quicksand");
 
-* {
-  overflow: hidden;
-}
-
 #about-hero-followup {
   width: 100vw;
   height: 80vh;
@@ -64,6 +60,10 @@ export default {};
 }
 
 @media (min-width: 1200px) {
+  * {
+    overflow: hidden;
+  }
+
   #about-hero-followup {
     flex-direction: row;
   }
