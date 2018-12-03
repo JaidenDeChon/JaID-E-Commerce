@@ -53,7 +53,7 @@ export default {};
   padding: 0;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
   flex-wrap: wrap;
   background: #e8e8e8;
   box-shadow: inset 0 0 15px darkgray;
@@ -85,5 +85,11 @@ export default {};
 
 #about-team #background .team-member p.name {
   font-weight: bold;
+}
+
+@media (min-width: 1000px) {
+  #about-team #background .team-member {
+    width: 400px;
+  }
 }
 </style>
