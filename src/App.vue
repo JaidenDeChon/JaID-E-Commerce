@@ -1,20 +1,4 @@
 
-// Apply the below router-link stuff to the new nav bar
-// Navbar can be put in this file because it will be a global thing
-// Just do the footer as it's own component though
-
-<!--
-<template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
-</template>
--->
-
 <template>
     <div id="app">
         <div id="header">
