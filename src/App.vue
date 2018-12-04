@@ -7,10 +7,12 @@
             <div id="hamburger"><i class="fas fa-bars"></i></div>
           </div>
           <div id="center">
-            <div id="logo"> 
-              <h1>yosemite</h1>
-              <p>open e-commerce by Jaiden DeChon</p>
-            </div>
+            <router-link to="/">
+              <div id="logo"> 
+                <h1>yosemite</h1>
+                <p>open e-commerce by Jaiden DeChon</p>
+              </div>
+            </router-link>
           </div>
           <div id="right">
             <div id="cart-button"><i class="fas fa-shopping-cart"></i></div>
@@ -88,7 +90,11 @@ export default {
 
       // Define closeMenu function
       function closeMenu() {
-        $("body").css("overflow-y", "overlay");
+        if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1){
+            $("body").css("overflow-y", "auto");
+        } else {
+            $("body").css("overflow-y", "overlay")
+        };
         $("#overlay")
           .siblings("#menu")
           .animate({ left: "-420px" }, 300);
@@ -211,6 +217,7 @@ h6 {
   justify-content: center;
   align-items: center;
   flex-direction: row;
+  z-index: 1000;
 }
 
 #nav a {
