@@ -70,32 +70,32 @@ export default {
   },
 
   mounted: function() {
-    $(function() {
+
       // hide darkened menu overlay
       $("#overlay").hide();
 
       // Define openMenu function
       function openMenu() {
+        $("body").css("overflow-y", "hidden");
         $("#nav")
           .children("#overlay")
-          .fadeIn(100);
+          .fadeIn(300);
         $("#overlay")
           .siblings("#menu")
           .delay(100)
-          .animate({ left: "0" }, 100);
-        $("body").css("overflow-y", "hidden");
+          .animate({ left: "0" }, 300);
       }
 
       // Define closeMenu function
       function closeMenu() {
+        $("body").css("overflow-y", "overlay");
         $("#overlay")
           .siblings("#menu")
-          .animate({ left: "-420px" }, 100);
+          .animate({ left: "-420px" }, 300);
         $("#nav")
           .children("#overlay")
           .delay(100)
-          .fadeOut(100);
-        $("body").css("overflow-y", "auto");
+          .fadeOut(300);
       }
 
       // Show dark overlay and expand menu when hamburger is clicked
@@ -135,7 +135,6 @@ export default {
             .children(".fas")
             .toggleClass("rotate");
       });
-    });
   }
 };
 </script>
@@ -148,6 +147,33 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  overflow-y: overlay;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar:hover {
+    width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #c4c4c4;
+    border-radius: 10px;
+    margin: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #333; 
+    border-radius: 10px;
 }
 
 h1,
@@ -179,13 +205,18 @@ h6 {
   margin: 0;
   height: 100px;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.85);
   color: #555;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
 }
+
+#nav a {
+  color: #555;
+}
+
 #nav #left,
 #nav #center,
 #nav #right {
