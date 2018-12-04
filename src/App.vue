@@ -23,13 +23,13 @@
                 <div class="cover"><i class="fas fa-times"></i></div>
               </div>
 
-              <div class="option">
-                  <div class="cover">
-                      <router-link to="/">
-                          <p>Home</p>
-                      </router-link>
+              <router-link to="/">
+                  <div class="option">
+                      <div class="cover">
+                            <p>Home</p>
+                      </div>
                   </div>
-              </div>
+              </router-link>
 
               <div class="option" v-for="category in this.$store.state.catelogue.categories" :key="category.name">
 
@@ -69,39 +69,8 @@ export default {
     }
   },
 
-  mounted: function(e) {
-    // jQuery LockScroll v1.0.0
-    // * https://github.com/okataku/jquery-lockscroll
-    // * Copyright (c) 2015 Takuya Okada;
-    (function($) {
-      $.fn.lockscroll = function(lock, direction) {
-        var eventName = "scroll.lockscroll";
-        this.each(function(i, el) {
-          var $el = $(this);
-          var pos = { x: $el.scrollLeft(), y: $el.scrollTop() };
-
-          if (lock) {
-            $el.off(eventName);
-            $el.on(eventName, function() {
-              if (direction === "horizontal") {
-                $el.scrollLeft(pos.x);
-              } else if (direction === "vertical") {
-                $el.scrollTop(pos.y);
-              } else {
-                $el.scrollLeft(pos.x);
-                $el.scrollTop(pos.y);
-              }
-            });
-          } else {
-            $el.off(eventName);
-          }
-        });
-
-        return this;
-      };
-    })(jQuery);
-
-    $(function(e) {
+  mounted: function() {
+    $(function() {
       // hide darkened menu overlay
       $("#overlay").hide();
 
@@ -109,11 +78,12 @@ export default {
       function openMenu() {
         $("#nav")
           .children("#overlay")
-          .fadeIn(100),
-          $("#overlay")
-            .siblings("#menu")
-            .delay(100)
-            .animate({ left: "0" }, 100);
+          .fadeIn(100);
+        $("#overlay")
+          .siblings("#menu")
+          .delay(100)
+          .animate({ left: "0" }, 100);
+        $("body").css("overflow-y", "hidden");
       }
 
       // Define closeMenu function
@@ -125,6 +95,7 @@ export default {
           .children("#overlay")
           .delay(100)
           .fadeOut(100);
+        $("body").css("overflow-y", "auto");
       }
 
       // Show dark overlay and expand menu when hamburger is clicked
@@ -141,6 +112,13 @@ export default {
       $("#overlay").click(function() {
         closeMenu();
       });
+
+      // Close menu when a link is clicked
+      $("#menu")
+        .find("a")
+        .click(function() {
+          closeMenu();
+        });
 
       // Expand submenu when its' parent is clicked
       $(".cover").click(function() {
