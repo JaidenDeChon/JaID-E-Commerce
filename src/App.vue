@@ -1,50 +1,65 @@
 
 <template>
     <div id="app">
-        <div id="header">
-            <a id="hamburger">
-                <div>
-                    <i class="fas fa-bars"></i>
-                </div>
-            </a>
-            <div id="header-brand">
-                <router-link class="nav-close" to="/">
-                    <div id="brand-title">
-                        <h1>yosemite</h1>
-                    </div>
-                    <div id="brand-subtitle">
-                        <p>open e-commerce by Jaiden DeChon</p>
-                    </div>
-                </router-link>
+        <div id="nav-spacer"></div>
+        <div id="nav">
+          <div id="left">
+            <div id="hamburger"><i class="fas fa-bars"></i></div>
+          </div>
+          <div id="center">
+            <div id="logo"> 
+              <h1>yosemite</h1>
+              <p>open e-commerce by Jaiden DeChon</p>
             </div>
-            <div id="nav">
-                <ul id="nav-links-left">
-                    <router-link to="/" class="nav-close"><li>Home</li></router-link>
-                    <li v-for="category in this.$store.state.catelogue.categories" :key="category.name" class="has-dropdown"><a href="javascript:void(0)">{{ category.name }}</a><i class="fas fa-angle-down"></i>
-                    <ul class="dropdown">
-                        <router-link class="nav-close" :to="{ name: 'category', params: { categoryName: category.name } }"><li>all {{ category.name }}</li></router-link>
-                        <router-link class="nav-close" :to="{ name: 'item', params: { categoryName: category.name, itemTitle: item.title } }" v-for="item in category.items" :key="item.title"><li>{{ item.title }}</li></router-link>
-                    </ul>
-                    </li>
-                </ul>
-                <ul id="nav-links-right">
-                    <li><a class="nav-close">Sign Up</a></li>
-                    <li><a class="nav-close">Sign In</a></li>
-                    <li><a class="nav-close">Cart <i class="fas fa-shopping-cart no-rotate"></i></a></li>
-                </ul>
-            </div>
-              <router-view :key="$route.fullPath">
-                  <!-- <router-view /> -->
-              </router-view>
+          </div>
+          <div id="right">
+            <div id="cart-button"><i class="fas fa-shopping-cart"></i></div>
+          </div>
+          <div id="overlay"></div>
+
+          <div id="menu">
+
+              <div class="option" id="close">
+                <div class="cover"><i class="fas fa-times"></i></div>
+              </div>
+
+              <div class="option">
+                  <div class="cover">
+                      <router-link to="/">
+                          <p>Home</p>
+                      </router-link>
+                  </div>
+              </div>
+
+              <div class="option" v-for="category in this.$store.state.catelogue.categories" :key="category.name">
+
+                  <div class="cover">
+                    <p>{{ category.name }}</p>
+                    <i class="fas fa-caret-down"></i>
+                  </div>
+
+                  <div class="submenu">
+
+                      <router-link :to="{ name: 'category', params: { categoryName: category.name } }">
+                          <div class="option">All {{ category.name }}</div>
+                      </router-link>
+
+                      <router-link :to="{ name: 'item', params: { categoryName: category.name, itemTitle: item.title } }" v-for="item in category.items" :key="item.title">
+                          <div class="option">{{ item.title }}</div>
+                      </router-link>
+
+                  </div>
+
+              </div>
+
+          </div>
         </div>
+        <router-view :key="$route.fullPath"></router-view>
     </div>
 </template>
 
 
 <script>
-// Import JavaScript affiliated with header. Component can interact with this JS if it were ever needed
-import "./assets/header.js";
-
 export default {
   computed: {
     catelogue() {
@@ -54,26 +69,83 @@ export default {
     }
   },
 
-  mounted: function() {
-    // console.log(this.$store.state.catelogue);
+  mounted: function(e) {
+    // jQuery LockScroll v1.0.0
+    // * https://github.com/okataku/jquery-lockscroll
+    // * Copyright (c) 2015 Takuya Okada;
+    (function($) {
+      $.fn.lockscroll = function(lock, direction) {
+        var eventName = "scroll.lockscroll";
+        this.each(function(i, el) {
+          var $el = $(this);
+          var pos = { x: $el.scrollLeft(), y: $el.scrollTop() };
 
-    function closeNav() {
-      $("#header #nav")
-        .find(".dropdown")
-        .hide();
-      $("#nav")
-        .find(".dropdown")
-        .hide();
-    }
+          if (lock) {
+            $el.off(eventName);
+            $el.on(eventName, function() {
+              if (direction === "horizontal") {
+                $el.scrollLeft(pos.x);
+              } else if (direction === "vertical") {
+                $el.scrollTop(pos.y);
+              } else {
+                $el.scrollLeft(pos.x);
+                $el.scrollTop(pos.y);
+              }
+            });
+          } else {
+            $el.off(eventName);
+          }
+        });
 
-    closeNav();
+        return this;
+      };
+    })(jQuery);
 
-    var wid = $(window).width();
+    $(function(e) {
+      // hide darkened menu overlay
+      $("#overlay").hide();
 
-    if (wid < 1100) {
-      $("ul li").click(function() {
+      // Define openMenu function
+      function openMenu() {
+        $("#nav")
+          .children("#overlay")
+          .fadeIn(100),
+          $("#overlay")
+            .siblings("#menu")
+            .delay(100)
+            .animate({ left: "0" }, 100);
+      }
+
+      // Define closeMenu function
+      function closeMenu() {
+        $("#overlay")
+          .siblings("#menu")
+          .animate({ left: "-420px" }, 100);
+        $("#nav")
+          .children("#overlay")
+          .delay(100)
+          .fadeOut(100);
+      }
+
+      // Show dark overlay and expand menu when hamburger is clicked
+      $("#hamburger").click(function() {
+        openMenu();
+      });
+
+      // Close menu when "close" button is clicked
+      $("#close").click(function() {
+        closeMenu();
+      });
+
+      // Close menu when dark overlay is clicked
+      $("#overlay").click(function() {
+        closeMenu();
+      });
+
+      // Expand submenu when its' parent is clicked
+      $(".cover").click(function() {
         $(this)
-          .children(".dropdown")
+          .siblings(".submenu")
           .stop()
           .animate(
             {
@@ -85,61 +157,14 @@ export default {
             .children(".fas")
             .toggleClass("rotate");
       });
-      $(".nav-close").click(function() {
-        $("#nav").animate(
-          {
-            height: "toggle",
-            margin: "20px auto"
-          },
-          350
-        );
-      });
-    } else {
-      $("ul li").hover(
-        function() {
-          $(this)
-            .children(".dropdown")
-            .stop()
-            .fadeIn();
-          $(this)
-            .children(".fas")
-            .addClass("rotate");
-        },
-        function() {
-          $(this)
-            .children(".dropdown")
-            .stop()
-            .fadeOut();
-          $(this)
-            .children(".fas")
-            .removeClass("rotate");
-        }
-      );
-    }
-
-    $(function() {
-      $("#hamburger").click(function() {
-        $("#nav").animate(
-          {
-            height: "toggle",
-            margin: "20px auto"
-          },
-          350
-        );
-      });
     });
-
-    // console.log('The route is: ' + this.$route.path);
-    // let theCategory = this.$route.params.categoryName;
-    // console.log(theCategory);
-    // console.log(data.categories)
   }
 };
 </script>
 
 
 <style>
-@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Serif:400i|Raleway:400|Righteous|Proza+Libre|Advent+Pro");
+@import url("https://fonts.googleapis.com/css?family=Advent+Pro|Raleway");
 
 body {
   margin: 0;
@@ -161,208 +186,185 @@ h6 {
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  text-decoration: none !important;
-}
-
-#header {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-#header-brand {
-  width: 100%;
-  text-align: center;
-  margin: 0;
-  padding: 0;
-  background-color: #fafafb;
-  box-shadow: 0 1px 0 rgba(12, 13, 14, 0.1), 0 1px 6px rgba(59, 64, 69, 0.1);
-}
-
-#header-brand a {
-  color: #555;
-  display: inline-block;
-  margin: 10px;
-}
-
-#header-brand a * {
-  margin: 0;
-}
-
-#header-brand h1 {
-  font-family: "Advent Pro", sans-serif;
-  font-size: 50px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-#header-brand p {
-  font-family: "Raleway", sans-serif;
-  font-size: 15px;
+#nav-spacer {
+  height: 100px;
+  width: 100vw;
 }
 
 #nav {
-  display: none;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 0;
+  margin: 0;
+  height: 100px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
   color: #555;
-  font-family: "Raleway", sans-serif;
-  font-weight: 100;
-  font-size: 14px;
-  text-transform: uppercase;
-  max-width: 90vw;
-  overflow: hidden;
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
 }
-
-#nav a {
-  color: #555;
-}
-
-#nav .fas {
-  text-align: center;
-  width: 30px;
-}
-
-#nav ul {
-  list-style: none;
+#nav #left,
+#nav #center,
+#nav #right {
+  box-sizing: inherit;
+  width: 20%;
+  height: 100%;
   margin: 0;
   padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-#nav ul:hover,
-#nav ul:focus {
-  cursor: default;
-}
-
-.dropdown {
-  z-index: 99;
-}
-
-@media (min-width: 1100px) {
-  #header-brand {
-    width: 100%;
-  }
-
-  #header-brand a {
-    /* width: 100%; */
-    padding: 0 20px 10px;
-    margin: 0 auto;
-  }
-
-  #brand-subtitle {
-    text-align: center;
-  }
-  #nav {
-    display: block;
-    height: 40px;
-    margin: 20px auto;
-    overflow: visible;
-  }
-
-  #nav ul li {
-    font-size: 15px;
-  }
-
-  #nav #nav-links-left {
-    float: left;
-  }
-
-  #nav #nav-links-left li:first-child {
-    margin-left: 0;
-  }
-
-  #nav #nav-links-right {
-    float: right;
-  }
-
-  #nav #nav-links-right li:last-child {
-    margin-right: 0;
-  }
-}
-
-#nav li {
-  display: block;
-  margin: 10px 0;
-  border-radius: 3px;
-  padding: 10px;
-  margin: 10px 0;
-  position: relative;
-  text-decoration: none;
-  background: #e8e8e8;
-  transition: all 0.25s ease;
+#nav #left #hamburger {
+  box-sizing: inherit;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
+  border-radius: 5px;
+  transition: 0.1s ease-in-out;
 }
-
-#nav li .fas {
-  -webkit-transition: -webkit-transform 0.25s ease-in-out;
-  transition: transform 0.25s ease-in-out;
+#nav #left #hamburger:hover {
+  background: #e8e8e8;
 }
-
-@media (min-width: 1100px) {
-  #nav li {
-    display: inline-block;
-    margin: 0 10px;
-  }
+#nav #center {
+  width: 60% !important;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
 }
-
-#nav li:hover,
-#nav li:focus {
-  background: lightgray;
+#nav #center #logo {
+  box-sizing: inherit;
+  text-align: center;
 }
-
-#nav li.has-dropdown .fas.rotate {
+#nav #center #logo h1 {
+  font-family: Advent Pro, sans-serif;
+  font-size: 30px;
+  margin: 5px 0;
+}
+#nav #center #logo p {
+  font-family: "Raleway", sans-serif;
+  font-size: 15px;
+  margin: 5px 0;
+}
+#nav #right #cart-button {
+  box-sizing: inherit;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 5px;
+}
+#nav #right #cart-button:hover {
+  background: #e8e8e8;
+}
+#nav #overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+#nav #menu {
+  position: absolute;
+  top: 0;
+  left: -420px;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow-y: scroll;
+  background: white;
+}
+#nav #menu .option {
+  box-sizing: inherit;
+  min-height: 60px;
+  font-family: "Raleway", sans-serif;
+  font-size: 27px;
+  cursor: pointer;
+  border-top: 1px solid #e8e8e8;
+}
+#nav #menu .option .cover {
+  min-height: 60px;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.25s ease-in-out;
+}
+#nav #menu .option .cover .fas {
+  transition: 0.25s ease-in-out;
+}
+#nav #menu .option .cover .fas.rotate {
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+#nav #menu .option .cover:hover {
+  background: #e8e8e8;
+}
+#nav #menu .option .submenu {
+  display: none;
+  border-bottom: 1px solid #e8e8e8;
+}
+#nav #menu .option .submenu a {
+  text-decoration: none;
+  color: #555;
+}
+#nav #menu .option .submenu .option {
+  padding: 0 40px;
+  font-size: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  transition: 0.2s ease-in-out;
+}
+#nav #menu .option .submenu .option:hover {
+  padding: 0 40px 0 50px;
+}
+#nav #menu #close {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+#nav #menu #close .fas {
+  transition: 0.25s ease-in-out;
+}
+#nav #menu #close:hover {
+  background: #e8e8e8;
+}
+#nav #menu #close:hover .fas {
   -webkit-transform: rotate(180deg);
   transform: rotate(180deg);
 }
 
-#nav .dropdown {
-  border-top: 5px solid transparent;
-  border-radius: 3px;
-  position: relative;
-  left: 0;
-  min-width: 100%;
-  margin-top: 10px;
-}
-
-#nav .dropdown li {
-  margin: 10px auto;
-  max-width: 90%;
-  clear: both;
-}
-
-@media (min-width: 1100px) {
-  #nav .dropdown li {
-    min-width: 200px;
-    margin: 0;
-    text-align: left;
-    border-radius: 0px;
+@media (min-width: 400px) {
+  #nav #menu {
+    min-width: 400px;
+    max-width: 420px;
+  }
+  #nav #menu #close {
+    font-size: 20px;
   }
 }
-
-@media (min-width: 1100px) {
-  #nav .dropdown {
-    position: absolute;
-  }
-}
-
-#hamburger {
-  width: 30px;
-  height: 30px;
-  margin-top: 15px;
-  position: absolute;
-  top: 25px;
-  left: 5vw;
-  border-radius: 3px;
-  color: #555;
-  background-color: #e8e8e8;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-@media (min-width: 1100px) {
-  #hamburger {
-    display: none;
+@media (min-width: 1000px) {
+  #nav #left #hamburger i,
+  #nav #right #cart-button i {
+    font-size: 20px;
   }
 }
 </style>
