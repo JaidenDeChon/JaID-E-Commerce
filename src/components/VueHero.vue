@@ -63,7 +63,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
 }
 
-.slick-dots {
+#hero .slick-dots {
   height: 30px;
   margin: 20px 0;
   padding: 30px 0 0 0;
@@ -71,11 +71,11 @@ h1, h2, h3, h4, h5, h6 {
   background: linear-gradient(to top, black 0%, rgba(0, 0, 0, 0.738) 19%, rgba(0, 0, 0, 0.541) 34%, rgba(0, 0, 0, 0.382) 47%, rgba(0, 0, 0, 0.278) 56.5%, rgba(0, 0, 0, 0.194) 65%, rgba(0, 0, 0, 0.126) 73%, rgba(0, 0, 0, 0.075) 80.2%, rgba(0, 0, 0, 0.042) 86.1%, rgba(0, 0, 0, 0.021) 91%, rgba(0, 0, 0, 0.008) 95.2%, rgba(0, 0, 0, 0.002) 98.2%, transparent 100%);
 }
 
-.slick-dots li button:before {
+#hero .slick-dots li button:before {
   color: white;
 }
 
-.slick-dots li.slick-active button:before {
+#hero .slick-dots li.slick-active button:before {
   opacity: 0.75;
   color: white;
 }
