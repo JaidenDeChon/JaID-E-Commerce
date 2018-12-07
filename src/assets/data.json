@@ -655,6 +655,43 @@
 
     ],
 
-    "banner": "https://goo.gl/DXUZPR"
+    "heros": [
+        {
+            "background" : "https://goo.gl/vNokUU",
+            "header" : "Gibson Les Paul",
+            "subtitle" : "Buy a classic.",
+            "button" : "SHOP NOW",
+            "position" : "right",
+            "category" : "Guitars",
+            "item" : "Gibson Les Paul"
+        },
+        {
+            "background" : "https://goo.gl/yufpNP",
+            "header" : "Turntables galore",
+            "subtitle" : "Ready to spin?",
+            "button" : "SHOP NOW",
+            "position" : "left",
+            "category" : "Equipment",
+            "item" : ""
+        },
+        {
+            "background" : "https://goo.gl/X2JmK2",
+            "header" : "Rode NTK",
+            "subtitle" : "Unparalleled audio quality",
+            "button" : "SHOP NOW",
+            "position" : "right",
+            "category" : "Microphones",
+            "item" : "Rode NTK"
+        },
+        {
+            "background" : "https://goo.gl/PvePzK",
+            "header" : "Fender Telecaster",
+            "subtitle" : "Rock like the legends.",
+            "button" : "SHOP NOW",
+            "position" : "",
+            "category" : "Guitars",
+            "item" : "Fender Telecaster"
+        }
+    ]
 
 }
