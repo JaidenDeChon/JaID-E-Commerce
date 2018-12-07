@@ -89,7 +89,6 @@ export default {
         cssEase: "ease-out",
         speed: 200,
         useTransform: true,
-        fade: true
       });
 
       // let initialPic = $(".colors")
