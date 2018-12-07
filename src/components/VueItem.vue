@@ -76,7 +76,6 @@
 <script>
 import jQuery from "jquery";
 import Slick from "vue-slick";
-// import "node_modules/slick-carousel/slick/slick.css";
 
 export default {
   name: "VueItem",
