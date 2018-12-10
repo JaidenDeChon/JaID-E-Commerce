@@ -2,7 +2,8 @@
   <div class="item">
     <vue-crumbs />
     <vue-item />
-    <vue-card /> <!-- [Will be used to show other items from same category] -->
+    <vue-header />
+    <vue-card />
     <vue-footer />
   </div>
 </template>
@@ -11,6 +12,7 @@
 // @ is an alias to /src
 import VueCrumbs from "@/components/VueCrumbs.vue";
 import VueItem from "@/components/VueItem.vue";
+import VueHeader from "@/components/VueHeader.vue";
 import VueCard from "@/components/VueCard.vue";
 import VueFooter from "@/components/VueFooter.vue";
 
@@ -19,6 +21,7 @@ export default {
   components: {
     VueCrumbs,
     VueItem,
+    VueHeader,
     VueCard,
     VueFooter
   }
