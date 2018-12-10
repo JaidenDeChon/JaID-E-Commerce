@@ -1,47 +1,99 @@
 
 <template>
 
-  <div v-if="$route.path == '/'" id="hero-container" v-bind:style="{ background: 'url(' + this.$store.state.catelogue.banner + ')'}">
-    <div id="hero-text">
-      <h1 id="hero-big">yosemite</h1>
-      <p id="hero-small">open-source e-commerce by Jaiden DeChon</p>
-    </div>
-  </div>
+    <!-- If path is root -->
+    <div  id="category-header"
+          v-if="$route.path == '/'" >
 
-  <div v-else-if="['category', 'item'].indexOf($route.name) > -1" id="hero-outside-container">
-    <template v-for="category in this.$store.state.catelogue.categories" v-if="category.name === $route.params.categoryName">
-      <div :key="category" id="hero-container" v-bind:style="{background: 'url(' + category.banner + ')'}">
-        <div id="hero-text">
-          <h1 id="hero-big">{{ category.name }}</h1>
-          <p v-if="category.desc" id="hero-small">{{ category.desc }}</p>
+        <div id="container">
+
+            <div  id="label-container">
+
+                <p id="label">All Categories</p>
+
+            </div>
+
+            <div id="buttons-container">
+
+                <p>Page Layout</p>
+
+                <div id="buttons">
+                    <button class="active" id="large"><i class="fas fa-th-large"></i></button>
+                    <button id="small"><i class="fas fa-th"></i></button>
+                </div>
+
+            </div>
         </div>
-      </div>
-    </template>
-  </div>
-
-</template>
-
-<template>
-  
-<div id="category-header">
-  <div id="container">
-    <div id="label-container" v-for="category in this.$store.state.catelogue.categories" v-if="category.name === $route.params.categoryName">
-      <div id="breadcrumbs">
-        <router-link to="/">Home</router-link>
-        <p>&bull;</p>
-        <p>{{ category.name }}</p>
-      </div>
-      <p id="label">{{ category.name }}</p>
     </div>
-    <div id="buttons-container">
-      <p>Page Layout</p>
-      <div id="buttons">
-        <button class="active" id="large"><i class="fas fa-th-large"></i></button>
-        <button id="small"><i class="fas fa-th"></i></button>
-      </div>
+
+
+    <!-- Else if path is category -->
+    <div  id="category-header"
+          v-else-if="['category'].indexOf($route.name) > -1" >
+
+        <div id="container">
+
+            <div  id="label-container" 
+                  v-for="category in this.$store.state.catelogue.categories" 
+                  v-if="category.name === $route.params.categoryName"
+                  :key="category.name" >
+
+                <div id="breadcrumbs">
+                    <router-link to="/">Home</router-link>
+                    <p>&bull;</p>
+                    <p>{{ category.name }}</p>
+                </div>
+
+                <p id="label">{{ category.name }}</p>
+
+            </div>
+
+            <div id="buttons-container">
+
+                <p>Page Layout</p>
+
+                <div id="buttons">
+                    <button class="active" id="large"><i class="fas fa-th-large"></i></button>
+                    <button id="small"><i class="fas fa-th"></i></button>
+                </div>
+
+            </div>
+        </div>
     </div>
-  </div>
-</div>
+
+    <!-- If path is category -->
+    <div  id="category-header"
+          v-else-if="['item'].indexOf($route.name) > -1" >
+
+        <div id="container">
+
+            <div  id="label-container" 
+                  v-for="category in this.$store.state.catelogue.categories" 
+                  v-if="category.name === $route.params.categoryName"
+                  :key="category.name" >
+
+                <div id="breadcrumbs">
+                    <router-link to="/">Home</router-link>
+                    <p>&bull;</p>
+                    <p>{{ category.name }}</p>
+                </div>
+
+                <p id="label">Popular items in {{ category.name }}</p>
+
+            </div>
+
+            <div id="buttons-container">
+
+                <p>Page Layout</p>
+
+                <div id="buttons">
+                    <button class="active" id="large"><i class="fas fa-th-large"></i></button>
+                    <button id="small"><i class="fas fa-th"></i></button>
+                </div>
+
+            </div>
+        </div>
+    </div>
 
 </template>
 
@@ -106,6 +158,7 @@ h6 {
   flex-grow: 1;
   min-height: 120px;
   max-width: 100%;
+  text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -187,6 +240,7 @@ h6 {
     flex-direction: row;
   }
   #category-header #container #label-container {
+    text-align: left;
     align-items: flex-start;
     max-width: 50%;
   }
