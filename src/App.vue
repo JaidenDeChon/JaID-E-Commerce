@@ -72,75 +72,74 @@ export default {
   },
 
   mounted: function() {
+    // hide darkened menu overlay
+    $("#overlay").hide();
 
-      // hide darkened menu overlay
-      $("#overlay").hide();
+    // Define openMenu function
+    function openMenu() {
+      $("body").css("overflow-y", "hidden");
+      $("#nav")
+        .children("#overlay")
+        .fadeIn(300);
+      $("#overlay")
+        .siblings("#menu")
+        .delay(100)
+        .animate({ left: "0" }, 300);
+    }
 
-      // Define openMenu function
-      function openMenu() {
-        $("body").css("overflow-y", "hidden");
-        $("#nav")
-          .children("#overlay")
-          .fadeIn(300);
-        $("#overlay")
-          .siblings("#menu")
-          .delay(100)
-          .animate({ left: "0" }, 300);
+    // Define closeMenu function
+    function closeMenu() {
+      if (navigator.userAgent.toLowerCase().indexOf("firefox") > -1) {
+        $("body").css("overflow-y", "auto");
+      } else {
+        $("body").css("overflow-y", "overlay");
       }
+      $("#overlay")
+        .siblings("#menu")
+        .animate({ left: "-420px" }, 300);
+      $("#nav")
+        .children("#overlay")
+        .delay(100)
+        .fadeOut(300);
+    }
 
-      // Define closeMenu function
-      function closeMenu() {
-        if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1){
-            $("body").css("overflow-y", "auto");
-        } else {
-            $("body").css("overflow-y", "overlay")
-        };
-        $("#overlay")
-          .siblings("#menu")
-          .animate({ left: "-420px" }, 300);
-        $("#nav")
-          .children("#overlay")
-          .delay(100)
-          .fadeOut(300);
-      }
+    // Show dark overlay and expand menu when hamburger is clicked
+    $("#hamburger").click(function() {
+      openMenu();
+    });
 
-      // Show dark overlay and expand menu when hamburger is clicked
-      $("#hamburger").click(function() {
-        openMenu();
-      });
+    // Close menu when "close" button is clicked
+    $("#close").click(function() {
+      closeMenu();
+    });
 
-      // Close menu when "close" button is clicked
-      $("#close").click(function() {
+    // Close menu when dark overlay is clicked
+    $("#overlay").click(function() {
+      closeMenu();
+    });
+
+    // Close menu when a link is clicked
+    $("#menu")
+      .find("a")
+      .click(function() {
         closeMenu();
       });
 
-      // Close menu when dark overlay is clicked
-      $("#overlay").click(function() {
-        closeMenu();
-      });
-
-      // Close menu when a link is clicked
-      $("#menu")
-        .find("a")
-        .click(function() {
-          closeMenu();
-        });
-
-      // Expand submenu when its' parent is clicked
-      $(".cover").click(function() {
+    // Expand submenu when its' parent is clicked
+    $(".cover").click(function() {
+      $(this)
+        .siblings(".submenu")
+        .stop()
+        .animate(
+          {
+            height: "toggle"
+          },
+          350
+        ),
         $(this)
-          .siblings(".submenu")
-          .stop()
-          .animate(
-            {
-              height: "toggle"
-            },
-            350
-          ),
-          $(this)
-            .children(".fas")
-            .toggleClass("rotate");
-      });
+          .children(".fas")
+          .toggleClass("rotate");
+    });
   }
 };
 </script>
@@ -162,24 +161,24 @@ a {
 
 /* width */
 ::-webkit-scrollbar {
-    width: 10px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar:hover {
-    width: 20px;
+  width: 20px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: #c4c4c4;
-    border-radius: 10px;
-    margin: 5px;
+  background: #c4c4c4;
+  border-radius: 10px;
+  margin: 5px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #333; 
-    border-radius: 10px;
+  background: #333;
+  border-radius: 10px;
 }
 
 h1,
