@@ -1,6 +1,6 @@
 <template>
   <div class="category">
-    <!-- <vue-hero /> -->
+    <vue-header />
     <vue-card />
     <vue-footer />
   </div>
@@ -8,14 +8,14 @@
 
 <script>
 // @ is an alias to /src
-// import VueHero from "@/components/VueHero.vue";
+import VueHeader from "@/components/VueHeader.vue";
 import VueCard from "@/components/VueCard.vue";
 import VueFooter from "@/components/VueFooter.vue";
 
 export default {
   name: "Category",
   components: {
-    // VueHero,
+    VueHeader,
     VueCard,
     VueFooter
   }
