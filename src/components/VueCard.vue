@@ -3,82 +3,132 @@
 //     only show so many "other items in this category" so as to not overload the page in the event of tons of items 
 
 <template>
-    <!-- If path is root -->
-    <div v-if="$route.path == '/'" id="squares-container">
+  
+    <!-- If path is root... -->
+    <div  id="center-container"
+          v-if="$route.path == '/'" >
 
-        <!-- Show categories in cards -->
-        <router-link v-for="category in this.$store.state.catelogue.categories" :to="{ name: 'category', params: { categoryName: category.name } }" :key="category.name">
-            <div class="square">
-                <div class="img-container">
-                    <img v-bind:src="category.card" alt="Category Image">
-                </div>
-                <div class="meta-data">
-                    <h3>{{ category.name }}</h3>
-                    <h5><i class="fa fa-tags" aria-hidden="true"></i> {{ category.items.length }}</h5>
-                </div>
+        <div class="big" id="cards-container" >
+
+            <!-- ...For each category in the catelogue... -->
+            <div  class="card"
+                  v-for="category in this.$store.state.catelogue.categories" 
+                  :key="category.name" >
+
+                <!-- ...Create a card anchored to that category -->
+                <router-link :to="{ name: 'category', params: { categoryName: category.name } }">
+
+                    <!-- Category's main image  -->
+                    <img v-bind:src="category.card">
+
+                    <!-- Bottom part of card containing text -->
+                    <div class="text-container">
+                        <p class="header">{{ category.name }}</p>
+                        <p class="subtitle">
+                            <div class="lower">
+                                <i class="fa fa-tags" aria-hidden="true" ></i>
+                                {{ category.items.length }}
+                            </div>
+                        </p>
+                    </div>
+
+                </router-link>
             </div>
-        </router-link>
-
+        </div>
     </div>
 
-    <!-- Else if path is category -->
-    <div v-else-if="['category'].indexOf($route.name) > -1" id="squares-container">
+    <!-- Else if path is category... -->
+    <div  id="center-container"
+          v-else-if="['category'].indexOf($route.name) > -1" >
 
-      <!-- Show category items in cards -->
-        <!-- {{ theCategory }} -->
-        <!-- {{ this.$route.params.categoryName }} -->
-        <template v-for="category in this.$store.state.catelogue.categories" v-if="category.name === $route.params.categoryName">
-          <router-link v-for="item in category.items" :to="{ name: 'item', params: { categoryName: category.name, itemTitle: item.title } }" :key="item.title">
-              <div class="square">
-                  <div class="img-container">
-                      <img v-bind:src="item.mainImage" alt="Category Image">
-                  </div>
-                  <div class="meta-data">
-                      <h3>{{ item.title }}</h3>
-                      <h5><i class="fa fa-tags" aria-hidden="true"></i> {{ item.price }}</h5>
-                  </div>
-              </div>
-          </router-link>
-        </template>
+        <div  class="big" id="cards-container" >
 
+            <!-- ...For the category which matches this route... -->
+            <template   v-for="category in this.$store.state.catelogue.categories" 
+                        v-if="category.name === $route.params.categoryName" >
+
+                <!-- ...For each item in this category... -->
+                <div  class="card"
+                      v-for="item in category.items"
+                      :key="item.title">
+
+                    <!-- ...Create a card anchored to that item -->
+                    <router-link :to="{ name: 'item', params: { categoryName: category.name, itemTitle: item.title } }">
+
+                        <!-- Item's main image -->
+                        <img v-bind:src="item.mainImage">
+
+                        <!-- Bottom part of card containing text -->
+                        <div class="text-container">
+
+                            <p class="header">{{ item.title }}</p>
+
+                            <p class="subtitle">
+                                <div class="lower">
+                                    <i class="fa fa-tags" aria-hidden="true" ></i>
+                                    {{ item.price }}
+                                </div>
+                            </p>
+
+                        </div>
+
+                    </router-link>
+                </div>
+            </template>
+        </div>
     </div>
 
+    <!-- Else if path is item... -->
+    <div  id="center-container"
+          v-else-if="['item'].indexOf($route.name) > -1" >
 
-  <!-- Else if path is item -->
-  <div v-else-if="['item'].indexOf($route.name) > -1">
-    <h1 class="category-others">Other items in <router-link :to="{ name: 'category', params: { categoryName: $route.params.categoryName } }">{{ $route.params.categoryName }}</router-link></h1>
-    <div id="squares-container">
-        <template v-for="category in this.$store.state.catelogue.categories" v-if="category.name === $route.params.categoryName">
-          <router-link v-for="item in category.items" v-if="item.title != $route.params.itemTitle" :to="{ name: 'item', params: { categoryName: category.name, itemTitle: item.title } }" :key="item.title">
-              <div class="square">
-                  <div class="img-container">
-                      <img v-bind:src="item.mainImage" alt="Category Image">
-                  </div>
-                  <div class="meta-data">
-                      <h3>{{ item.title }}</h3>
-                      <h5><i class="fa fa-tags" aria-hidden="true"></i> {{ item.price }}</h5>
-                  </div>
-              </div>
-          </router-link>
-        </template>
+        <div  class="big" id="cards-container">
+
+            <!-- ...For the category which matches this route... -->
+            <template   v-for="category in this.$store.state.catelogue.categories" 
+                        v-if="category.name === $route.params.categoryName" >
+
+                <!-- ...For each item in this category, if it's not the item currently being viewed... -->
+                <div  class="card"
+                      v-for="item in category.items" 
+                      v-if="item.title != $route.params.itemTitle"
+                      :key="item.title" >
+
+                    <!-- ...Create a card anchored to that item -->
+                    <router-link :to="{ name: 'item', params: { categoryName: category.name, itemTitle: item.title } }" >
+
+                        <!-- Item's main image -->
+                        <img v-bind:src="item.mainImage">
+
+                        <!-- Bottom part of card containing text -->
+                        <div class="text-container">
+
+                            <p class="header">{{ item.title }}</p>
+
+                            <p class="subtitle">
+                                <div class="lower">
+                                    <i class="fa fa-tags" aria-hidden="true" ></i>
+                                    {{ item.price }}
+                                </div>
+                            </p>
+
+                        </div>
+
+                    </router-link>
+                </div>
+            </template>
+        </div>
     </div>
-  </div>
+
 </template>
 
+
 <script>
-export default {
-  // computed: {
-  //   catelogue() {
-  //     return this.$store.state.catelogue
-  //       ? this.$store.state.catelogue
-  //       : "Loading...";
-  //   }
-  // }
-};
+export default {};
 </script>
 
 <style scoped>
-@import url("https://fonts.googleapis.com/css?family=Raleway|Montserrat");
+@import url("https://fonts.googleapis.com/css?family=Raleway");
 
 html,
 body {
@@ -93,212 +143,166 @@ h4,
 h5,
 h6 {
   font-weight: normal;
+}
+
+#center-container {
+  width: 100vw;
+
+  margin: 20px 0 0 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#cards-container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 10px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+#cards-container.big .card img {
+  min-height: 200px;
+}
+#cards-container .card {
+  box-sizing: border-box;
+  overflow: hidden;
+}
+#cards-container .card a {
+  margin: 0;
+  padding: 0;
+  display: block;
+  color: #333;
+  text-decoration: none;
+}
+#cards-container .card a:visited {
+  color: #333;
+}
+#cards-container .card * {
+  transition: all 0.4s;
+}
+#cards-container .card:hover > a > .text-container {
+  background-color: #e8e8e8;
+}
+#cards-container .card:hover > a > img {
+  border-radius: 10px 10px 0 0;
+}
+#cards-container .card img {
+  max-height: 150px;
+  object-fit: cover;
+  width: 100%;
+  border-radius: 10px;
   margin: 0;
   padding: 0;
 }
-
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-
-@media (min-width: 0) {
-  #squares-container {
-    padding: 0;
-    width: 90vw;
-    margin: 20px auto;
-    display: grid;
-    grid-gap: 20px;
-    grid-column-gap: 40px;
-    grid-row-gap: 50px;
-    grid-template-columns: repeat(auto-fit, 90vw);
-    justify-content: center;
-  }
-  .square {
-    background: #e8e8e8;
-    width: 90vw;
-    overflow: hidden;
-    font-family: "Raleway", sans-serif;
-    color: #333;
-    text-transform: uppercase;
-    text-align: center;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  #squares-container a {
-    text-decoration: none;
-    color: #333;
-  }
-  .img-container {
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 200px;
-    border-radius: 10px 10px 0 0;
-  }
-  .img-container img {
-    margin: 0;
-    padding: 0;
-    height: 200px;
-    width: 100%;
-    object-fit: cover;
-  }
-  .square .meta-data {
-    height: 100px;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-  }
-  .category-others {
-    width: 90vw;
-    margin: 0 auto;
-    font-family: "Montserrat";
-    color: #333;
-    margin-bottom: 50px;
-  }
-
-  .category-others a {
-    text-decoration: underline !important;
-  }
-  .category-others a:visited {
-    color: #333;
-  }
+#cards-container .card .text-container {
+  padding: 15px;
+  margin: -4px 0 0 0;
+  box-sizing: border-box;
+  border-radius: 0 0 10px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+#cards-container .card .text-container .lower {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+#cards-container .card .text-container p {
+  margin: 7px;
+  color: #333;
+  font-family: "Raleway", sans-serif;
+  font-size: 15px;
+}
+#cards-container .card .text-container p.header {
+  text-transform: uppercase;
 }
 
-/*  Higher resolution portrait mobile devices  */
-
+@media (min-width: 280px) {
+  #cards-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  #cards-container.big {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
 @media (min-width: 400px) {
+  #cards-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  #cards-container.big {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
-
-/* Landscape iPhones */
-
 @media (min-width: 568px) {
-  #breadcrumbs-container {
-    margin: 10vh auto;
+  #cards-container {
+    grid-template-columns: repeat(4, 1fr);
   }
-  #squares-container {
-    grid-template-columns: repeat(auto-fit, 250px);
-  }
-  #squares-container .square {
-    width: 250px;
-  }
-  .img-container {
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
-    width: 100%;
+  #cards-container.big {
+    /* margin: 10px; */
+    grid-gap: 10px;
   }
 }
-
-/* portrait iPad */
-
 @media (min-width: 750px) {
-  #breadcrumbs-container {
-    margin: 0 auto 5vh;
+  #cards-container.big {
+    /* margin: 15px; */
+    grid-gap: 15px;
+  }
+  #cards-container.big .card img {
+    max-height: 280px;
+    min-height: 280px;
+  }
+  #cards-container.big .card .text-container p {
+    font-size: 18px;
   }
 }
-
-/* landscape standard tablets, lo-res laptops and desktops */
-
 @media (min-width: 801px) {
-  #squares-container {
-    grid-template-columns: repeat(auto-fit, 250px);
+  #center-container {
+    margin: 40px 0 0 0;
   }
-  #breadcrumbs-container {
-    height: 100px;
-    line-height: 100px;
-    display: flex;
-    justify-content: space-between;
-    margin: 3vh auto 9vh;
-  }
-  #breadcrumbs {
-    font-size: 90%;
-  }
-  #breadcrumbs-container #label {
-    font-size: 60px;
-  }
-  #squares-container .square {
-    width: 250px;
-  }
-  .img-container {
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
-    width: 100%;
+
+  #cards-container {
+    grid-template-columns: repeat(5, 1fr);
   }
 }
-
-/* For full-HD laptops and desktops, and landscape big tablets */
-
 @media (min-width: 1000px) {
-}
-
-/*  Full HD laptops & desktops, big tablets   */
-
-@media (min-width: 1920px) {
-  #squares-container {
-    /*   border: 2px solid red; */
-    padding: 0;
-    width: 90vw;
-    display: grid;
+  #cards-container {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  #cards-container.big {
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0 -20px;
+  }
+  #cards-container.big .card {
+    /* margin: 20px; */
     grid-gap: 20px;
-    grid-column-gap: 100px;
-    grid-row-gap: 100px;
-    grid-template-columns: repeat(auto-fit, 500px);
-    justify-content: space-between;
   }
-  #squares-container .square {
-    background: #fff;
-    width: 500px;
-    color: #333;
-    font-family: "Raleway", sans-serif;
-    color: #333;
-    text-transform: uppercase;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    -webkit-transition: 0.3s ease;
-    transition: 0.3s ease;
+  #cards-container.big .card img {
+    max-height: 300px;
+    min-height: 300px;
   }
-  #squares-container .square a {
-    text-decoration: none;
-    color: #333;
+}
+@media (min-width: 1400px) {
+  #cards-container.big {
+    margin: 0 -25px;
   }
-  .img-container {
-    margin: 0;
-    padding: 0;
-    height: 300px;
-    width: 100%;
-    object-fit: cover;
-    -webkit-transition: 0.3s ease;
-    transition: 0.3s ease;
+
+  #cards-container.big {
+    /* margin: 25px 0; */
+    grid-gap: 50px;
   }
-  .img-container img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 10px 10px;
-    -webkit-transition: 0.3s ease;
-    transition: 0.3s ease;
+  #cards-container.big .card .text-container {
+    padding: 25px;
   }
-  .square .meta-data {
-    height: 120px;
-    padding: 10px 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    -webkit-transition: 0.3s ease;
-    transition: 0.3s ease;
-  }
-  .square:hover .meta-data {
-    background: #e8e8e8;
-  }
-  .square:hover .img-container img {
-    transform: scale(1.1);
-  }
-  .square:hover .img-container {
-    border-radius: 10px 10px 0 0;
+}
+@media (min-width: 1920px) {
+  #cards-container.big .card .text-container {
+    padding: 32px;
   }
 }
 </style>
