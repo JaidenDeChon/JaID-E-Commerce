@@ -33,8 +33,8 @@ export default {
   name: "VueHero",
   components: { Slick },
   mounted: function() {
-    $(document).ready(function(){
-      $('#slick-container').slick({
+    $(document).ready(function() {
+      $("#slick-container").slick({
         arrows: false,
         dots: true,
         autoplay: true,
@@ -48,7 +48,8 @@ export default {
 
 <style>
 @import url("https://fonts.googleapis.com/css?family=Advent+Pro|Raleway");
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
 }
@@ -59,7 +60,12 @@ body {
   align-items: center;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: normal;
 }
 
@@ -68,7 +74,22 @@ h1, h2, h3, h4, h5, h6 {
   margin: 20px 0;
   padding: 30px 0 0 0;
   background: rgba(0, 0, 0, 0.5);
-  background: linear-gradient(to top, black 0%, rgba(0, 0, 0, 0.738) 19%, rgba(0, 0, 0, 0.541) 34%, rgba(0, 0, 0, 0.382) 47%, rgba(0, 0, 0, 0.278) 56.5%, rgba(0, 0, 0, 0.194) 65%, rgba(0, 0, 0, 0.126) 73%, rgba(0, 0, 0, 0.075) 80.2%, rgba(0, 0, 0, 0.042) 86.1%, rgba(0, 0, 0, 0.021) 91%, rgba(0, 0, 0, 0.008) 95.2%, rgba(0, 0, 0, 0.002) 98.2%, transparent 100%);
+  background: linear-gradient(
+    to top,
+    black 0%,
+    rgba(0, 0, 0, 0.738) 19%,
+    rgba(0, 0, 0, 0.541) 34%,
+    rgba(0, 0, 0, 0.382) 47%,
+    rgba(0, 0, 0, 0.278) 56.5%,
+    rgba(0, 0, 0, 0.194) 65%,
+    rgba(0, 0, 0, 0.126) 73%,
+    rgba(0, 0, 0, 0.075) 80.2%,
+    rgba(0, 0, 0, 0.042) 86.1%,
+    rgba(0, 0, 0, 0.021) 91%,
+    rgba(0, 0, 0, 0.008) 95.2%,
+    rgba(0, 0, 0, 0.002) 98.2%,
+    transparent 100%
+  );
 }
 
 #hero .slick-dots li button:before {
@@ -240,5 +261,4 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0 200px;
   }
 }
-
 </style>
