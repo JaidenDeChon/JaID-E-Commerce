@@ -67,13 +67,13 @@
 
 <script>
 export default {
-  computed: {
-    catelogue() {
-      return this.$store.state.catelogue
-        ? this.$store.state.catelogue
-        : "Loading...";
-    }
-  }
+  // computed: {
+  //   catelogue() {
+  //     return this.$store.state.catelogue
+  //       ? this.$store.state.catelogue
+  //       : "Loading...";
+  //   }
+  // }
 };
 </script>
 
