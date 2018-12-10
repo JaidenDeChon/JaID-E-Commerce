@@ -63,14 +63,6 @@
 
 <script>
 export default {
-  // computed: {
-  //   catelogue() {
-  //     return this.$store.state.catelogue
-  //       ? this.$store.state.catelogue
-  //       : "Loading...";
-  //   }
-  // },
-
   mounted: function() {
     // hide darkened menu overlay
     $("#overlay").hide();
