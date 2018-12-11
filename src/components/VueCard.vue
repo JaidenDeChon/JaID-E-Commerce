@@ -5,8 +5,32 @@
 <template>
   
     <!-- If path is root... -->
+    
     <div  id="center-container"
           v-if="$route.path == '/'" >
+
+        <div  id="category-header">
+
+            <div id="container">
+
+                <div  id="label-container">
+
+                    <p id="label">All Categories</p>
+
+                </div>
+
+                <div id="buttons-container">
+
+                    <p>Page Layout</p>
+
+                    <div id="buttons">
+                        <button class="active" id="large"><i class="fas fa-th-large"></i></button>
+                        <button id="small"><i class="fas fa-th"></i></button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
 
         <div class="big" id="cards-container" >
 
@@ -19,7 +43,9 @@
                 <router-link :to="{ name: 'category', params: { categoryName: category.name } }">
 
                     <!-- Category's main image  -->
-                    <img v-bind:src="category.card">
+                    <div class="img-overflow-container">
+                      <img v-bind:src="category.card">
+                    </div>
 
                     <!-- Bottom part of card containing text -->
                     <div class="text-container">
@@ -41,7 +67,39 @@
     <div  id="center-container"
           v-else-if="['category'].indexOf($route.name) > -1" >
 
-        <div  class="big" id="cards-container" >
+        <div  id="category-header">
+
+            <div id="container">
+
+                <div  id="label-container" 
+                      v-for="category in this.$store.state.catelogue.categories" 
+                      v-if="category.name === $route.params.categoryName"
+                      :key="category.name" >
+
+                    <div id="breadcrumbs">
+                        <router-link to="/">Home</router-link>
+                        <p>&bull;</p>
+                        <p>{{ category.name }}</p>
+                    </div>
+
+                    <p id="label">{{ category.name }}</p>
+
+                </div>
+
+                <div id="buttons-container">
+
+                    <p>Page Layout</p>
+
+                    <div id="buttons">
+                        <button class="active" id="large"><i class="fas fa-th-large"></i></button>
+                        <button id="small"><i class="fas fa-th"></i></button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="big" id="cards-container" >
 
             <!-- ...For the category which matches this route... -->
             <template   v-for="category in this.$store.state.catelogue.categories" 
@@ -56,7 +114,9 @@
                     <router-link :to="{ name: 'item', params: { categoryName: category.name, itemTitle: item.title } }">
 
                         <!-- Item's main image -->
-                        <img v-bind:src="item.mainImage">
+                        <div class="img-overflow-container">
+                          <img v-bind:src="item.mainImage">
+                        </div>
 
                         <!-- Bottom part of card containing text -->
                         <div class="text-container">
@@ -82,6 +142,38 @@
     <div  id="center-container"
           v-else-if="['item'].indexOf($route.name) > -1" >
 
+        <div  id="category-header">
+
+            <div id="container">
+
+                <div  id="label-container" 
+                      v-for="category in this.$store.state.catelogue.categories" 
+                      v-if="category.name === $route.params.categoryName"
+                      :key="category.name" >
+
+                    <div id="breadcrumbs">
+                        <router-link to="/">Home</router-link>
+                        <p>&bull;</p>
+                        <p>{{ category.name }}</p>
+                    </div>
+
+                    <p id="label">Popular items in {{ category.name }}</p>
+
+                </div>
+
+                <div id="buttons-container">
+
+                    <p>Page Layout</p>
+
+                    <div id="buttons">
+                        <button class="active" id="large"><i class="fas fa-th-large"></i></button>
+                        <button id="small"><i class="fas fa-th"></i></button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
         <div  class="big" id="cards-container">
 
             <!-- ...For the category which matches this route... -->
@@ -98,7 +190,9 @@
                     <router-link :to="{ name: 'item', params: { categoryName: category.name, itemTitle: item.title } }" >
 
                         <!-- Item's main image -->
-                        <img v-bind:src="item.mainImage">
+                        <div class="img-overflow-container">
+                          <img v-bind:src="item.mainImage">
+                        </div>
 
                         <!-- Bottom part of card containing text -->
                         <div class="text-container">
@@ -124,7 +218,33 @@
 
 
 <script>
-export default {};
+export default {
+  mounted: function() {
+    // Make only one button active at a time
+    $("#buttons")
+      .children("button")
+      .click(function() {
+        $(this).addClass("active");
+        $(this)
+          .siblings()
+          .removeClass("active");
+      });
+
+    // Make cards big
+    $("#large").on("click", function() {
+      $("body")
+        .find("#cards-container")
+        .addClass("big");
+    });
+
+    // Make cards small
+    $("#small").on("click", function() {
+      $("body")
+        .find("#cards-container")
+        .removeClass("big");
+    });
+  }
+};
 </script>
 
 <style scoped>
@@ -145,14 +265,138 @@ h6 {
   font-weight: normal;
 }
 
+#category-header {
+  width: 100vw;
+  min-height: 200px;
+  margin: 0 0 20px 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: "Raleway", sans-serif;
+  color: #555;
+  font-size: 30px;
+  font-weight: bold;
+  background: #e8e8e8;
+}
+#category-header #container {
+  width: 90%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+#category-header #container #label-container {
+  flex-grow: 1;
+  min-height: 120px;
+  max-width: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+#category-header #container #label-container #breadcrumbs,
+#category-header #container #label-container #label {
+  margin: 5px;
+}
+#category-header #container #label-container #breadcrumbs {
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#category-header #container #label-container #breadcrumbs a,
+#category-header #container #label-container #breadcrumbs p {
+  margin-right: 10px;
+  font-size: 12px;
+  font-weight: normal;
+  color: #555;
+}
+#category-header #container #buttons-container {
+  flex-grow: 1;
+  min-height: 120px;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+#category-header #container #buttons-container p,
+#category-header #container #buttons-container #buttons {
+  margin: 5px 0;
+}
+#category-header #container #buttons-container #buttons {
+  display: flex;
+}
+#category-header #container #buttons-container p {
+  font-size: 15px;
+}
+#category-header #container #buttons-container button {
+  background: #d8d8d8;
+  border: none;
+  padding: 15px 25px;
+  transition: all 0.4s;
+  cursor: pointer;
+  outline: none;
+}
+#category-header #container #buttons-container button:last-child {
+  border-radius: 0 8px 8px 0;
+}
+#category-header #container #buttons-container button:first-child {
+  border-radius: 8px 0 0 8px;
+}
+#category-header #container #buttons-container button.active {
+  box-shadow: inset 0 0px 7px #555;
+}
+#category-header #container #buttons-container button.active i {
+  color: #6893dd;
+}
+#category-header #container #buttons-container button.active:hover {
+  cursor: default;
+}
+#category-header #container #buttons-container button:not(.active):hover {
+  background-color: #c8c8c8;
+}
+#category-header #container #buttons-container button:focus {
+  outline: default;
+}
+#category-header #container #buttons-container button i {
+  color: #555;
+  font-size: 25px;
+  transition: all 0.4s;
+}
+
+@media (min-width: 568px) {
+  #category-header #container {
+    flex-direction: row;
+  }
+  #category-header #container #label-container {
+    text-align: left;
+    align-items: flex-start;
+    max-width: 50%;
+  }
+  #category-header #container #label-container #breadcrumbs {
+    justify-content: flex-start;
+    /* max-width: 50%; */
+  }
+  #category-header #container #buttons-container {
+    align-items: flex-end;
+    max-width: 50%;
+  }
+}
+
 #center-container {
   width: 100vw;
 
-  margin: 20px 0 0 0;
+  margin: 0;
 
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
 #cards-container {
@@ -163,8 +407,18 @@ h6 {
   margin: 0 auto;
 }
 
-#cards-container.big .card img {
+#cards-container.big .card .img-overflow-container,
+#cards-container .card .img-overflow-container {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 10px 10px 0 0;
+}
+
+#cards-container.big .card .img-overflow-container img,
+#cards-container.big .card .img-overflow-container {
   min-height: 200px;
+  max-height: 200px;
 }
 #cards-container .card {
   box-sizing: border-box;
@@ -186,11 +440,19 @@ h6 {
 #cards-container .card:hover > a > .text-container {
   background-color: #e8e8e8;
 }
-#cards-container .card:hover > a > img {
+#cards-container .card:hover > a > .img-overflow-container img {
   border-radius: 10px 10px 0 0;
+  transform: scale(1.1);
 }
-#cards-container .card img {
+
+#cards-container .card .img-overflow-container {
   max-height: 150px;
+  min-height: 150px;
+}
+
+#cards-container .card .img-overflow-container img {
+  max-height: 150px;
+  min-height: 150px;
   object-fit: cover;
   width: 100%;
   border-radius: 10px;
@@ -200,6 +462,7 @@ h6 {
 #cards-container .card .text-container {
   padding: 15px;
   margin: -4px 0 0 0;
+  text-align: center;
   box-sizing: border-box;
   border-radius: 0 0 10px 10px;
   display: flex;
@@ -253,7 +516,8 @@ h6 {
     /* margin: 15px; */
     grid-gap: 15px;
   }
-  #cards-container.big .card img {
+  #cards-container.big .card .img-overflow-container img,
+  #cards-container.big .card .img-overflow-container {
     max-height: 280px;
     min-height: 280px;
   }
@@ -263,7 +527,7 @@ h6 {
 }
 @media (min-width: 801px) {
   #center-container {
-    margin: 40px 0 0 0;
+    margin: 0;
   }
 
   #cards-container {
@@ -282,7 +546,8 @@ h6 {
     /* margin: 20px; */
     grid-gap: 20px;
   }
-  #cards-container.big .card img {
+  #cards-container.big .card .img-overflow-container img,
+  #cards-container.big .card .img-overflow-container {
     max-height: 300px;
     min-height: 300px;
   }
