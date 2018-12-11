@@ -103,7 +103,7 @@ h6 {
 
 #hero {
   padding: 0;
-  margin: 0 0 40px 0;
+  margin: 0 0 20px 0;
   width: 100vw;
   height: 630px;
   display: flex;
