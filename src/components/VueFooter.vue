@@ -72,7 +72,7 @@
         </div>
 
         <div id="footer-bottom">
-            <p id="copyright">Jaiden DeChon &copy; 2018</p>
+            <p id="copyright">Jaiden DeChon &copy; 2019</p>
         </div>
 
     </div>
