@@ -21,7 +21,7 @@
 
           <div id="menu">
 
-              <div class="option" id="close">
+              <div class="option" id="close-menu">
                 <div class="cover"><i class="fas fa-times"></i></div>
               </div>
 
@@ -55,6 +55,13 @@
               </div>
 
           </div>
+
+          <div id="cart">
+            <div class="option" id="close-cart">
+                <div class="cover"><i class="fas fa-times"></i></div>
+              </div>
+          </div>
+
         </div>
         <router-view :key="$route.fullPath"></router-view>
     </div>
@@ -95,19 +102,58 @@ export default {
         .fadeOut(300);
     }
 
+    // Define openCart function
+    function openCart() {
+      $("body").css("overflow-y", "hidden");
+      $("#nav")
+        .children("#overlay")
+        .fadeIn(300);
+      $("#overlay")
+        .siblings("#cart")
+        .delay(100)
+        .animate({ right: "0" }, 300);
+    }
+
+    // Define closeCart function
+    function closeCart() {
+      if (navigator.userAgent.toLowerCase().indexOf("firefox") > -1) {
+        $("body").css("overflow-y", "auto");
+      } else {
+        $("body").css("overflow-y", "overlay");
+      }
+      $("#overlay")
+        .siblings("#cart")
+        .animate({ right: "-420px" }, 300);
+      $("#nav")
+        .children("#overlay")
+        .delay(100)
+        .fadeOut(300);
+    }
+
     // Show dark overlay and expand menu when hamburger is clicked
     $("#hamburger").click(function() {
       openMenu();
     });
 
-    // Close menu when "close" button is clicked
-    $("#close").click(function() {
+    // Close menu when menu's "close" button is clicked
+    $("#close-menu").click(function() {
       closeMenu();
+    });
+
+    // Show dark overlay and expand cart when cart button is clicked
+    $("#cart-button").click(function() {
+      openCart();
+    });
+
+    // Close cart when cart's "close" button is clicked
+    $("#close-cart").click(function() {
+      closeCart();
     });
 
     // Close menu when dark overlay is clicked
     $("#overlay").click(function() {
       closeMenu();
+      closeCart();
     });
 
     // Close menu when a link is clicked
@@ -298,7 +344,20 @@ h6 {
   overflow-y: scroll;
   background: white;
 }
-#nav #menu .option {
+
+#nav #cart {
+  position: absolute;
+  top: 0;
+  right: -420px;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow-y: scroll;
+  background: white;
+}
+
+#nav div .option {
   box-sizing: inherit;
   min-height: 60px;
   font-family: "Raleway", sans-serif;
@@ -306,7 +365,7 @@ h6 {
   cursor: pointer;
   border-top: 1px solid #e8e8e8;
 }
-#nav #menu .option .cover {
+#nav div .option .cover {
   min-height: 60px;
   padding: 0 20px;
   display: flex;
@@ -314,25 +373,25 @@ h6 {
   align-items: center;
   transition: 0.25s ease-in-out;
 }
-#nav #menu .option .cover .fas {
+#nav div .option .cover .fas {
   transition: 0.25s ease-in-out;
 }
-#nav #menu .option .cover .fas.rotate {
+#nav div .option .cover .fas.rotate {
   -webkit-transform: rotate(180deg);
   transform: rotate(180deg);
 }
-#nav #menu .option .cover:hover {
+#nav div .option .cover:hover {
   background: #e8e8e8;
 }
-#nav #menu .option .submenu {
+#nav div .option .submenu {
   display: none;
   border-bottom: 1px solid #e8e8e8;
 }
-#nav #menu .option .submenu a {
+#nav div .option .submenu a {
   text-decoration: none;
   color: #555;
 }
-#nav #menu .option .submenu .option {
+#nav div .option .submenu .option {
   padding: 0 40px;
   font-size: 20px;
   display: flex;
@@ -340,21 +399,25 @@ h6 {
   align-items: center;
   transition: 0.2s ease-in-out;
 }
-#nav #menu .option .submenu .option:hover {
+#nav div .option .submenu .option:hover {
   padding: 0 40px 0 50px;
 }
-#nav #menu #close {
+#nav div #close-menu,
+#nav div #close-cart {
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
-#nav #menu #close .fas {
+#nav div #close-menu .fas,
+#nav div #close-cart .fas {
   transition: 0.25s ease-in-out;
 }
-#nav #menu #close:hover {
+#nav div #close-menu:hover,
+#nav div #close-cart:hover {
   background: #e8e8e8;
 }
-#nav #menu #close:hover .fas {
+#nav div #close-menu:hover .fas,
+#nav div #close-cart:hover .fas {
   -webkit-transform: rotate(180deg);
   transform: rotate(180deg);
 }
@@ -364,7 +427,11 @@ h6 {
     min-width: 400px;
     max-width: 420px;
   }
-  #nav #menu #close {
+  #nav #cart {
+    min-width: 400px;
+    max-width: 420px;
+  }
+  #nav #menu #close-menu {
     font-size: 20px;
   }
 }
