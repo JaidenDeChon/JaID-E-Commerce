@@ -1,66 +1,117 @@
 
 <template>
+
     <div id="app">
+
         <div id="nav-spacer"></div>
+
         <div id="nav">
-          <div id="left">
-            <div id="hamburger"><i class="fas fa-bars"></i></div>
-          </div>
-          <div id="center">
-            <router-link to="/">
-              <div id="logo"> 
-                <h1>yosemite</h1>
-                <p>open e-commerce by Jaiden DeChon</p>
-              </div>
-            </router-link>
-          </div>
-          <div id="right">
-            <div id="cart-button"><i class="fas fa-shopping-cart"></i></div>
-          </div>
-          <div id="overlay"></div>
 
-          <div id="menu">
 
-              <div class="option" id="close-menu">
-                <div class="cover"><i class="fas fa-times"></i></div>
-              </div>
 
-              <router-link to="/">
-                  <div class="option">
-                      <div class="cover">
+
+            <!-- Left section with hamburger icon -->
+            <div id="left">
+                <div id="hamburger"><i class="fas fa-bars"></i></div>
+            </div>
+
+
+
+
+            <!-- Middle section with branding -->
+            <div id="center">
+                <router-link to="/">
+                    <div id="logo">
+                        <h1>yosemite</h1>
+                        <p>open e-commerce by Jaiden DeChon</p>
+                    </div>
+                </router-link>
+            </div>
+
+
+
+
+            <!-- Right section with cart button -->
+            <div id="right">
+                <div id="cart-button"><i class="fas fa-shopping-cart"></i></div>
+            </div>
+
+
+
+
+            <!-- Dark overlay for when cart, menu, or important pop-ups spawn -->
+            <div id="overlay"></div>
+
+
+
+
+            <!-- Menu side panel -->
+            <div id="menu">
+
+
+                <!-- Close button -->
+                <div class="option" id="close-menu">
+                    <div class="cover"><i class="fas fa-times"></i></div>
+                </div>
+
+
+                <!-- Home button -->
+                <router-link to="/">
+                    <div class="option">
+                        <div class="cover">
                             <p>Home</p>
-                      </div>
-                  </div>
-              </router-link>
+                        </div>
+                    </div>
+                </router-link>
 
-              <div class="option" v-for="category in this.$store.state.catelogue.categories" :key="category.name">
 
-                  <div class="cover">
-                    <p>{{ category.name }}</p>
-                    <i class="fas fa-caret-down"></i>
-                  </div>
+                <!-- Dropdown option for each category; dropdown contains categorhy items -->
+                <div class="option" v-for="category in this.$store.state.catelogue.categories" :key="category.name">
 
-                  <div class="submenu">
 
-                      <router-link :to="{ name: 'category', params: { categoryName: category.name } }">
-                          <div class="option">All {{ category.name }}</div>
-                      </router-link>
+                    <!-- Top-level button (category name) -->
+                    <div class="cover">
+                        <p>{{ category.name }}</p>
+                        <i class="fas fa-caret-down"></i>
+                    </div>
 
-                      <router-link :to="{ name: 'item', params: { categoryName: category.name, itemTitle: item.title } }" v-for="item in category.items" :key="item.title">
-                          <div class="option">{{ item.title }}</div>
-                      </router-link>
 
-                  </div>
+                    <!-- Bottom-level button (items) -->
+                    <div class="submenu">
 
-              </div>
 
-          </div>
+                        <!-- Button to see all items in category, links to respective category page -->
+                        <router-link :to="{ name: 'category', params: { categoryName: category.name } }">
+                            <div class="option">All {{ category.name }}</div>
+                        </router-link>
 
-          <div id="cart">
-            <div class="option" id="close-cart">
-                <div class="cover"><i class="fas fa-times"></i></div>
-              </div>
-          </div>
+
+                        <!-- One button for each item in category  -->
+                        <router-link :to="{ name: 'item', params: { categoryName: category.name, itemTitle: item.title } }" v-for="item in category.items" :key="item.title">
+                            <div class="option">{{ item.title }}</div>
+                        </router-link>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+
+
+            <div id="cart">
+                <div class="option" id="close-cart">
+                    <div class="cover"><i class="fas fa-times"></i></div>
+                </div>
+
+                <div class="cart-item"></div>
+
+            </div>
 
         </div>
         <router-view :key="$route.fullPath"></router-view>
@@ -68,11 +119,19 @@
 </template>
 
 
+
+
 <script>
 export default {
   mounted: function() {
-    // hide darkened menu overlay
-    $("#overlay").hide();
+
+
+
+
+
+    /*
+          NAVBAR / MENU
+    */
 
     // Define openMenu function
     function openMenu() {
@@ -102,6 +161,41 @@ export default {
         .fadeOut(300);
     }
 
+    // Expand submenu when its' parent is clicked
+    $(".cover").click(function() {
+      $(this)
+        .siblings(".submenu")
+        .stop()
+        .animate(
+          {
+            height: "toggle"
+          },
+          350
+        ),
+        $(this)
+          .children(".fas")
+          .toggleClass("rotate");
+    });
+
+    // Show dark overlay and expand menu when hamburger is clicked
+    $("#hamburger").click(function() {
+      openMenu();
+    });
+
+    // Close menu when menu's "close" button is clicked
+    $("#close-menu").click(function() {
+      closeMenu();
+    });
+
+
+
+
+
+
+    /*
+          CART
+    */
+
     // Define openCart function
     function openCart() {
       $("body").css("overflow-y", "hidden");
@@ -130,16 +224,6 @@ export default {
         .fadeOut(300);
     }
 
-    // Show dark overlay and expand menu when hamburger is clicked
-    $("#hamburger").click(function() {
-      openMenu();
-    });
-
-    // Close menu when menu's "close" button is clicked
-    $("#close-menu").click(function() {
-      closeMenu();
-    });
-
     // Show dark overlay and expand cart when cart button is clicked
     $("#cart-button").click(function() {
       openCart();
@@ -150,7 +234,19 @@ export default {
       closeCart();
     });
 
-    // Close menu when dark overlay is clicked
+
+
+
+
+
+    /*
+          GENERAL NAVBAR STUFF
+    */
+
+    // hide darkened menu overlay
+    $("#overlay").hide();
+
+    // Close menu or cart when dark overlay is clicked
     $("#overlay").click(function() {
       closeMenu();
       closeCart();
@@ -162,25 +258,11 @@ export default {
       .click(function() {
         closeMenu();
       });
-
-    // Expand submenu when its' parent is clicked
-    $(".cover").click(function() {
-      $(this)
-        .siblings(".submenu")
-        .stop()
-        .animate(
-          {
-            height: "toggle"
-          },
-          350
-        ),
-        $(this)
-          .children(".fas")
-          .toggleClass("rotate");
-    });
   }
 };
 </script>
+
+
 
 
 <style>
@@ -421,6 +503,52 @@ h6 {
   -webkit-transform: rotate(180deg);
   transform: rotate(180deg);
 }
+
+/*
+
+    *** Cart HTML STRUCTURE ***
+    #nav #cart #cart-item ... (The rest is TBD)
+
+
+
+
+
+    *** CART ITEM LAYOUT: ***
+__________________________________
+
+[ ]      Title Title Ti...     \/
+__________________________________
+
+ ^ Thumbnail of title image
+          ^ Item title, elipses if cut off
+                                ^ Down arrow indicating dropdown option
+
+
+
+
+
+    *** EXPANDED CART ITEM LAYOUT ***
+___________________________________
+
+Go to product
+___________________________________
+
+Remove                          X
+___________________________________
+
+
+
+
+
+Notes on cart dropdowns:
+
+  - When dropdown is dropped down, Full title of product
+    is shown. Think of a nice-looking way for this change
+    to be animated. 
+
+  - "Remove" option has pleasant red background color
+
+*/
 
 @media (min-width: 400px) {
   #nav #menu {
