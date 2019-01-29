@@ -12,8 +12,6 @@ Vue.config.productionTip = false;
 
 window.jQuery = window.$ = jQuery;
 
-// Vue.use(router);
-
 new Vue({
   router,
   store,
