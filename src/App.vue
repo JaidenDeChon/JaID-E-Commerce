@@ -3,117 +3,119 @@
 
     <div id="app">
 
+        <!-- Spacer for navbar -->
         <div id="nav-spacer"></div>
 
+        <!-- Wrapper for entire navbar -->
         <div id="nav">
 
-
-
-
-            <!-- Left section with hamburger icon -->
+            <!-- Left section; contains hamburger menu -->
             <div id="left">
                 <div id="hamburger"><i class="fas fa-bars"></i></div>
             </div>
 
-
-
-
-            <!-- Middle section with branding -->
+            <!-- Center section; contains clickable logo -->
             <div id="center">
-                <router-link to="/">
-                    <div id="logo">
-                        <h1>yosemite</h1>
-                        <p>open e-commerce by Jaiden DeChon</p>
-                    </div>
-                </router-link>
+                <div id="logo"> 
+                    <h1>yosemite</h1>
+                    <p>open e-commerce by Jaiden DeChon</p>
+                </div>
             </div>
 
 
-
-
-            <!-- Right section with cart button -->
+            <!-- Right section; contains cart button -->
             <div id="right">
                 <div id="cart-button"><i class="fas fa-shopping-cart"></i></div>
             </div>
 
-
-
-
-            <!-- Dark overlay for when cart, menu, or important pop-ups spawn -->
+            <!-- Dark overlay for when menus are opened -->
             <div id="overlay"></div>
 
 
 
-
-            <!-- Menu side panel -->
-            <div id="menu">
-
+            <!-- Navigation menu -->
+            <div class="sidebar" id="menu">
 
                 <!-- Close button -->
-                <div class="option" id="close-menu">
-                    <div class="cover"><i class="fas fa-times"></i></div>
+                <div class="option close-sidebar">
+                    <div class="faceplate red"><span></span>
+                        <h3>Close menu</h3><i class="fas fa-times"></i>
+                    </div>
                 </div>
 
-
-                <!-- Home button -->
-                <router-link to="/">
-                    <div class="option">
-                        <div class="cover">
-                            <p>Home</p>
-                        </div>
-                    </div>
-                </router-link>
-
-
-                <!-- Dropdown option for each category; dropdown contains categorhy items -->
+                <!-- FOR LOOP: A dropdown button for each category -->
                 <div class="option" v-for="category in this.$store.state.catelogue.categories" :key="category.name">
 
+                  <!-- Faceplate is the element you see; is a flexbox -->
+                  <div class="faceplate">
+                    <h3>{{ category.name }}</h3><i class="fas fa-caret-down"></i>
+                  </div>
 
-                    <!-- Top-level button (category name) -->
-                    <div class="cover">
-                        <p>{{ category.name }}</p>
-                        <i class="fas fa-caret-down"></i>
+                  <!-- Ivisible at first; contains dropdown options (droptions) -->
+                  <div class="droptions-container" >
+
+                    <!-- Link to given category's page -->
+                    <div class="droption option">
+                      <div class="faceplate">
+                        <h3>All {{ category.name }}</h3><span></span>
+                      </div>
                     </div>
 
-
-                    <!-- Bottom-level button (items) -->
-                    <div class="submenu">
-
-
-                        <!-- Button to see all items in category, links to respective category page -->
-                        <router-link :to="{ name: 'category', params: { categoryName: category.name } }">
-                            <div class="option">All {{ category.name }}</div>
-                        </router-link>
-
-
-                        <!-- One button for each item in category  -->
-                        <router-link :to="{ name: 'item', params: { categoryName: category.name, itemTitle: item.title } }" v-for="item in category.items" :key="item.title">
-                            <div class="option">{{ item.title }}</div>
-                        </router-link>
-
-
+                    <!-- FOR LOOP: A button/link for each item in category -->
+                    <div class="droption option" v-for="item in category.items" :key="item.title">
+                      <div class="faceplate">
+                        <h3>{{ item.title }}</h3><span></span>
+                      </div>
                     </div>
 
-
+                  </div>
                 </div>
-
-
             </div>
 
 
 
+            <!-- Cart -->
+            <div class="sidebar" id="cart">
 
-
-            <div id="cart">
-                <div class="option" id="close-cart">
-                    <div class="cover"><i class="fas fa-times"></i></div>
+                <!-- Close button -->
+                <div class="option close-sidebar">
+                  <div class="faceplate red"><span></span>
+                    <h3>Close cart</h3><i class="fas fa-times"></i>
+                  </div>
                 </div>
 
-                <div class="cart-item"></div>
 
+              <div class="option">
+                <div class="faceplate"><img src="https://image.freepik.com/free-icon/abraham-lincoln_318-124865.jpg"/>
+                  <h3>Lincoln's Wooden Teeth</h3><i class="fas fa-caret-down"></i>
+                </div>
+                <div class="droptions-container">
+                  <div class="option">
+                    <div class="faceplate noclick">
+                      <h3>Price</h3>
+                      <h3>$14.99</h3>
+                    </div>
+                  </div>
+                  <div class="option">
+                    <div class="faceplate noclick">
+                      <h3>Quantity</h3>
+                      <h3>3</h3>
+                    </div>
+                  </div>
+                  <div class="option">
+                    <div class="faceplate">
+                      <h3>View item</h3>
+                    </div>
+                  </div>
+                  <div class="option">
+                    <div class="faceplate red">
+                      <h3>Remove from Cart</h3><i class="fas fa-times"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-
-        </div>
+</div>
         <router-view :key="$route.fullPath"></router-view>
     </div>
 </template>
@@ -122,206 +124,160 @@
 
 
 <script>
+
 export default {
   mounted: function() {
 
+    // $("#overlay").hide();
 
+    // define overlay and sidebars
+    var overlay = $("#nav").children("#overlay")
+    var menu = $("#nav").children("#menu")
+    var cart = $("#nav").children("#cart")
 
+    function showOverlay() {
 
+        overlay.addClass("toggled")
 
-    /*
-          NAVBAR / MENU
-    */
+        // hide overflow on body
+        $("body").css("overflow-y", "hidden");
 
-    // Define openMenu function
-    function openMenu() {
-      $("body").css("overflow-y", "hidden");
-      $("#nav")
-        .children("#overlay")
-        .fadeIn(300);
-      $("#overlay")
-        .siblings("#menu")
-        .delay(100)
-        .animate({ left: "0" }, 300);
+        // show overlay, start delay for timing
+        overlay.fadeIn(200)
+
     }
 
-    // Define closeMenu function
-    function closeMenu() {
-      if (navigator.userAgent.toLowerCase().indexOf("firefox") > -1) {
-        $("body").css("overflow-y", "auto");
-      } else {
-        $("body").css("overflow-y", "overlay");
-      }
-      $("#overlay")
-        .siblings("#menu")
-        .animate({ left: "-420px" }, 300);
-      $("#nav")
-        .children("#overlay")
-        .delay(100)
-        .fadeOut(300);
-    }
+function hideOverlay() {
 
-    // Expand submenu when its' parent is clicked
-    $(".cover").click(function() {
-      $(this)
-        .siblings(".submenu")
-        .stop()
-        .animate(
-          {
-            height: "toggle"
-          },
-          350
-        ),
-        $(this)
-          .children(".fas")
-          .toggleClass("rotate");
-    });
+	overlay.removeClass("toggled")
 
-    // Show dark overlay and expand menu when hamburger is clicked
-    $("#hamburger").click(function() {
-      openMenu();
-    });
+	// this if-else statement manages reallowing body overflow
+	// overflow is set to overlay so that page doesn't jump left/right upon menu toggling
+	// Chrome supports overlay scrollbar, so we use that if user is in Chome
 
-    // Close menu when menu's "close" button is clicked
-    $("#close-menu").click(function() {
-      closeMenu();
-    });
+	if (navigator.userAgent.toLowerCase().indexOf("firefox") > -1) {
+		$("body").css("overflow-y", "auto");
+	} else {
+		$("body").css("overflow-y", "overlay");
+	}
 
+	overlay.fadeOut(200)
+}
 
+function showMenu() {
+	showOverlay()
+	
+	setTimeout(function() {
+		menu.animate({ left: 0 }, 200)
+	}, 250)
+}
 
+function hideMenu() {
+	setTimeout(function() {
+		hideOverlay()
+	}, 250)
 
+	menu.animate({ left: "-420px" }, 200)
+}
 
+function showCart() {
+	showOverlay()
+	
+	setTimeout(function() {
+		cart.animate({ right: "0" }, 200)
+	}, 250)
+}
 
-    /*
-          CART
-    */
+function hideCart() {	
+	setTimeout(function() {
+		hideOverlay()
+	}, 250)
 
-    // Define openCart function
-    function openCart() {
-      $("body").css("overflow-y", "hidden");
-      $("#nav")
-        .children("#overlay")
-        .fadeIn(300);
-      $("#overlay")
-        .siblings("#cart")
-        .delay(100)
-        .animate({ right: "0" }, 300);
-    }
+	cart.animate({ right: "-420px" }, 200)
+}
 
-    // Define closeCart function
-    function closeCart() {
-      if (navigator.userAgent.toLowerCase().indexOf("firefox") > -1) {
-        $("body").css("overflow-y", "auto");
-      } else {
-        $("body").css("overflow-y", "overlay");
-      }
-      $("#overlay")
-        .siblings("#cart")
-        .animate({ right: "-420px" }, 300);
-      $("#nav")
-        .children("#overlay")
-        .delay(100)
-        .fadeOut(300);
-    }
+// if overlay is clicked, toggleOverlay()
+$("#overlay").click(function(event) {
+	hideOverlay();
+	hideMenu()
+	hideCart()
+})
 
-    // Show dark overlay and expand cart when cart button is clicked
-    $("#cart-button").click(function() {
-      openCart();
-    });
+// hamburger icon
+$("#hamburger").click(function() {
+	showMenu()
+})
 
-    // Close cart when cart's "close" button is clicked
-    $("#close-cart").click(function() {
-      closeCart();
-    });
+// cart icon
+$("#cart-button").click(function() {
+	showCart()
+})
 
+// close buttons
+$(".close-sidebar").click(function() {
+	hideCart()
+	hideMenu()
+})
 
+$(".option").click(function() {
 
+	if ($(this).children('div.droptions-container').length != 0) {
 
+		// find droptions-container child of option
+		var slider = $(this).children(".droptions-container")
 
+		// give display: visible to slider, done with sliding animation
+		slider.slideToggle(200, function() {
+			slider.toggleClass("expanded");
+		})
 
-    /*
-          GENERAL NAVBAR STUFF
-    */
+		// if it is already open, give white background on click (once closed)
+		if (slider.hasClass("expanded")) {
+			this.style.backgroundColor = "#ffffff"
 
-    // hide darkened menu overlay
-    $("#overlay").hide();
+		// otherwise give it a grey background
+		} else {
+			this.style.backgroundColor = "#e8e8e8"
+		}
+	} else {
+		return;
+	}
+})
 
-    // Close menu or cart when dark overlay is clicked
-    $("#overlay").click(function() {
-      closeMenu();
-      closeCart();
-    });
-
-    // Close menu when a link is clicked
-    $("#menu")
-      .find("a")
-      .click(function() {
-        closeMenu();
-      });
   }
-};
+}
 </script>
 
 
 
 
-<style>
-@import url("https://fonts.googleapis.com/css?family=Advent+Pro|Raleway");
+<style scoped>
 
-body {
+@import url("https://fonts.googleapis.com/css?family=Advent+Pro|Raleway");
+html, body {
   margin: 0;
   padding: 0;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
   overflow-x: hidden;
   overflow-y: overlay;
 }
 
-a {
-  text-decoration: none;
-}
-
-/* width */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar:hover {
-  width: 20px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #c4c4c4;
-  border-radius: 10px;
-  margin: 5px;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #333;
-  border-radius: 10px;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
 }
 
-#app {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 #nav-spacer {
+  width: 100%;
   height: 100px;
-  width: 100vw;
 }
 
 #nav {
   box-sizing: border-box;
+  z-index: 100;
   position: fixed;
   top: 0;
   left: 0;
@@ -330,22 +286,14 @@ h6 {
   margin: 0;
   height: 100px;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: rgba(255, 255, 255, 0.8);
   color: #555;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  z-index: 1000;
 }
-
-#nav a {
-  color: #555;
-}
-
-#nav #left,
-#nav #center,
-#nav #right {
+#nav #left, #nav #center, #nav #right {
   box-sizing: inherit;
   width: 20%;
   height: 100%;
@@ -383,12 +331,10 @@ h6 {
 #nav #center #logo h1 {
   font-family: Advent Pro, sans-serif;
   font-size: 30px;
-  margin: 5px 0;
 }
 #nav #center #logo p {
   font-family: "Raleway", sans-serif;
   font-size: 15px;
-  margin: 5px 0;
 }
 #nav #right #cart-button {
   box-sizing: inherit;
@@ -404,6 +350,7 @@ h6 {
   background: #e8e8e8;
 }
 #nav #overlay {
+  display: none;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -413,160 +360,122 @@ h6 {
   width: 100vw;
   padding: 0;
   margin: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.5);
 }
-#nav #menu {
-  position: absolute;
-  top: 0;
-  left: -420px;
-  margin: 0;
-  padding: 0;
+#nav .sidebar {
   height: 100vh;
   width: 100vw;
-  overflow-y: scroll;
-  background: white;
-}
-
-#nav #cart {
+  background-color: #ffffff;
   position: absolute;
   top: 0;
-  right: -420px;
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  width: 100vw;
-  overflow-y: scroll;
-  background: white;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: flex;
+  justify-content: flex-start;
+  flex-direction: column;
 }
-
-#nav div .option {
-  box-sizing: inherit;
-  min-height: 60px;
-  font-family: "Raleway", sans-serif;
-  font-size: 27px;
+#nav .sidebar .option {
+  background: white;
   cursor: pointer;
-  border-top: 1px solid #e8e8e8;
+  width: 100%;
+  min-height: 80px;
+  margin: 0;
 }
-#nav div .option .cover {
-  min-height: 60px;
+#nav .sidebar .option .droptions-container {
+  display: none;
+  overflow: hidden;
+}
+#nav .sidebar .option .droptions-container .option {
+  background: #f2f2f2;
+}
+#nav .sidebar .option .droptions-container.expanded {
+  display: visible;
+}
+#nav .sidebar .option .faceplate {
+  height: 80px;
   padding: 0 20px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
-  transition: 0.25s ease-in-out;
+  font-family: "Raleway", sans-serif;
+  font-size: 22px;
+  transition: 0.2s;
 }
-#nav div .option .cover .fas {
-  transition: 0.25s ease-in-out;
+#nav .sidebar .option .faceplate.noclick {
+  background-color: #ffffff;
+  cursor: default;
 }
-#nav div .option .cover .fas.rotate {
-  -webkit-transform: rotate(180deg);
-  transform: rotate(180deg);
+#nav .sidebar .option .faceplate img {
+  border-radius: 6px;
+  margin-right: 5px;
+  min-height: 60px;
+  max-height: 60px;
+  min-width: 60px;
+  max-width: 60px;
+  object-fit: cover;
 }
-#nav div .option .cover:hover {
-  background: #e8e8e8;
+#nav .sidebar .option .faceplate h3 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0 5px;
+  line-height: 80px;
 }
-#nav div .option .submenu {
-  display: none;
-  border-bottom: 1px solid #e8e8e8;
+#nav .sidebar .option .faceplate i {
+  margin-left: 5px;
+  transition: 0.2s;
 }
-#nav div .option .submenu a {
-  text-decoration: none;
-  color: #555;
+#nav .sidebar .option .faceplate.red:hover {
+  background-color: #e89999;
 }
-#nav div .option .submenu .option {
-  padding: 0 40px;
-  font-size: 20px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  transition: 0.2s ease-in-out;
+#nav .sidebar .option .faceplate.red:hover h3, #nav .sidebar .option .faceplate.red:hover i {
+  color: #ffffff;
 }
-#nav div .option .submenu .option:hover {
-  padding: 0 40px 0 50px;
+#nav .sidebar#menu {
+  left: -100vw;
 }
-#nav div #close-menu,
-#nav div #close-cart {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+#nav .sidebar#cart {
+  right: -100vw;
 }
-#nav div #close-menu .fas,
-#nav div #close-cart .fas {
-  transition: 0.25s ease-in-out;
-}
-#nav div #close-menu:hover,
-#nav div #close-cart:hover {
-  background: #e8e8e8;
-}
-#nav div #close-menu:hover .fas,
-#nav div #close-cart:hover .fas {
-  -webkit-transform: rotate(180deg);
-  transform: rotate(180deg);
-}
-
-/*
-
-    *** Cart HTML STRUCTURE ***
-    #nav #cart #cart-item ... (The rest is TBD)
-
-
-
-
-
-    *** CART ITEM LAYOUT: ***
-__________________________________
-
-[ ]      Title Title Ti...     \/
-__________________________________
-
- ^ Thumbnail of title image
-          ^ Item title, elipses if cut off
-                                ^ Down arrow indicating dropdown option
-
-
-
-
-
-    *** EXPANDED CART ITEM LAYOUT ***
-___________________________________
-
-Go to product
-___________________________________
-
-Remove                          X
-___________________________________
-
-
-
-
-
-Notes on cart dropdowns:
-
-  - When dropdown is dropped down, Full title of product
-    is shown. Think of a nice-looking way for this change
-    to be animated. 
-
-  - "Remove" option has pleasant red background color
-
-*/
 
 @media (min-width: 400px) {
-  #nav #menu {
+  #nav .sidebar {
     min-width: 400px;
     max-width: 420px;
-  }
-  #nav #cart {
-    min-width: 400px;
-    max-width: 420px;
-  }
-  #nav #menu #close-menu {
-    font-size: 20px;
   }
 }
-@media (min-width: 1000px) {
-  #nav #left #hamburger i,
-  #nav #right #cart-button i {
-    font-size: 20px;
+@media (min-width: 801px) {
+  .faceplate {
+    padding: 0 20px 0 10px;
+    box-sizing: border-box;
+    border-left: 10px solid transparent;
+  }
+  .faceplate.noclick {
+    border-left: none;
+    padding: 0 20px;
+  }
+  .faceplate.noclick:hover {
+    border-left: none;
+  }
+  .faceplate:hover {
+    border-left: 10px solid #4286f4;
+  }
+  .faceplate:hover.red {
+    border-left: 10px solid #f44242;
+  }
+  .faceplate i.fa-times {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+
+  #nav .sidebar {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 0 10px rgba(0, 0, 0, 0.22);
+  }
+
+  i.rotated {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
   }
 }
 </style>
