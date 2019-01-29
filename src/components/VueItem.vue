@@ -21,7 +21,10 @@
           </div>
 
           <div class="panel-container">
-            <div class="panel">
+            <div class="panel"
+                  :data-title="item.title"
+                  :data-price="item.price"
+                  :data-image="item.mainImage">
               <h1 class="product-name">{{ item.title }}</h1>
               <h3 class="product-price">{{ item.price }}</h3>
 
@@ -78,9 +81,13 @@ import jQuery from "jquery";
 import Slick from "vue-slick";
 
 export default {
+
   name: "VueItem",
+
   components: { Slick },
+
   mounted: function() {
+
     $(document).ready(function() {
       $(".carousel-container").slick({
         // setting-name: setting-value
@@ -194,6 +201,31 @@ export default {
           $("input[name=" + fieldName + "]").val(0);
         }
       });
+
+      // Get quantity value
+      $(".qty").click(function() {
+        console.log($(this).val())
+      })
+
+      function getQuantityValue() {
+        return $(document).find(".qty").val()
+      };
+
+      // Add to cart (using cookies)
+      $(".add-to-cart-button").click(function() {
+        var itemTitle = $(this).closest(".panel").data("title")
+        var itemPrice = $(this).closest(".panel").data("price")
+        var itemImage = $(this).closest(".panel").data("image")
+        console.log("Name of Item: " + itemTitle)
+        console.log("Price of Item: " + itemPrice)
+        console.log("URL of image: " + itemImage)
+        console.log("Amount to add to cart: " + getQuantityValue())
+        // console.log(quantity)
+      });
+
+      $(".qty").click(function() {
+        console.log($(this).val())
+      })
     });
   }
 };
