@@ -53,7 +53,7 @@
                         <p class="subtitle">
                             <div class="lower">
                                 <i class="fa fa-tags" aria-hidden="true" ></i>
-                                {{ category.items.length }}
+                                <p class="subtitle-text">{{ category.items.length }}</p>
                             </div>
                         </p>
                     </div>
@@ -126,7 +126,7 @@
                             <p class="subtitle">
                                 <div class="lower">
                                     <i class="fa fa-tags" aria-hidden="true" ></i>
-                                    {{ item.price }}
+                                    <p class="subtitle-text">{{ item.price }}</p>
                                 </div>
                             </p>
 
@@ -202,7 +202,7 @@
                             <p class="subtitle">
                                 <div class="lower">
                                     <i class="fa fa-tags" aria-hidden="true" ></i>
-                                    {{ item.price }}
+                                    <p class="subtitle-text">{{ item.price }}</p>
                                 </div>
                             </p>
 
@@ -243,6 +243,15 @@ export default {
         .find("#cards-container")
         .removeClass("big");
     });
+
+    // Testing cookies and shit
+    $('.card').on("click", function() {
+      var thisCard = $(this)
+      var productName = thisCard.find(".header").text()
+      var productPrice = thisCard.find(".subtitle-text").text()
+      console.log(productName)
+      console.log(productPrice)
+    })
   }
 };
 </script>
