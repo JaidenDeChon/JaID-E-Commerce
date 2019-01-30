@@ -43,6 +43,15 @@
                     </div>
                 </div>
 
+                <!-- Home button -->
+                <router-link to="/" class="close-on-click">
+                    <div class="option">
+                        <div class="faceplate">
+                            <h3>Home</h3>
+                        </div>
+                    </div>
+                </router-link>
+
                 <!-- FOR LOOP: A dropdown button for each category -->
                 <div class="option" v-for="category in this.$store.state.catelogue.categories" :key="category.name">
 
@@ -55,18 +64,28 @@
                   <div class="droptions-container" >
 
                     <!-- Link to given category's page -->
-                    <div class="droption option">
-                      <div class="faceplate">
-                        <h3>All {{ category.name }}</h3><span></span>
+                    <router-link 
+                      :to="{ name: 'category', params: { categoryName: category.name } }"
+                       class="close-on-click">
+                      <div class="droption option">
+                        <div class="faceplate">
+                          <h3>All {{ category.name }}</h3><span></span>
+                        </div>
                       </div>
-                    </div>
+                    </router-link>
 
                     <!-- FOR LOOP: A button/link for each item in category -->
-                    <div class="droption option" v-for="item in category.items" :key="item.title">
-                      <div class="faceplate">
-                        <h3>{{ item.title }}</h3><span></span>
+                    <router-link 
+                      :to="{ name: 'item', params: { categoryName: category.name, itemTitle: item.title } }" 
+                      v-for="item in category.items" 
+                      :key="item.title"
+                      class="close-on-click">
+                      <div class="droption option">
+                        <div class="faceplate">
+                          <h3>{{ item.title }}</h3><span></span>
+                        </div>
                       </div>
-                    </div>
+                    </router-link>
 
                   </div>
                 </div>
@@ -244,6 +263,11 @@ $(".option").click(function() {
 	}
 })
 
+  // Close menu upon clicking on menu link
+  $(".close-on-click").click(function() {
+    hideMenu();
+  })
+
   }
 }
 </script>
@@ -292,6 +316,11 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
   align-items: center;
   flex-direction: row;
+}
+
+#nav a {
+  text-decoration: none;
+  color: #555;
 }
 #nav #left, #nav #center, #nav #right {
   box-sizing: inherit;
