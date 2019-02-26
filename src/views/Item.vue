@@ -2,7 +2,6 @@
   <div class="item">
     <vue-crumbs />
     <vue-item />
-    <vue- />
     <vue-card />
     <vue-footer />
   </div>
