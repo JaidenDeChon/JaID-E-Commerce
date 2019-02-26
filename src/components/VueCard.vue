@@ -36,8 +36,8 @@
 
             <!-- ...For each category in the catelogue... -->
             <div  class="card"
-                  v-for="category in this.$store.state.catelogue.categories" 
-                  :key="category.name" >
+                  v-for="(category, a) in this.$store.state.catelogue.categories" 
+                  :key="`${a}-${category.name}`" >
 
                 <!-- ...Create a card anchored to that category -->
                 <router-link :to="{ name: 'category', params: { categoryName: category.name } }">
@@ -72,9 +72,9 @@
             <div id="container">
 
                 <div  id="label-container" 
-                      v-for="category in this.$store.state.catelogue.categories" 
+                      v-for="(category, b) in this.$store.state.catelogue.categories" 
                       v-if="category.name === $route.params.categoryName"
-                      :key="category.name" >
+                      :key="`${b}-${category.name}`" >
 
                     <div id="breadcrumbs">
                         <router-link to="/">Home</router-link>
@@ -107,8 +107,8 @@
 
                 <!-- ...For each item in this category... -->
                 <div  class="card"
-                      v-for="item in category.items"
-                      :key="item.title">
+                      v-for="(item, c) in category.items"
+                      :key="`${c}-${item.title}`">
 
                     <!-- ...Create a card anchored to that item -->
                     <router-link :to="{ name: 'item', params: { categoryName: category.name, itemTitle: item.title } }">
@@ -147,9 +147,9 @@
             <div id="container">
 
                 <div  id="label-container" 
-                      v-for="category in this.$store.state.catelogue.categories" 
+                      v-for="(category, d) in this.$store.state.catelogue.categories" 
                       v-if="category.name === $route.params.categoryName"
-                      :key="category.name" >
+                      :key="`${d}-${category.name}`" >
 
                     <div id="breadcrumbs">
                         <router-link to="/">Home</router-link>
@@ -182,9 +182,9 @@
 
                 <!-- ...For each item in this category, if it's not the item currently being viewed... -->
                 <div  class="card"
-                      v-for="item in category.items" 
+                      v-for="(item, e) in category.items" 
                       v-if="item.title != $route.params.itemTitle"
-                      :key="item.title" >
+                      :key="`${e}-${item.title}`" >
 
                     <!-- ...Create a card anchored to that item -->
                     <router-link :to="{ name: 'item', params: { categoryName: category.name, itemTitle: item.title } }" >

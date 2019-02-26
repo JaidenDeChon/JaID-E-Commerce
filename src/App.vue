@@ -145,130 +145,137 @@
 <script>
 
 export default {
+
   mounted: function() {
 
-    // $("#overlay").hide();
-
-    // define overlay and sidebars
     var overlay = $("#nav").children("#overlay")
     var menu = $("#nav").children("#menu")
     var cart = $("#nav").children("#cart")
 
+
     function showOverlay() {
-
         overlay.addClass("toggled")
-
-        // hide overflow on body
-        $("body").css("overflow-y", "hidden");
-
-        // show overlay, start delay for timing
-        overlay.fadeIn(200)
-
+        $("body").css("overflow-y", "hidden");  // hide overflow on body
+        overlay.fadeIn(200)                     // show overlay, start delay for timing
     }
 
-function hideOverlay() {
 
-	overlay.removeClass("toggled")
+    function hideOverlay() {
 
-	// this if-else statement manages reallowing body overflow
-	// overflow is set to overlay so that page doesn't jump left/right upon menu toggling
-	// Chrome supports overlay scrollbar, so we use that if user is in Chome
+        overlay.removeClass("toggled")
 
-	if (navigator.userAgent.toLowerCase().indexOf("firefox") > -1) {
-		$("body").css("overflow-y", "auto");
-	} else {
-		$("body").css("overflow-y", "overlay");
-	}
+        if (navigator.userAgent.toLowerCase().indexOf("firefox") > -1) {
+          $("body").css("overflow-y", "auto");
+        } else {
+          $("body").css("overflow-y", "overlay");  // use overlay property on overflow if Chrome
+        }
 
-	overlay.fadeOut(200)
-}
+        overlay.fadeOut(200)
+    }
 
-function showMenu() {
-	showOverlay()
-	
-	setTimeout(function() {
-		menu.animate({ left: 0 }, 200)
-	}, 250)
-}
 
-function hideMenu() {
-	setTimeout(function() {
-		hideOverlay()
-	}, 250)
+    function showMenu() {
 
-	menu.animate({ left: "-420px" }, 200)
-}
+        showOverlay()
 
-function showCart() {
-	showOverlay()
-	
-	setTimeout(function() {
-		cart.animate({ right: "0" }, 200)
-	}, 250)
-}
+        setTimeout(function() {
+          menu.animate({ left: 0 }, 200)
+        }, 250)
+    }
 
-function hideCart() {	
-	setTimeout(function() {
-		hideOverlay()
-	}, 250)
 
-	cart.animate({ right: "-420px" }, 200)
-}
+    function hideMenu() {
+        setTimeout(function() {
+          hideOverlay()
+        }, 250)
+        menu.animate({ left: "-420px" }, 200)
+    }
 
-// if overlay is clicked, toggleOverlay()
-$("#overlay").click(function(event) {
-	hideOverlay();
-	hideMenu()
-	hideCart()
-})
 
-// hamburger icon
-$("#hamburger").click(function() {
-	showMenu()
-})
+    function showCart() {
 
-// cart icon
-$("#cart-button").click(function() {
-	showCart()
-})
+        showOverlay()
 
-// close buttons
-$(".close-sidebar").click(function() {
-	hideCart()
-	hideMenu()
-})
+        setTimeout(function() {
+          cart.animate({ right: "0" }, 200)
+        }, 250)
+    }
 
-$(".option").click(function() {
 
-	if ($(this).children('div.droptions-container').length != 0) {
+    function hideCart() {	
+        setTimeout(function() {
+          hideOverlay()
+        }, 250)
 
-		// find droptions-container child of option
-		var slider = $(this).children(".droptions-container")
+        cart.animate({ right: "-420px" }, 200)
+    }
 
-		// give display: visible to slider, done with sliding animation
-		slider.slideToggle(200, function() {
-			slider.toggleClass("expanded");
-		})
 
-		// if it is already open, give white background on click (once closed)
-		if (slider.hasClass("expanded")) {
-			this.style.backgroundColor = "#ffffff"
+    // if overlay is clicked, toggleOverlay()
+    $("#overlay").click(function(event) {
+        hideOverlay();
+        hideMenu()
+        hideCart()
+    })
 
-		// otherwise give it a grey background
-		} else {
-			this.style.backgroundColor = "#e8e8e8"
-		}
-	} else {
-		return;
-	}
-})
+    // hamburger icon
+    $("#hamburger").click(function() {
+        showMenu()
+    })
 
-  // Close menu upon clicking on menu link
-  $(".close-on-click").click(function() {
-    hideMenu();
-  })
+    // cart icon
+    $("#cart-button").click(function() {
+        showCart()
+    })
+
+    // close buttons
+    $(".close-sidebar").click(function() {
+        hideCart()
+        hideMenu()
+    })
+
+
+    $(".option").click(function() {
+
+      if ($(this).children('div.droptions-container').length != 0) {
+
+          // find droptions-container child of option
+          var slider = $(this).children(".droptions-container")
+
+          // give display: visible to slider, done with sliding animation
+          slider.slideToggle(200, function() {
+              slider.toggleClass("expanded");
+          })
+
+          // if it is already open, give white background on click (once closed)
+          if (slider.hasClass("expanded")) {
+              this.style.backgroundColor = "#ffffff"
+
+          // otherwise give it a grey background
+          } else {
+              this.style.backgroundColor = "#e8e8e8"
+          }
+      } else {
+          return;
+      }
+    });
+
+
+    // Close menu upon clicking on menu link
+    $(".close-on-click").click(function() {
+        hideMenu();
+    })
+
+
+    // Initialize array for cart
+    while (localStorage.getItem("Cart") == null) {        // If there is no cart
+        let newCart = []                                  // Create empty array
+        let newCartStringified = JSON.stringify(newCart)  // Stringify the array
+        localStorage.setItem("Cart", newCartStringified)  // Add Stringy array to localStorage
+    }
 
   }
+
 }
 </script>
 
