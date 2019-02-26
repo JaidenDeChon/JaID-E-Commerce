@@ -82,153 +82,171 @@ import Slick from "vue-slick";
 
 export default {
 
-  name: "VueItem",
+    name: "VueItem",
 
-  components: { Slick },
+    components: { Slick },
 
-  mounted: function() {
+    mounted: function() {
 
-    $(document).ready(function() {
-      $(".carousel-container").slick({
-        // setting-name: setting-value
-        arrows: true,
-        dots: true,
-        cssEase: "ease-out",
-        speed: 200,
-        useTransform: true,
+      $(document).ready(function () {
+
+          $(".carousel-container").slick({
+              // setting-name: setting-value
+              arrows: true,
+              dots: true,
+              cssEase: "ease-out",
+              speed: 200,
+              useTransform: true,
+          });
+
+          // let initialPic = $(".colors")
+          //     .find(".selected")
+          //     .data("pic");
+
+          // $("#main-image").attr("src", initialPic);
       });
 
-      // let initialPic = $(".colors")
-      //   .find(".selected")
-      //   .data("pic");
-      // $("#main-image").attr("src", initialPic);
-    });
+        // Button Selecting:
 
-    // Button Selecting
-    // When .button is clicked,
-    $(".button").click(function() {
-      // Find the other .buttons within this parent and remove .active
-      $(this)
-        .parent()
-        .find(".button")
-        .not(this)
-        .removeClass("selected");
+        // When .button is clicked,
+        $(".button").click(function () {
 
-      // If the button clicked is the cart button...
-      if ($(this).hasClass("add-to-cart-button")) {
-        // If the item is not in cart...
-        if (!$(this).hasClass("in-cart")) {
-          // (Add to cart);
+            // Find the other .buttons within this parent and remove .selected
+            $(this)
+                .parent()
+                .find(".button")
+                .not(this)
+                .removeClass("selected");
 
-          // Change button text to show it's in the cart
-          $(this)
-            .find("h2")
-            .html("Remove from Cart");
+            // If the button clicked is the cart button...
+            if ($(this).hasClass("add-to-cart-button")) {
 
-          // Give class 'in-cart' to set status of item
-          $(this).addClass("in-cart");
+                // If the item is not in cart...
+                if (!$(this).hasClass("in-cart")) {
 
-          // otherwise...
-        } else if ($(this).hasClass("in-cart")) {
-          // (Remove from cart);
+                    // (Add to cart);
 
-          // Change button text to show it's not in the cart
-          $(this)
-            .find("h2")
-            .html("Add to Cart");
+                    // Change button text to show it's in the cart
+                    $(this)
+                        .find("h2")
+                        .html("Remove from Cart");
 
-          // Remove 'in-cart' class to set status of item
-          $(this).removeClass("in-cart");
-        }
+                    // Give class 'in-cart' to set status of item
+                    $(this).addClass("in-cart");
 
-        // Otherwise, if it's a color button...
-      } else if (
-        $(this)
-          .parent()
-          .hasClass("colors")
-      ) {
-        // Get the button's custom data-pic attribute
-        let pic = $(this).data("pic");
+                // otherwise...
+                } else if ($(this).hasClass("in-cart")) {
 
-        // Change the main image source to the one from data-pic
-        $("#main-image").attr("src", pic);
-      }
+                    // (Remove from cart);
 
-      // Toggle .active for the button clicked
-      $(this).toggleClass("selected");
-    });
+                    // Change button text to show it's not in the cart
+                    $(this)
+                        .find("h2")
+                        .html("Add to Cart");
 
-    // Quantity Counter
-    jQuery(document).ready(function() {
-      // This button will increment the value
-      $(".qtyplus").click(function(e) {
-        // Stop acting like a button
-        e.preventDefault();
+                    // Remove 'in-cart' class to set status of item
+                    $(this).removeClass("in-cart");
+                }
 
-        // Get the field name
-        let fieldName = $(this).attr("field");
+            // Otherwise, if it's a color button...
+            } else if ($(this).parent().hasClass("colors")) {
 
-        // Get its current value
-        var currentVal = parseInt($("input[name=" + fieldName + "]").val());
+                // Get the button's custom data-pic attribute
+                let pic = $(this).data("pic");
 
-        // If is not undefined
-        if (!isNaN(currentVal)) {
-          // Increment
-          $("input[name=" + fieldName + "]").val(currentVal + 1);
-        } else {
-          // Otherwise put a 0 there
-          $("input[name=" + fieldName + "]").val(0);
-        }
-      });
+                // Change the main image source to the one from data-pic
+                $("#main-image").attr("src", pic);
+            }
 
-      // This button will decrement the value till 0
-      $(".qtyminus").click(function(e) {
-        // Stop acting like a button
-        e.preventDefault();
+              // Toggle .active for the button clicked
+              $(this).toggleClass("selected");
+          });
 
-        // Get the field name
-        let fieldName = $(this).attr("field");
+          // Quantity Counter
+          jQuery(document).ready(function () {
 
-        // Get its current value
-        var currentVal = parseInt($("input[name=" + fieldName + "]").val());
+            // This button will increment the value
+            $(".qtyplus").click(function (e) {
+                // Stop acting like a button
+                e.preventDefault();
 
-        // If it isn't undefined or its greater than 0
-        if (!isNaN(currentVal) && currentVal > 0) {
-          // Decrement one
-          $("input[name=" + fieldName + "]").val(currentVal - 1);
-        } else {
-          // Otherwise put a 0 there
-          $("input[name=" + fieldName + "]").val(0);
-        }
-      });
+                // Get the field name
+                let fieldName = $(this).attr("field");
 
-      // Get quantity value
-      $(".qty").click(function() {
-        console.log($(this).val())
-      })
+                // Get its current value
+                var currentVal = parseInt($("input[name=" + fieldName + "]").val());
 
-      function getQuantityValue() {
-        return $(document).find(".qty").val()
-      };
+                // If is not undefined
+                if (!isNaN(currentVal)) {
+                    // Increment
+                    $("input[name=" + fieldName + "]").val(currentVal + 1);
 
-      // Add to cart (using cookies)
-      $(".add-to-cart-button").click(function() {
-        var itemTitle = $(this).closest(".panel").data("title")
-        var itemPrice = $(this).closest(".panel").data("price")
-        var itemImage = $(this).closest(".panel").data("image")
-        console.log("Name of Item: " + itemTitle)
-        console.log("Price of Item: " + itemPrice)
-        console.log("URL of image: " + itemImage)
-        console.log("Amount to add to cart: " + getQuantityValue())
-        // console.log(quantity)
-      });
+                } else {
 
-      $(".qty").click(function() {
-        console.log($(this).val())
-      })
-    });
-  }
+                    // Otherwise put a 0 there
+                    $("input[name=" + fieldName + "]").val(0);
+                }
+            });
+
+            // This button will decrement the value till 0
+            $(".qtyminus").click(function (e) {
+
+                // Stop acting like a button
+                e.preventDefault();
+
+                // Get the field name
+                let fieldName = $(this).attr("field");
+
+                // Get its current value
+                var currentVal = parseInt($("input[name=" + fieldName + "]").val());
+
+                // If it isn't undefined or its greater than 0
+                if (!isNaN(currentVal) && currentVal > 0) {
+
+                    // Decrement one
+                    $("input[name=" + fieldName + "]").val(currentVal - 1);
+                } else {
+
+                    // Otherwise put a 0 there
+                    $("input[name=" + fieldName + "]").val(0);
+                }
+            });
+
+            // Add to cart (using Web Storage API)
+            $(".add-to-cart-button").click(function () {
+
+                function getQuantityValue() {
+                    return $(document).find(".qty").val()
+                };
+
+                // Get relevant item data
+                let itemTitle = $(this).closest(".panel").data("title")
+                let itemPrice = $(this).closest(".panel").data("price")
+                let itemImage = $(this).closest(".panel").data("image")
+                let itemQuantity = getQuantityValue()
+
+                // Create Object out of item data
+                let cartEntry = [{
+                    "Title": itemTitle,
+                    "Price": itemPrice,
+                    "Image": itemImage,
+                    "Amount": itemQuantity
+                }]
+
+                // Fetch cart from localStorage, convert to object
+                let cart = localStorage.getItem("Cart")
+                let cartObject = JSON.parse(cart)
+
+                cartObject.push(cartEntry)
+
+                // Convert cart back to string & send back to localStorage
+                let newCart = JSON.stringify(cartObject)
+                localStorage.setItem("Cart", newCart)
+            })
+        });
+    }
 };
+
 </script>
 
 <style>
