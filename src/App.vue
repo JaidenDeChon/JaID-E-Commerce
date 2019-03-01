@@ -274,6 +274,61 @@ export default {
         localStorage.setItem("Cart", newCartStringified)  // Add Stringy array to localStorage
     }
 
+    if(localStorage.getItem("Cart") != null) {
+
+        // Fill the cart menu with carted items
+        function fillCart() {
+
+            // Locate cart side menu for adding divs (carted items)
+            let cartDiv = $("#cart")
+
+            // Get cart contents form localStorage, convert to object
+            let cart = localStorage.getItem("Cart")
+            let cartObject = JSON.parse(cart)
+
+            // For carted item...
+            for (var i = 0; i < cartObject.length; i++) {
+
+                // Create variable out of carted item
+                let entry = cartObject[i]
+
+                // For detail in carted item... (title, price, etc)
+                for (var j = 0; j < entry.length; j++) {
+
+                    //  Create variable out of detail
+                    let detail = entry[j]
+
+                    // Pull cart details for injecting into HTML
+                    let entryTitle = detail["Title"]
+                    let entryPrice = detail["Price"]
+                    let entryImage = detail["Image"]
+                    let entryAmount = detail["Amount"]
+
+                    function createCartEntry() {
+                      console.log(entryTitle)
+
+                      // create overall container div 
+                      // add class "option"
+                      // prepend() to cartDiv
+
+                      // create child div
+                      // add class "faceplate"
+                      // prepend() to above container div
+                    
+                      // create <img>, append src ( Image )
+                      // create <h3>, append text ( Title )
+                      // prepend() both above elements to above .faceplate
+                      
+                    }
+
+                    createCartEntry()
+                }
+            }
+        }
+
+      fillCart()
+    }
+
   }
 
 }
