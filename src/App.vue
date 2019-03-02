@@ -102,39 +102,8 @@
                     <h3>Close cart</h3><i class="fas fa-times"></i>
                   </div>
                 </div>
-
-
-              <div class="option">
-                <div class="faceplate"><img src="https://image.freepik.com/free-icon/abraham-lincoln_318-124865.jpg"/>
-                  <h3>Lincoln's Wooden Teeth</h3><i class="fas fa-caret-down"></i>
-                </div>
-                <div class="droptions-container">
-                  <div class="option">
-                    <div class="faceplate noclick">
-                      <h3>Price</h3>
-                      <h3>$14.99</h3>
-                    </div>
-                  </div>
-                  <div class="option">
-                    <div class="faceplate noclick">
-                      <h3>Quantity</h3>
-                      <h3>3</h3>
-                    </div>
-                  </div>
-                  <div class="option">
-                    <div class="faceplate">
-                      <h3>View item</h3>
-                    </div>
-                  </div>
-                  <div class="option">
-                    <div class="faceplate red">
-                      <h3>Remove from Cart</h3><i class="fas fa-times"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
-</div>
+        </div>
         <router-view :key="$route.fullPath"></router-view>
     </div>
 </template>
@@ -234,10 +203,13 @@ export default {
         hideMenu()
     })
 
+    // Close menu upon clicking on menu link
+    $(".close-on-click").click(function() {
+        hideMenu();
+    })
 
     $(".option").click(function() {
-
-      if ($(this).children('div.droptions-container').length != 0) {
+        if ($(this).children('div.droptions-container').length != 0) {
 
           // find droptions-container child of option
           var slider = $(this).children(".droptions-container")
@@ -255,17 +227,10 @@ export default {
           } else {
               this.style.backgroundColor = "#e8e8e8"
           }
-      } else {
-          return;
-      }
-    });
-
-
-    // Close menu upon clicking on menu link
-    $(".close-on-click").click(function() {
-        hideMenu();
+        } else {
+            return;
+        }
     })
-
 
     // Initialize array for cart
     while (localStorage.getItem("Cart") == null) {        // If there is no cart
@@ -273,59 +238,187 @@ export default {
         let newCartStringified = JSON.stringify(newCart)  // Stringify the array
         localStorage.setItem("Cart", newCartStringified)  // Add Stringy array to localStorage
     }
+  
+    // Fill the cart menu with carted items
+    function fillCart() {
 
-    if(localStorage.getItem("Cart") != null) {
+        $(".cart-entry").remove();
 
-        // Fill the cart menu with carted items
-        function fillCart() {
+        // Locate cart side menu for adding divs (carted items)
+        let cartDiv = $("#cart")
 
-            // Locate cart side menu for adding divs (carted items)
-            let cartDiv = $("#cart")
+        // Get cart contents form localStorage, convert to object
+        let cart = localStorage.getItem("Cart")
+        let cartObject = JSON.parse(cart)
 
-            // Get cart contents form localStorage, convert to object
-            let cart = localStorage.getItem("Cart")
-            let cartObject = JSON.parse(cart)
+        // For carted item...
+        for (var i = 0; i < cartObject.length; i++) {
 
-            // For carted item...
-            for (var i = 0; i < cartObject.length; i++) {
+            // Create variable out of carted item
+            let entry = cartObject[i]
 
-                // Create variable out of carted item
-                let entry = cartObject[i]
+            // For detail in carted item... (title, price, etc)
+            for (var j = 0; j < entry.length; j++) {
 
-                // For detail in carted item... (title, price, etc)
-                for (var j = 0; j < entry.length; j++) {
+                //  Create variable out of detail
+                let detail = entry[j]
 
-                    //  Create variable out of detail
-                    let detail = entry[j]
+                // Pull cart details for injecting into HTML
+                let entryTitle = detail["Title"]
+                let entryPrice = detail["Price"]
+                let entryImage = detail["Image"]
+                let entryAmount = detail["Amount"]
 
-                    // Pull cart details for injecting into HTML
-                    let entryTitle = detail["Title"]
-                    let entryPrice = detail["Price"]
-                    let entryImage = detail["Image"]
-                    let entryAmount = detail["Amount"]
+                function createCartEntry() {
 
-                    function createCartEntry() {
-                      console.log(entryTitle)
+                  // create overall container div for a cart entry
+                  let container = document.createElement("div")
+                  container.classList.add("option", "cart-entry")
 
-                      // create overall container div 
-                      // add class "option"
-                      // prepend() to cartDiv
 
-                      // create child div
-                      // add class "faceplate"
-                      // prepend() to above container div
-                    
-                      // create <img>, append src ( Image )
-                      // create <h3>, append text ( Title )
-                      // prepend() both above elements to above .faceplate
-                      
-                    }
 
-                    createCartEntry()
+                  // PRIMARY CHILD DIV | shows image and title of item
+
+                      let faceplate = document.createElement("div")
+                      faceplate.classList.add("faceplate")
+
+                      // create + prepend image element
+                      let image = document.createElement("img")
+                      $(image).attr('src', entryImage)
+                      faceplate.prepend(image)
+
+                      // create + append title element
+                      let titleH3 = document.createElement("h3")
+                      let titleContent = document.createTextNode(entryTitle)
+                      titleH3.appendChild(titleContent)
+                      faceplate.append(titleH3)
+
+                      // create + append dropdown arrow
+                      let arrow = document.createElement("i")
+                      arrow.classList.add("fas", "fa-caret-down")
+                      faceplate.append(arrow)
+
+
+
+                  // DROPDOWN CONTAINER
+
+                      // create droptions-container div, append to container
+                      let droptionsContainer = document.createElement("div")
+                      droptionsContainer.classList.add("droptions-container")
+                      container.append(droptionsContainer)
+
+
+
+                  // DROPDOWN CHILDREN | shows item info (price, quantity), link to item, button to remove item
+
+                      // create option/info divs: price, quantity, link to item, and remove button
+                      let outerPriceDiv = document.createElement("div")
+                      let outerAmountDiv = document.createElement("div")
+                      let outerRemoveDiv = document.createElement("div")
+
+                      // add option class to each of the 4 divs created above
+                      outerPriceDiv.classList.add("option")
+                      outerAmountDiv.classList.add("option")
+                      outerRemoveDiv.classList.add("option")
+
+                      // append each of the 4 divs to the droptions-container div
+                      droptionsContainer.append(outerPriceDiv)
+                      droptionsContainer.append(outerAmountDiv)
+                      droptionsContainer.append(outerRemoveDiv)
+
+
+
+                      // DROPDOWN CHILDREN CONTENTS
+
+                          // create div for showing pricing
+                          let innerPriceDiv = document.createElement("div")
+                          innerPriceDiv.classList.add("faceplate", "noclick")
+                          outerPriceDiv.appendChild(innerPriceDiv)
+
+                              // create price label
+                              let priceIndicator = document.createElement("h3")
+                              let priceIndicatorContent = document.createTextNode("Price")
+                              priceIndicator.appendChild(priceIndicatorContent)
+                              innerPriceDiv.prepend(priceIndicator)
+
+                              // create h3 with actual price value
+                              let priceValue = document.createElement("h3")
+                              let priceValueContent = document.createTextNode(entryPrice)
+                              priceValue.appendChild(priceValueContent)
+                              innerPriceDiv.append(priceValue)
+
+                          // create div for showing quantity in cart
+                          let innerAmountDiv = document.createElement("div")
+                          innerAmountDiv.classList.add("faceplate", "noclick")
+                          outerAmountDiv.appendChild(innerAmountDiv)
+
+                              // create quantity label
+                              let amountIndicator = document.createElement("h3")
+                              let amountIndicatorContent = document.createTextNode("Quantity")
+                              amountIndicator.appendChild(amountIndicatorContent)
+                              innerAmountDiv.prepend(amountIndicator)
+
+                              // create h3 with actual price value
+                              let amountValue = document.createElement("h3")
+                              let amountValueContent = document.createTextNode(entryAmount)
+                              amountValue.appendChild(amountValueContent)
+                              innerAmountDiv.append(amountValue)
+
+                          // create div for removing item
+                          let innerRemoveDiv = document.createElement("div")
+                          innerRemoveDiv.classList.add("faceplate", "red")
+                          outerRemoveDiv.appendChild(innerRemoveDiv)
+
+                              // create removal "button"
+                              let itemRemove = document.createElement("h3")
+                              let itemRemoveContent = document.createTextNode("Remove")
+                              itemRemove.appendChild(itemRemoveContent)
+                              innerRemoveDiv.prepend(itemRemove)
+
+                              let itemRemoveIcon = document.createElement("i")
+                              itemRemoveIcon.classList.add("fas", "fa-times")
+                              innerRemoveDiv.append(itemRemoveIcon)
+
+
+
+                  // Put the faceplate containing the image, text and arrow into container
+                  container.prepend(faceplate)
+
+                  // Put the container into the cart div for displaying on page
+                  cartDiv.append(container)
+
+                  $(container).click(function() {
+                      if ($(this).children('div.droptions-container').length != 0) {
+
+                        // find droptions-container child of option
+                        var slider = $(this).children(".droptions-container")
+
+                        // give display: visible to slider, done with sliding animation
+                        slider.slideToggle(200, function() {
+                            slider.toggleClass("expanded");
+                        })
+
+                        // if it is already open, give white background on click (once closed)
+                        if (slider.hasClass("expanded")) {
+                            this.style.backgroundColor = "#ffffff"
+
+                        // otherwise give it a grey background
+                        } else {
+                            this.style.backgroundColor = "#e8e8e8"
+                        }
+                      } else {
+                          return;
+                      }
+                  })
+
                 }
+
+                createCartEntry()
             }
         }
+    }
 
+    if(localStorage.getItem("Cart") != null) {
       fillCart()
     }
 
@@ -337,7 +430,7 @@ export default {
 
 
 
-<style scoped>
+<style>
 
 @import url("https://fonts.googleapis.com/css?family=Advent+Pro|Raleway");
 html, body {
