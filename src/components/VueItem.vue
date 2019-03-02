@@ -88,23 +88,14 @@ export default {
 
     mounted: function() {
 
-      $(document).ready(function () {
-
-          $(".carousel-container").slick({
-              // setting-name: setting-value
-              arrows: true,
-              dots: true,
-              cssEase: "ease-out",
-              speed: 200,
-              useTransform: true,
-          });
-
-          // let initialPic = $(".colors")
-          //     .find(".selected")
-          //     .data("pic");
-
-          // $("#main-image").attr("src", initialPic);
-      });
+        $(".carousel-container").slick({
+            // setting-name: setting-value
+            arrows: true,
+            dots: true,
+            cssEase: "ease-out",
+            speed: 200,
+            useTransform: true,
+        });
 
         // Button Selecting:
 
@@ -212,6 +203,185 @@ export default {
                 }
             });
 
+            // Fill the cart menu with carted items
+            function fillCart() {
+
+                $(".cart-entry").remove();
+
+                // Locate cart side menu for adding divs (carted items)
+                let cartDiv = $("#cart")
+
+                // Get cart contents form localStorage, convert to object
+                let cart = localStorage.getItem("Cart")
+                let cartObject = JSON.parse(cart)
+
+                // For carted item...
+                for (var i = 0; i < cartObject.length; i++) {
+
+                    // Create variable out of carted item
+                    let entry = cartObject[i]
+
+                    // For detail in carted item... (title, price, etc)
+                    for (var j = 0; j < entry.length; j++) {
+
+                        //  Create variable out of detail
+                        let detail = entry[j]
+
+                        // Pull cart details for injecting into HTML
+                        let entryTitle = detail["Title"]
+                        let entryPrice = detail["Price"]
+                        let entryImage = detail["Image"]
+                        let entryAmount = detail["Amount"]
+
+                        function createCartEntry() {
+
+                          // create overall container div for a cart entry
+                          let container = document.createElement("div")
+                          container.classList.add("option", "cart-entry")
+
+
+
+                          // PRIMARY CHILD DIV | shows image and title of item
+
+                              let faceplate = document.createElement("div")
+                              faceplate.classList.add("faceplate")
+
+                              // create + prepend image element
+                              let image = document.createElement("img")
+                              $(image).attr('src', entryImage)
+                              faceplate.prepend(image)
+
+                              // create + append title element
+                              let titleH3 = document.createElement("h3")
+                              let titleContent = document.createTextNode(entryTitle)
+                              titleH3.appendChild(titleContent)
+                              faceplate.append(titleH3)
+
+                              // create + append dropdown arrow
+                              let arrow = document.createElement("i")
+                              arrow.classList.add("fas", "fa-caret-down")
+                              faceplate.append(arrow)
+
+
+
+                          // DROPDOWN CONTAINER
+
+                              // create droptions-container div, append to container
+                              let droptionsContainer = document.createElement("div")
+                              droptionsContainer.classList.add("droptions-container")
+                              container.append(droptionsContainer)
+
+
+
+                          // DROPDOWN CHILDREN | shows item info (price, quantity), link to item, button to remove item
+
+                              // create option/info divs: price, quantity, link to item, and remove button
+                              let outerPriceDiv = document.createElement("div")
+                              let outerAmountDiv = document.createElement("div")
+                              let outerRemoveDiv = document.createElement("div")
+
+                              // add option class to each of the 4 divs created above
+                              outerPriceDiv.classList.add("option")
+                              outerAmountDiv.classList.add("option")
+                              outerRemoveDiv.classList.add("option")
+
+                              // append each of the 4 divs to the droptions-container div
+                              droptionsContainer.append(outerPriceDiv)
+                              droptionsContainer.append(outerAmountDiv)
+                              droptionsContainer.append(outerRemoveDiv)
+
+
+
+                              // DROPDOWN CHILDREN CONTENTS
+
+                                  // create div for showing pricing
+                                  let innerPriceDiv = document.createElement("div")
+                                  innerPriceDiv.classList.add("faceplate", "noclick")
+                                  outerPriceDiv.appendChild(innerPriceDiv)
+
+                                      // create price label
+                                      let priceIndicator = document.createElement("h3")
+                                      let priceIndicatorContent = document.createTextNode("Price")
+                                      priceIndicator.appendChild(priceIndicatorContent)
+                                      innerPriceDiv.prepend(priceIndicator)
+
+                                      // create h3 with actual price value
+                                      let priceValue = document.createElement("h3")
+                                      let priceValueContent = document.createTextNode(entryPrice)
+                                      priceValue.appendChild(priceValueContent)
+                                      innerPriceDiv.append(priceValue)
+
+                                  // create div for showing quantity in cart
+                                  let innerAmountDiv = document.createElement("div")
+                                  innerAmountDiv.classList.add("faceplate", "noclick")
+                                  outerAmountDiv.appendChild(innerAmountDiv)
+
+                                      // create quantity label
+                                      let amountIndicator = document.createElement("h3")
+                                      let amountIndicatorContent = document.createTextNode("Quantity")
+                                      amountIndicator.appendChild(amountIndicatorContent)
+                                      innerAmountDiv.prepend(amountIndicator)
+
+                                      // create h3 with actual price value
+                                      let amountValue = document.createElement("h3")
+                                      let amountValueContent = document.createTextNode(entryAmount)
+                                      amountValue.appendChild(amountValueContent)
+                                      innerAmountDiv.append(amountValue)
+
+                                  // create div for removing item
+                                  let innerRemoveDiv = document.createElement("div")
+                                  innerRemoveDiv.classList.add("faceplate", "red")
+                                  outerRemoveDiv.appendChild(innerRemoveDiv)
+
+                                      // create removal "button"
+                                      let itemRemove = document.createElement("h3")
+                                      let itemRemoveContent = document.createTextNode("Remove")
+                                      itemRemove.appendChild(itemRemoveContent)
+                                      innerRemoveDiv.prepend(itemRemove)
+
+                                      let itemRemoveIcon = document.createElement("i")
+                                      itemRemoveIcon.classList.add("fas", "fa-times")
+                                      innerRemoveDiv.append(itemRemoveIcon)
+
+
+
+                          // Put the faceplate containing the image, text and arrow into container
+                          container.prepend(faceplate)
+
+                          // Put the container into the cart div for displaying on page
+                          cartDiv.append(container)
+
+                          $(container).click(function() {
+                              if ($(this).children('div.droptions-container').length != 0) {
+
+                                // find droptions-container child of option
+                                var slider = $(this).children(".droptions-container")
+
+                                // give display: visible to slider, done with sliding animation
+                                slider.slideToggle(200, function() {
+                                    slider.toggleClass("expanded");
+                                })
+
+                                // if it is already open, give white background on click (once closed)
+                                if (slider.hasClass("expanded")) {
+                                    this.style.backgroundColor = "#ffffff"
+
+                                // otherwise give it a grey background
+                                } else {
+                                    this.style.backgroundColor = "#e8e8e8"
+                                }
+                              } else {
+                                  return;
+                              }
+                          })
+
+                        }
+
+                        createCartEntry()
+                    }
+                }
+            }
+
             // Add to cart (using Web Storage API)
             $(".add-to-cart-button").click(function () {
 
@@ -242,6 +412,8 @@ export default {
                 // Convert cart back to string & send back to localStorage
                 let newCart = JSON.stringify(cartObject)
                 localStorage.setItem("Cart", newCart)
+
+                fillCart()
             })
         });
     }
