@@ -291,6 +291,7 @@ export default {
                       let titleH3 = document.createElement("h3")
                       let titleContent = document.createTextNode(entryTitle)
                       titleH3.appendChild(titleContent)
+                      titleH3.classList.add("item-title")
                       faceplate.append(titleH3)
 
                       // create + append dropdown arrow
@@ -409,6 +410,35 @@ export default {
                       } else {
                           return;
                       }
+                  })
+
+                  $(".option .red").click(function() {
+
+                      let cartItemTitle = $(this).parent().parent().siblings(".faceplate").children("h3").text()
+
+                      // Get cart contents form localStorage, convert to object
+                      let cart = localStorage.getItem("Cart")
+                      let cartObject = JSON.parse(cart)
+
+                      for ( var product = 0; product < cartObject.length; product++ ) {
+                          let individualItem = cartObject[product]
+                          let itemIndex = cartObject.indexOf(individualItem)
+                          console.log(itemIndex)
+                          
+                          for ( var feature = 0; feature < individualItem.length; feature++) {
+                              let detail = individualItem[feature]
+                              let title = detail["Title"]
+
+                              if (title === cartItemTitle) {
+                                cartObject.splice(itemIndex, 1)
+                                let cartString = JSON.stringify(cartObject)
+                                localStorage.setItem("Cart", cartString)
+                                fillCart()
+                              }
+
+                          }
+                      }
+
                   })
 
                 }
