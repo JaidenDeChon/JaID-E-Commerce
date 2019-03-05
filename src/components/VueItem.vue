@@ -115,13 +115,6 @@ export default {
                 // If the item is not in cart...
                 if (!$(this).hasClass("in-cart")) {
 
-                    // (Add to cart);
-
-                    // Change button text to show it's in the cart
-                    $(this)
-                        .find("h2")
-                        .html("Remove from Cart");
-
                     // Give class 'in-cart' to set status of item
                     $(this).addClass("in-cart");
 
@@ -129,11 +122,6 @@ export default {
                 } else if ($(this).hasClass("in-cart")) {
 
                     // (Remove from cart);
-
-                    // Change button text to show it's not in the cart
-                    $(this)
-                        .find("h2")
-                        .html("Add to Cart");
 
                     // Remove 'in-cart' class to set status of item
                     $(this).removeClass("in-cart");
@@ -377,37 +365,38 @@ export default {
                           })
 
                           $(".option .red").click(function() {
-
                               let cartItemTitle = $(this).parent().parent().siblings(".faceplate").children("h3").text()
-
-                              // Get cart contents form localStorage, convert to object
-                              let cart = localStorage.getItem("Cart")
-                              let cartObject = JSON.parse(cart)
-
-                              for ( var product = 0; product < cartObject.length; product++ ) {
-                                  let individualItem = cartObject[product]
-                                  let itemIndex = cartObject.indexOf(individualItem)
-                                  console.log(itemIndex)
-                                  
-                                  for ( var feature = 0; feature < individualItem.length; feature++) {
-                                      let detail = individualItem[feature]
-                                      let title = detail["Title"]
-
-                                      if (title === cartItemTitle) {
-                                        cartObject.splice(itemIndex, 1)
-                                        let cartString = JSON.stringify(cartObject)
-                                        localStorage.setItem("Cart", cartString)
-                                        fillCart()
-                                      }
-
-                                  }
-                              }
-
+                              removeCartItem(cartItemTitle)
                           })
 
                         }
 
                         createCartEntry()
+                    }
+                }
+            }
+
+            function removeCartItem(insert) {
+
+                // Get cart contents form localStorage, convert to object
+                let cart = localStorage.getItem("Cart")
+                let cartObject = JSON.parse(cart)
+
+                for ( var product = 0; product < cartObject.length; product++ ) {
+                    let individualItem = cartObject[product]
+                    let itemIndex = cartObject.indexOf(individualItem)
+                    
+                    for ( var feature = 0; feature < individualItem.length; feature++) {
+                        let detail = individualItem[feature]
+                        let title = detail["Title"]
+
+                        if (title === insert) {
+                          cartObject.splice(itemIndex, 1)
+                          let cartString = JSON.stringify(cartObject)
+                          localStorage.setItem("Cart", cartString)
+                          fillCart()
+                        }
+
                     }
                 }
             }
@@ -621,8 +610,6 @@ body {
     cursor: pointer;
   }
   .button.selected {
-    background-color: #333;
-    color: #e8e8e8;
   }
 }
 

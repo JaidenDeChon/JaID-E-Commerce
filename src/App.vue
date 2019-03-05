@@ -413,8 +413,11 @@ export default {
                   })
 
                   $(".option .red").click(function() {
-
                       let cartItemTitle = $(this).parent().parent().siblings(".faceplate").children("h3").text()
+                      removeCartItem(cartItemTitle)
+                  })
+
+                  function removeCartItem(insert) {
 
                       // Get cart contents form localStorage, convert to object
                       let cart = localStorage.getItem("Cart")
@@ -423,13 +426,12 @@ export default {
                       for ( var product = 0; product < cartObject.length; product++ ) {
                           let individualItem = cartObject[product]
                           let itemIndex = cartObject.indexOf(individualItem)
-                          console.log(itemIndex)
                           
                           for ( var feature = 0; feature < individualItem.length; feature++) {
                               let detail = individualItem[feature]
                               let title = detail["Title"]
 
-                              if (title === cartItemTitle) {
+                              if (title === insert) {
                                 cartObject.splice(itemIndex, 1)
                                 let cartString = JSON.stringify(cartObject)
                                 localStorage.setItem("Cart", cartString)
@@ -438,8 +440,7 @@ export default {
 
                           }
                       }
-
-                  })
+                  }
 
                 }
 
