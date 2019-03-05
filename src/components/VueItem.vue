@@ -109,26 +109,7 @@ export default {
                 .not(this)
                 .removeClass("selected");
 
-            // If the button clicked is the cart button...
-            if ($(this).hasClass("add-to-cart-button")) {
-
-                // If the item is not in cart...
-                if (!$(this).hasClass("in-cart")) {
-
-                    // Give class 'in-cart' to set status of item
-                    $(this).addClass("in-cart");
-
-                // otherwise...
-                } else if ($(this).hasClass("in-cart")) {
-
-                    // (Remove from cart);
-
-                    // Remove 'in-cart' class to set status of item
-                    $(this).removeClass("in-cart");
-                }
-
-            // Otherwise, if it's a color button...
-            } else if ($(this).parent().hasClass("colors")) {
+            if ($(this).parent().hasClass("colors")) {
 
                 // Get the button's custom data-pic attribute
                 let pic = $(this).data("pic");
@@ -146,6 +127,7 @@ export default {
 
             // This button will increment the value
             $(".qtyplus").click(function (e) {
+
                 // Stop acting like a button
                 e.preventDefault();
 
@@ -190,6 +172,43 @@ export default {
                     $("input[name=" + fieldName + "]").val(0);
                 }
             });
+
+
+            // To be called when the page loads and when adding to / removing from cart
+            function setCartButton() {
+
+                // Define cart string
+                let cart = localStorage.getItem("Cart")
+
+                // Find name of product on page
+                let title = $(document).find(".product-name").text()
+
+                let button = $(".add-to-cart-button")
+
+                // If product name is in cart
+                if (cart.includes(title)) {
+
+                    button
+                        .addClass("in-cart")
+                        .addClass("selected")
+
+                    button
+                        .find("h2")
+                        .html("Remove from Cart")
+
+                } else {
+
+                    button
+                        .removeClass("in-cart")
+                        .removeClass("selected")
+
+                    button
+                        .find("h2")
+                        .html("Add to Cart")
+                }
+            }
+
+            setCartButton()
 
             // Fill the cart menu with carted items
             function fillCart() {
@@ -399,6 +418,9 @@ export default {
 
                     }
                 }
+
+                setCartButton()
+
             }
 
             // Add to cart (using Web Storage API)
@@ -414,25 +436,33 @@ export default {
                 let itemImage = $(this).closest(".panel").data("image")
                 let itemQuantity = getQuantityValue()
 
-                // Create Object out of item data
-                let cartEntry = [{
-                    "Title": itemTitle,
-                    "Price": itemPrice,
-                    "Image": itemImage,
-                    "Amount": itemQuantity
-                }]
+                if (! $(this).hasClass("in-cart")) {
 
-                // Fetch cart from localStorage, convert to object
-                let cart = localStorage.getItem("Cart")
-                let cartObject = JSON.parse(cart)
+                    // Create Object out of item data
+                    let cartEntry = [{
+                        "Title": itemTitle,
+                        "Price": itemPrice,
+                        "Image": itemImage,
+                        "Amount": itemQuantity
+                    }]
 
-                cartObject.push(cartEntry)
+                    // Fetch cart from localStorage, convert to object
+                    let cart = localStorage.getItem("Cart")
+                    let cartObject = JSON.parse(cart)
 
-                // Convert cart back to string & send back to localStorage
-                let newCart = JSON.stringify(cartObject)
-                localStorage.setItem("Cart", newCart)
+                    cartObject.push(cartEntry)
 
-                fillCart()
+                    // Convert cart back to string & send back to localStorage
+                    let newCart = JSON.stringify(cartObject)
+                    localStorage.setItem("Cart", newCart)
+
+                    fillCart()
+                    setCartButton()
+                } else if ($(this).hasClass("in-cart")){
+                    removeCartItem(itemTitle)
+                    setCartButton()
+                }
+
             })
         });
     }
@@ -610,6 +640,9 @@ body {
     cursor: pointer;
   }
   .button.selected {
+    background-color: #333;
+    color: #e8e8e8;
+
   }
 }
 
