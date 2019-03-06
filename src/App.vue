@@ -209,27 +209,18 @@ export default {
     })
 
     $(".option").click(function() {
-        if ($(this).children('div.droptions-container').length != 0) {
 
-          // find droptions-container child of option
-          var slider = $(this).children(".droptions-container")
+        // Find droptions-container child of option
+        let droptionsContainer = $(this).children(".droptions-container");
 
-          // give display: visible to slider, done with sliding animation
-          slider.slideToggle(200, function() {
-              slider.toggleClass("expanded");
-          })
+        // Find the dropdown-container children of sibling options
+        let siblings = $(this).siblings().children(".droptions-container");
 
-          // if it is already open, give white background on click (once closed)
-          if (slider.hasClass("expanded")) {
-              this.style.backgroundColor = "#ffffff"
+        // give display: visible to slider, done with sliding animation
+        droptionsContainer.slideToggle(200);
 
-          // otherwise give it a grey background
-          } else {
-              this.style.backgroundColor = "#e8e8e8"
-          }
-        } else {
-            return;
-        }
+        siblings.slideUp(200);
+
     })
 
     // Initialize array for cart
@@ -389,27 +380,16 @@ export default {
                   cartDiv.append(container)
 
                   $(container).click(function() {
-                      if ($(this).children('div.droptions-container').length != 0) {
+                      // Find droptions-container child of option
+                      let droptionsContainer = $(this).children(".droptions-container");
 
-                        // find droptions-container child of option
-                        var slider = $(this).children(".droptions-container")
+                      // Find the dropdown-container children of sibling options
+                      let siblings = $(this).siblings().children(".droptions-container");
 
-                        // give display: visible to slider, done with sliding animation
-                        slider.slideToggle(200, function() {
-                            slider.toggleClass("expanded");
-                        })
+                      // give display: visible to slider, done with sliding animation
+                      droptionsContainer.slideToggle(200);
 
-                        // if it is already open, give white background on click (once closed)
-                        if (slider.hasClass("expanded")) {
-                            this.style.backgroundColor = "#ffffff"
-
-                        // otherwise give it a grey background
-                        } else {
-                            this.style.backgroundColor = "#e8e8e8"
-                        }
-                      } else {
-                          return;
-                      }
+                      siblings.slideUp(200);
                   })
 
                   $(".option .red").click(function() {
@@ -578,7 +558,7 @@ h1, h2, h3, h4, h5, h6 {
   background: rgba(0, 0, 0, 0.5);
 }
 #nav .sidebar {
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   background-color: #ffffff;
   position: absolute;
@@ -589,9 +569,10 @@ h1, h2, h3, h4, h5, h6 {
   align-items: flex;
   justify-content: flex-start;
   flex-direction: column;
+  overflow: hidden;
 }
 #nav .sidebar .option {
-  background: white;
+  background: ffffff;
   cursor: pointer;
   width: 100%;
   min-height: 80px;
@@ -602,10 +583,7 @@ h1, h2, h3, h4, h5, h6 {
   overflow: hidden;
 }
 #nav .sidebar .option .droptions-container .option {
-  background: #f2f2f2;
-}
-#nav .sidebar .option .droptions-container.expanded {
-  display: visible;
+  background: #e8e8e8;
 }
 #nav .sidebar .option .faceplate {
   height: 80px;
@@ -616,9 +594,10 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Raleway", sans-serif;
   font-size: 22px;
   transition: 0.2s;
+  z-index: 100;
 }
 #nav .sidebar .option .faceplate.noclick {
-  background-color: #ffffff;
+  background-color: #f2f2f2;
   cursor: default;
 }
 #nav .sidebar .option .faceplate img {

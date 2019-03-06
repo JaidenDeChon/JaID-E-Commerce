@@ -360,27 +360,16 @@ export default {
                           cartDiv.append(container)
 
                           $(container).click(function() {
-                              if ($(this).children('div.droptions-container').length != 0) {
+                              // Find droptions-container child of option
+                              let droptionsContainer = $(this).children(".droptions-container");
 
-                                // find droptions-container child of option
-                                var slider = $(this).children(".droptions-container")
+                              // Find the dropdown-container children of sibling options
+                              let siblings = $(this).siblings().children(".droptions-container");
 
-                                // give display: visible to slider, done with sliding animation
-                                slider.slideToggle(200, function() {
-                                    slider.toggleClass("expanded");
-                                })
+                              // give display: visible to slider, done with sliding animation
+                              droptionsContainer.slideToggle(200);
 
-                                // if it is already open, give white background on click (once closed)
-                                if (slider.hasClass("expanded")) {
-                                    this.style.backgroundColor = "#ffffff"
-
-                                // otherwise give it a grey background
-                                } else {
-                                    this.style.backgroundColor = "#e8e8e8"
-                                }
-                              } else {
-                                  return;
-                              }
+                              siblings.slideUp(200);
                           })
 
                           $(".option .red").click(function() {
