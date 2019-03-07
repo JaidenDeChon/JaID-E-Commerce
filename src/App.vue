@@ -25,7 +25,10 @@
 
             <!-- Right section; contains cart button -->
             <div id="right">
-                <div id="cart-button"><i class="fas fa-shopping-cart"></i></div>
+                <div id="cart-button">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="button-badge">0</span>
+                </div>
             </div>
 
             <!-- Dark overlay for when menus are opened -->
@@ -229,6 +232,14 @@ export default {
         let newCartStringified = JSON.stringify(newCart)  // Stringify the array
         localStorage.setItem("Cart", newCartStringified)  // Add Stringy array to localStorage
     }
+
+    function setCartBadge() {
+        let badge = $(".button-badge")
+        badge.html($(".cart-entry").length)
+
+        console.log($(".cart-entry").length)
+        console.log($(".cart-entry"))
+    }
   
     // Fill the cart menu with carted items
     function fillCart() {
@@ -241,6 +252,8 @@ export default {
         // Get cart contents form localStorage, convert to object
         let cart = localStorage.getItem("Cart")
         let cartObject = JSON.parse(cart)
+
+        // setCartBadge(cartObject.length)
 
         // For carted item...
         for (var i = 0; i < cartObject.length; i++) {
@@ -416,6 +429,7 @@ export default {
                                 let cartString = JSON.stringify(cartObject)
                                 localStorage.setItem("Cart", cartString)
                                 fillCart()
+                                setCartBadge()
                               }
 
                           }
@@ -423,14 +437,15 @@ export default {
                   }
 
                 }
-
                 createCartEntry()
+                setCartBadge()
             }
         }
     }
 
     if(localStorage.getItem("Cart") != null) {
-      fillCart()
+      fillCart();
+      setCartBadge().delay(1000)
     }
 
   }
@@ -540,6 +555,24 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   cursor: pointer;
   border-radius: 5px;
+  position: relative;
+  overflow: visible;
+}
+.button-badge {
+  background-color: #555555;
+  border-radius: 8px;
+  color: white;
+ 
+  padding: 3px 5px;
+  font-size: 10px;
+  
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 #nav #right #cart-button:hover {
   background: #e8e8e8;

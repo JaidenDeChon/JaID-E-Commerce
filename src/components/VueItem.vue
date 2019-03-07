@@ -210,6 +210,11 @@ export default {
 
             setCartButton()
 
+            function setCartBadge() {
+                let badge = $(".button-badge")
+                badge.html($(".cart-entry").length)
+            }
+
             // Fill the cart menu with carted items
             function fillCart() {
 
@@ -380,6 +385,7 @@ export default {
                         }
 
                         createCartEntry()
+                        setCartBadge()
                     }
                 }
             }
@@ -404,12 +410,10 @@ export default {
                           localStorage.setItem("Cart", cartString)
                           fillCart()
                         }
-
                     }
                 }
-
+                setCartBadge()
                 setCartButton()
-
             }
 
             // Add to cart (using Web Storage API)
