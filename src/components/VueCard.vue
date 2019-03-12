@@ -249,8 +249,6 @@ export default {
       var thisCard = $(this)
       var productName = thisCard.find(".header").text()
       var productPrice = thisCard.find(".subtitle-text").text()
-      console.log(productName)
-      console.log(productPrice)
     })
   }
 };
