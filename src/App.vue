@@ -105,6 +105,27 @@
                     <h3>Close cart</h3><i class="fas fa-times"></i>
                   </div>
                 </div>
+
+                <!-- Sticky to bottom of div -->
+                <div class="cart-bottom">
+
+                  <!-- Cart Total -->
+                  <div class="option">
+                    <div class="faceplate noclick">
+                      <h3>Cart Total</h3>
+                      <h3 id="total-price">$19.99</h3>
+                    </div>
+                  </div>
+
+                  <!-- Checkout button -->
+                  <div class="option cart-checkout-button">
+                    <div class="faceplate green"><span></span>
+                      <h3>Checkout</h3><i class="fas fa-arrow-right"></i>
+                    </div>
+                  </div>
+
+                </div>
+
             </div>
         </div>
         <router-view :key="$route.fullPath"></router-view>
@@ -460,6 +481,7 @@ export default {
 
 @import url("https://fonts.googleapis.com/css?family=Advent+Pro|Raleway");
 html, body {
+  /*height: 100%;*/
   margin: 0;
   padding: 0;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -591,7 +613,7 @@ h1, h2, h3, h4, h5, h6 {
   background: rgba(0, 0, 0, 0.5);
 }
 #nav .sidebar {
-  min-height: 100vh;
+  height: 100vh;
   width: 100vw;
   background-color: #ffffff;
   position: absolute;
@@ -604,12 +626,25 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: flex-start;
   flex-direction: column; */
 }
+#nav #cart {
+  /*box-sizing: border-box;*/
+  /*border: solid red;*/
+  /*height: 200px;*/
+
+  height: calc(100vh - 160px);
+  height: -moz-calc(100vh - 160px);
+  height: -webkit-calc(100vh - 160px);
+}
 #nav .sidebar .option {
   background: ffffff;
   cursor: pointer;
   width: 100%;
   min-height: 80px;
   margin: 0;
+}
+.cart-entry:last-of-type {
+  /*border: 1px solid red;*/
+  /*margin-bottom: 160px;*/
 }
 #nav .sidebar .option .droptions-container {
   display: none;
@@ -658,6 +693,32 @@ h1, h2, h3, h4, h5, h6 {
 }
 #nav .sidebar .option .faceplate.red:hover h3, #nav .sidebar .option .faceplate.red:hover i {
   color: #ffffff;
+}
+.cart-bottom {
+  z-index: 100;
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.23);
+  position: fixed;
+  bottom: 0;
+  min-width: 420px;
+  max-width: 420px;
+}
+#nav .sidebar .option .faceplate.green {
+  background-color: #ffffff;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  justify-content: space-around;
+  border-left: 0px solid transparent;
+}
+#nav .sidebar .option .faceplate.green:hover {
+  background-color: #99e8aa;
+  border-left: 10px solid green;
+}
+#nav .sidebar .option .faceplate.green:hover i {
+  margin-right: -10px;
+}
+#nav .sidebar .option .faceplate.green:hover h3, #nav .sidebar .option .faceplate.green:hover i {
+  color: green;
 }
 #nav .sidebar#menu {
   left: -100vw;
