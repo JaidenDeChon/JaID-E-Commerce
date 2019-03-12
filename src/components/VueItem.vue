@@ -215,6 +215,44 @@ export default {
                 badge.html($(".cart-entry").length)
             }
 
+            function setCartTotal() {
+
+                function roundToTwo(num) {    
+                    return +(Math.round(num + "e+2")  + "e-2");
+                }
+
+                // get cart data
+                let cart = localStorage.getItem("Cart");
+                let cartObject = JSON.parse(cart);
+
+                // define initial cart total, find element on page for changing to cart total
+                let cartTotal = 0;
+                let cartTotalElement = $("#total-price")
+                let comma = ","
+
+                // for each item in cart
+                for (var i = 0; i < cartObject.length; i++) { 
+
+                    // get price and quantity
+                    let price = cartObject[i][0]["Price"]
+                    let amount = cartObject[i][0]["Amount"]
+
+                    // convert price to string, remove commas (sanitize)
+                    let stringPrice = price.toString()
+                    let cleanPrice = stringPrice.replace(",", "")
+
+                    // replace price string with numberized version of sanitized price
+                    price = Number(cleanPrice)
+
+                    // add price to subtotal
+                    let subtotal = cleanPrice * Math.abs(amount)
+
+                    cartTotal = cartTotal + subtotal
+                }
+
+                cartTotalElement.html("$" + cartTotal.toFixed(2))
+            }
+
             // Fill the cart menu with carted items
             function fillCart() {
 
@@ -241,7 +279,7 @@ export default {
 
                         // Pull cart details for injecting into HTML
                         let entryTitle = detail["Title"]
-                        let entryPrice = detail["Price"]
+                        let entryPrice = "$" + detail["Price"]
                         let entryImage = detail["Image"]
                         let entryAmount = detail["Amount"]
 
@@ -386,6 +424,7 @@ export default {
 
                         createCartEntry()
                         setCartBadge()
+                        setCartTotal()
                     }
                 }
             }
@@ -414,6 +453,7 @@ export default {
                 }
                 setCartBadge()
                 setCartButton()
+                setCartTotal()
             }
 
             // Add to cart (using Web Storage API)

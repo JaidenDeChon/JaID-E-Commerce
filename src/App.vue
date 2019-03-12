@@ -113,7 +113,7 @@
                   <div class="option">
                     <div class="faceplate noclick">
                       <h3>Cart Total</h3>
-                      <h3 id="total-price">$19.99</h3>
+                      <h3 id="total-price">$0.00</h3>
                     </div>
                   </div>
 
@@ -255,11 +255,53 @@ export default {
     }
 
     function setCartBadge() {
-        let badge = $(".button-badge")
-        badge.html($(".cart-entry").length)
 
-        console.log($(".cart-entry").length)
-        console.log($(".cart-entry"))
+        let badge = $(".button-badge")
+
+        // find element on page that will be adjusted with cart quantity
+        badge.html($(".cart-entry").length)
+    }
+
+    function typeOf(obj) {
+        return {}.toString.call(obj).split(' ')[1].slice(0, -1).toLowerCase();
+    }
+
+    function setCartTotal() {
+
+        function roundToTwo(num) {    
+            return +(Math.round(num + "e+2")  + "e-2");
+        }
+
+        // get cart data
+        let cart = localStorage.getItem("Cart");
+        let cartObject = JSON.parse(cart);
+
+        // define initial cart total, find element on page for changing to cart total
+        let cartTotal = 0;
+        let cartTotalElement = $("#total-price")
+        let comma = ","
+
+        // for each item in cart
+        for (var i = 0; i < cartObject.length; i++) { 
+
+            // get price and quantity
+            let price = cartObject[i][0]["Price"]
+            let amount = cartObject[i][0]["Amount"]
+
+            // convert price to string, remove commas (sanitize)
+            let stringPrice = price.toString()
+            let cleanPrice = stringPrice.replace(",", "")
+
+            // replace price string with numberized version of sanitized price
+            price = Number(cleanPrice)
+
+            // add price to subtotal
+            let subtotal = cleanPrice * Math.abs(amount)
+
+            cartTotal = cartTotal + subtotal
+        }
+
+        cartTotalElement.html("$" + cartTotal.toFixed(2))
     }
   
     // Fill the cart menu with carted items
@@ -273,8 +315,6 @@ export default {
         // Get cart contents form localStorage, convert to object
         let cart = localStorage.getItem("Cart")
         let cartObject = JSON.parse(cart)
-
-        // setCartBadge(cartObject.length)
 
         // For carted item...
         for (var i = 0; i < cartObject.length; i++) {
@@ -290,7 +330,7 @@ export default {
 
                 // Pull cart details for injecting into HTML
                 let entryTitle = detail["Title"]
-                let entryPrice = detail["Price"]
+                let entryPrice = "$" + detail["Price"]
                 let entryImage = detail["Image"]
                 let entryAmount = detail["Amount"]
 
@@ -459,14 +499,15 @@ export default {
 
                 }
                 createCartEntry()
-                setCartBadge()
             }
         }
+    setCartBadge()
+    setCartTotal()
     }
 
     if(localStorage.getItem("Cart") != null) {
       fillCart();
-      setCartBadge().delay(1000)
+      setCartBadge()
     }
 
   }
